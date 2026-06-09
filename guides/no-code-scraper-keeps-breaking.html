@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why Your No-Code Scraper Keeps Breaking (And What Actually Fixes It) — Feedsmith</title>
+  <meta name="description" content="No-code scrapers break on layout changes, JS-rendered data, fingerprint checks, and rate limits. Here is why it happens on public data — and the maintained setup that actually keeps a feed reliable.">
+  <link rel="canonical" href="https://feedsmith.dev/guides/no-code-scraper-keeps-breaking.html">
+  <meta property="og:title" content="Why Your No-Code Scraper Keeps Breaking (And What Actually Fixes It)">
+  <meta property="og:description" content="No-code scrapers break on layout changes, JS-rendered data, fingerprint checks, and rate limits. Here is the maintained setup that keeps a feed from public sources reliable.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="nav"><div class="container nav-inner">
+  <a class="brand" href="/"><span class="brand-mark">◆</span> Feedsmith</a>
+  <nav class="nav-links">
+    <a href="/#offers">Offers</a>
+    <a href="/#guides">Guides</a>
+    <a href="/#portfolio">Portfolio</a>
+    <a class="btn btn-primary btn-sm" href="/#contact">Free feasibility check</a>
+  </nav>
+</div></header>
+
+<main class="container">
+  <nav class="breadcrumb">
+    <a href="/">Home</a> / <a href="/#guides">Guides</a> / <span>Why your no-code scraper keeps breaking</span>
+  </nav>
+
+  <article>
+    <p class="eyebrow">Guide</p>
+    <h1>Why your no-code scraper keeps breaking (and what actually fixes it)</h1>
+    <p class="lead">No-code scrapers are great for a quick proof of concept. But a feed you actually depend on tends to break a few weeks later — quietly, at the worst possible time. Here is why that happens when you pull from public sources, and the maintained setup that keeps the data flowing.</p>
+
+    <section class="section">
+      <h2>The four ways a no-code scraper breaks</h2>
+
+      <h3>1. The page layout changed</h3>
+      <p>Most point-and-click tools work by remembering where an element sits in the page: "the price is the third span inside this div." The moment the site ships a redesign — or even a small A/B test — that path no longer points at the price. The scraper does not error; it happily returns the wrong cell, or nothing at all. You only notice when a downstream report looks off. Public catalogs and listing portals change their markup constantly, so a position-based selector is the most fragile thing you can build a feed on.</p>
+
+      <h3>2. The data is rendered by JavaScript</h3>
+      <p>A lot of modern sites send a near-empty HTML shell, then fetch the real content with JavaScript after the page loads. A simple fetch-the-HTML tool sees the shell and concludes there is "no data." The values are public and visible in a normal browser — they just arrive a step later than the tool looks. Without a real rendering step (or a smarter approach, see below), you get blank fields that come and go depending on timing.</p>
+
+      <h3>3. The handshake looks automated</h3>
+      <p>Some public sites inspect the technical signature of the connecting client — the TLS handshake and headers a browser presents — before rendering anything. A default scripting library has a signature that does not match a real browser, so the server returns an empty or minimal page. This is not a login wall and not a CAPTCHA; it is the site deciding the request did not look like a normal visitor. The fix is to read the public page with a properly fingerprinted browser session, at a respectful rate, the way an ordinary visitor would. (We cover this in depth in our <a href="/guides/cloudflare-protected-public-sites.html">guide on Cloudflare-protected public sites</a>.)</p>
+
+      <h3>4. Rate limits and IP issues</h3>
+      <p>Fire too many requests too quickly from one address and a public site will start throttling or returning errors — reasonably so. No-code tools rarely give you fine control over pacing, retries, or graceful back-off. So a feed that worked at five pages a day falls over the day you scale it to five hundred. Respecting <code>robots.txt</code>, honoring crawl-delay, and spreading requests out is not optional; it is what keeps access stable over the long run.</p>
+    </section>
+
+    <section class="section">
+      <h2>What actually fixes it</h2>
+      <p>Reliability on public data is not one trick — it is a small system that expects change and absorbs it.</p>
+
+      <ul class="check">
+        <li><strong>A maintained scraper, not a frozen one.</strong> Selectors written defensively (match on stable text and structure, not brittle positions), plus someone who fixes them when the site ships a redesign. A feed is a relationship, not a one-off export.</li>
+        <li><strong>Use a hidden API where one exists.</strong> Many sites that render with JavaScript are quietly calling their own JSON endpoint to get the data. Reading that endpoint is dramatically more stable than parsing HTML, because JSON fields change far less often than visual layout. See <a href="/guides/what-is-a-hidden-api.html">what a hidden API is</a>.</li>
+        <li><strong>A correctly fingerprinted browser session</strong> for sites that check the handshake before rendering — so the public page loads like it would for any visitor, at a polite pace.</li>
+        <li><strong>Monitoring and alerts.</strong> The single biggest difference between a hobby scraper and a dependable feed is that the feed tells you the moment a field goes empty or a row count drops — before it reaches your dashboard. Silent failure is the real enemy.</li>
+        <li><strong>Rate discipline by design.</strong> Pacing, retries with back-off, and respect for <code>robots.txt</code> baked in, so access stays healthy as volume grows.</li>
+      </ul>
+
+      <div class="note">
+        <strong>The principle behind all of it:</strong> we focus on <em>reliability on public, factual data</em> — product prices, listing fields, public catalog entries. You operate and own the resulting data. We work within each site's terms and rate limits, and we never touch personal or login-gated information.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>When to stop patching and get a real feed</h2>
+      <p>If you have rebuilt the same no-code flow three times this quarter, the tool is not the problem — the approach is. A maintained scraper with a hidden API where available, monitoring, and sensible rate limits turns a flaky export into something you can quietly build on. That is the whole point of a managed data feed: you stop thinking about it.</p>
+    </section>
+  </article>
+
+  <div class="cta">
+    <h2 class="section-title">Tired of a feed that breaks?</h2>
+    <p class="muted">Send us the public URL and what you need from it. We will tell you, for free, whether a maintained feed is feasible and what it would take.</p>
+    <a class="btn btn-primary" href="/#contact">Get a free feasibility check</a>
+  </div>
+</main>
+
+<footer class="footer"><div class="container footer-inner">
+  <div><strong>Feedsmith</strong> — reliable data feeds from public sources.
+    <div class="muted small">Public sources only · factual / non-PII data · you operate and own the data.</div></div>
+  <nav class="footer-links">
+    <a href="/">Home</a><a href="/#offers">Offers</a><a href="/#guides">Guides</a>
+    <a href="https://github.com/Massii-08">GitHub</a>
+    <span class="lang-switch"><a href="/">EN</a> · <a href="/de/">DE</a> · <a href="/fr/">FR</a> · <a href="/it/">IT</a></span>
+  </nav>
+</div></footer>
+</body>
+</html>

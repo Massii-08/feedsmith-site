@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What Is a Hidden API, and Why It Is the Most Reliable Way to Get Data — Feedsmith</title>
+  <meta name="description" content="A hidden API is the internal JSON endpoint a page already calls to load its own data. Here is how to find it with DevTools, why calling it beats HTML parsing, and the ToS rules to respect on public sources.">
+  <link rel="canonical" href="https://feedsmith.dev/guides/what-is-a-hidden-api.html">
+  <meta property="og:title" content="What Is a Hidden API, and Why It Is the Most Reliable Way to Get Data">
+  <meta property="og:description" content="A hidden API is the internal JSON endpoint a page already calls. How to find it with DevTools, why it beats HTML parsing, and the ToS rules to respect on public data.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="nav"><div class="container nav-inner">
+  <a class="brand" href="/"><span class="brand-mark">◆</span> Feedsmith</a>
+  <nav class="nav-links">
+    <a href="/#offers">Offers</a>
+    <a href="/#guides">Guides</a>
+    <a href="/#portfolio">Portfolio</a>
+    <a class="btn btn-primary btn-sm" href="/#contact">Free feasibility check</a>
+  </nav>
+</div></header>
+
+<main class="container">
+  <nav class="breadcrumb">
+    <a href="/">Home</a> / <a href="/#guides">Guides</a> / <span>What is a hidden API</span>
+  </nav>
+
+  <article>
+    <p class="eyebrow">Guide</p>
+    <h1>What is a hidden API, and why it is the most reliable way to get data</h1>
+    <p class="lead">When a page loads prices, listings, or search results, that data usually does not live in the HTML — it arrives from an internal JSON endpoint the page calls in the background. We call that a hidden API. For public, factual data, reading it is almost always more reliable than parsing the rendered page.</p>
+
+    <section class="section">
+      <h2>What "hidden" actually means</h2>
+      <p>Nothing nefarious. A modern web page is a thin shell that, once loaded, calls one or more of its own backend endpoints to fetch the real content as structured JSON. These endpoints are "hidden" only in the sense that they are not documented for outside use and not shown in the address bar — but your own browser uses them every single time you open the page. They are part of how the public site delivers its public data to you.</p>
+
+      <div class="note">
+        <strong>The key insight:</strong> the JSON the page receives is cleaner, more stable, and more complete than the HTML it eventually renders. Visual layout changes constantly; the underlying data contract changes far less often.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Why calling it beats parsing HTML</h2>
+      <ul class="check">
+        <li><strong>Stability.</strong> A redesign can rewrite every CSS class and break an HTML scraper overnight. The JSON field <code>price</code> tends to stay <code>price</code> through redesign after redesign. Fewer moving parts means fewer 2 a.m. failures.</li>
+        <li><strong>Cleaner data.</strong> You get typed fields — numbers as numbers, dates as dates, nested objects — instead of scraping text out of formatted markup and re-parsing it. Less guesswork, fewer edge-case bugs.</li>
+        <li><strong>Completeness.</strong> The endpoint often returns more than the page shows: extra attributes, stock levels, identifiers, pagination metadata. You frequently get richer data than what is visible.</li>
+        <li><strong>Efficiency.</strong> One JSON call can return what would otherwise take rendering a full page with images and scripts — which means a lighter, more respectful footprint on the source site.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>How to find a hidden API (DevTools, Network, XHR)</h2>
+      <p>You can do this yourself in any browser, on any public page, in a couple of minutes:</p>
+      <ol>
+        <li>Open the page and press <code>F12</code> (or right-click → Inspect) to open DevTools.</li>
+        <li>Go to the <strong>Network</strong> tab and filter by <strong>Fetch/XHR</strong>. This hides images and scripts so you see only data requests.</li>
+        <li>Reload the page, or trigger the action you care about — paginate, search, open a listing.</li>
+        <li>Watch the requests appear. Click the ones that return JSON and look at the <strong>Response</strong> / <strong>Preview</strong> tab.</li>
+        <li>When you spot the request whose response contains your fields — the prices, the listings, the search results — you have found the hidden API. Note its URL, method, and the parameters it takes.</li>
+      </ol>
+      <p>From there, the work is reading that endpoint reliably: correct parameters, sensible pagination, a respectful request rate, and handling for the cases where the site expects a real browser session first. That last part is exactly what our <a href="/guides/cloudflare-protected-public-sites.html">guide on Cloudflare-protected public sites</a> covers.</p>
+
+      <p>We keep a working starting point in the open: see the <a href="https://github.com/Massii-08/hidden-api-extraction-template">hidden-api-extraction-template repository</a> for a clean structure you can build on.</p>
+    </section>
+
+    <section class="section">
+      <h2>Doing it the compliant way</h2>
+      <p>A hidden API is still the site's infrastructure, so the same rules apply as to any access of a public source:</p>
+      <ul class="check">
+        <li>Read the site's <strong>Terms of Service</strong> and respect them. If the terms forbid automated access, that is a stop sign.</li>
+        <li>Honor <code>robots.txt</code> and any rate limits. Pace your requests; do not hammer the endpoint.</li>
+        <li>Stick to <strong>public, factual, non-PII data</strong> — catalog and listing fields, not personal information and not anything behind a login.</li>
+        <li>You operate and own the resulting feed. We build it to be a good citizen of the source.</li>
+      </ul>
+      <div class="note">
+        We never frame this as getting around anything. A hidden API is simply the most reliable place to read public data that the site already serves to every visitor — used responsibly, within terms and rate limits.
+      </div>
+    </section>
+  </article>
+
+  <div class="cta">
+    <h2 class="section-title">Not sure if a site has a usable hidden API?</h2>
+    <p class="muted">Send us the public URL and the fields you need. Our Hidden-API Audit tells you quickly whether a clean endpoint exists — and what a feed on it would look like.</p>
+    <a class="btn btn-primary" href="/#contact">Get a free feasibility check</a>
+  </div>
+</main>
+
+<footer class="footer"><div class="container footer-inner">
+  <div><strong>Feedsmith</strong> — reliable data feeds from public sources.
+    <div class="muted small">Public sources only · factual / non-PII data · you operate and own the data.</div></div>
+  <nav class="footer-links">
+    <a href="/">Home</a><a href="/#offers">Offers</a><a href="/#guides">Guides</a>
+    <a href="https://github.com/Massii-08">GitHub</a>
+    <span class="lang-switch"><a href="/">EN</a> · <a href="/de/">DE</a> · <a href="/fr/">FR</a> · <a href="/it/">IT</a></span>
+  </nav>
+</div></footer>
+</body>
+</html>

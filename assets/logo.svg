@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="184" height="32" viewBox="0 0 184 32" role="img" aria-label="Feedsmith">
+  <title>Feedsmith</title>
+  <!-- Diamond mark -->
+  <rect x="4" y="4" width="24" height="24" rx="5" transform="rotate(45 16 16)" fill="none" stroke="#3DD68C" stroke-width="2.5"/>
+  <rect x="11" y="11" width="10" height="10" rx="2" transform="rotate(45 16 16)" fill="#3DD68C"/>
+  <!-- Wordmark -->
+  <text x="42" y="22" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Inter, Roboto, Helvetica, Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="-0.3" fill="#e6edf3">Feedsmith</text>
+</svg>

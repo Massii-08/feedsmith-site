@@ -1,0 +1,13 @@
+# Cloudflare Pages — security headers for all routes.
+# Docs: https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
+  Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; form-action 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self'
+
+# Long-cache static CSS (content rarely changes; safe to revalidate)
+/css/*
+  Cache-Control: public, max-age=86400

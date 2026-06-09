@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Getting Data From Cloudflare-Protected Public Sites (The Compliant Way) — Feedsmith</title>
+  <meta name="description" content="Empty pages from a Cloudflare-protected site are often a TLS fingerprint check before render, not a CAPTCHA. Here is how a correctly fingerprinted browser session reads public pages like a normal visitor — within ToS and robots.txt.">
+  <link rel="canonical" href="https://feedsmith.dev/guides/cloudflare-protected-public-sites.html">
+  <meta property="og:title" content="Getting Data From Cloudflare-Protected Public Sites (The Compliant Way)">
+  <meta property="og:description" content="Empty pages are often a TLS fingerprint check before render, not a CAPTCHA. How a correctly fingerprinted browser session reads public pages like a normal visitor — within ToS and robots.txt.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="nav"><div class="container nav-inner">
+  <a class="brand" href="/"><span class="brand-mark">◆</span> Feedsmith</a>
+  <nav class="nav-links">
+    <a href="/#offers">Offers</a>
+    <a href="/#guides">Guides</a>
+    <a href="/#portfolio">Portfolio</a>
+    <a class="btn btn-primary btn-sm" href="/#contact">Free feasibility check</a>
+  </nav>
+</div></header>
+
+<main class="container">
+  <nav class="breadcrumb">
+    <a href="/">Home</a> / <a href="/#guides">Guides</a> / <span>Cloudflare-protected public sites</span>
+  </nav>
+
+  <article>
+    <p class="eyebrow">Guide</p>
+    <h1>Getting data from Cloudflare-protected public sites (the compliant way)</h1>
+    <p class="lead">You open a public catalog or listings page in your browser and the data is right there. Your script fetches the same URL and gets back an empty page. The usual conclusion — "it is blocked by a CAPTCHA" — is often wrong. More often it is a technical fingerprint check that happens before the page renders. Here is what is really going on, and how to read those public pages the compliant way.</p>
+
+    <section class="section">
+      <h2>"Empty page" is usually not a CAPTCHA</h2>
+      <p>When a Cloudflare-protected site returns an empty or minimal page to a script but a full page to your browser, the most common reason is a <strong>TLS fingerprint check</strong>. Before any content is rendered, the server inspects the technical signature of the connecting client — the shape of the TLS handshake, the order of headers, the negotiated parameters. A real browser presents one signature; a default scripting library presents a noticeably different one. If the signature does not look like an ordinary browser, the server short-circuits and serves nothing meaningful.</p>
+      <p>The important part: <strong>this happens at the connection layer, before any human-facing challenge.</strong> There is no puzzle to solve and no "are you a robot" box. The page simply never rendered for that client. That is why people see "empty pages" and wrongly assume a CAPTCHA — the actual mechanism is the handshake not matching what a browser would send.</p>
+
+      <div class="note">
+        <strong>What this is not:</strong> it is not a login wall, not personal data, and not something you need to defeat. It is a fit-and-finish check on what a normal visitor's connection looks like. The fix is to make a legitimate request <em>look as legitimate as it is</em> — a real browser session reading a public page.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>How a properly fingerprinted session reads the public page</h2>
+      <p>The compliant approach is straightforward: connect with a real, correctly fingerprinted browser session so the public page loads the same way it does for any visitor — and do it at a respectful rate.</p>
+      <ul class="check">
+        <li><strong>A genuine browser session.</strong> Use a real browser engine whose TLS handshake and headers match what the site already expects from everyday visitors, so the public page renders as intended.</li>
+        <li><strong>One visitor's pace.</strong> Read pages at a human, unhurried rate — spacing requests, honoring crawl-delay — rather than flooding the source. A respectful footprint keeps access stable and is simply the right thing to do.</li>
+        <li><strong>Public pages only.</strong> Read what any visitor can see without logging in. Nothing gated, nothing personal — just the public, factual fields you came for.</li>
+        <li><strong>Hidden API where one exists.</strong> Once the session renders correctly, the page may expose the same internal JSON endpoint we describe in <a href="/guides/what-is-a-hidden-api.html">what is a hidden API</a> — usually the cleanest, lightest way to read the data.</li>
+      </ul>
+      <p>We keep a demonstration of the fingerprinting concept in the open: see the <a href="https://github.com/Massii-08/tls-fingerprint-scraper-demo">tls-fingerprint-scraper-demo repository</a>, which shows why a default client returns an empty page where a correctly fingerprinted session reads the public content normally.</p>
+    </section>
+
+    <section class="section">
+      <h2>Staying on the right side of the line</h2>
+      <p>Reading public data reliably and doing it responsibly are the same job. Our rules do not bend:</p>
+      <ul class="check">
+        <li>Read and respect the site's <strong>Terms of Service</strong>. If the terms forbid automated access, we do not proceed.</li>
+        <li>Honor <code>robots.txt</code> and rate limits — always, by design.</li>
+        <li>Access only <strong>public, factual, non-PII data</strong>. No login-gated content, no personal information.</li>
+        <li>You operate and own the resulting feed; we build it to behave like a courteous visitor of the source.</li>
+      </ul>
+      <div class="note">
+        We frame this work as <strong>reliability on public data</strong> — making a legitimate request render the way it should — never as getting around a protection. That distinction is the whole point, and it is why a DACH SMB can trust the result.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>The short version</h2>
+      <p>Empty pages from a Cloudflare-protected public site are usually a TLS fingerprint check, not a CAPTCHA. A correctly fingerprinted browser session reads the public page like any normal visitor, at a respectful rate, within the site's terms. That is how you turn "it works in my browser but not in my script" into a feed you can rely on.</p>
+    </section>
+  </article>
+
+  <div class="cta">
+    <h2 class="section-title">Getting empty pages from a public site?</h2>
+    <p class="muted">Send us the public URL and the fields you need. We will check, for free, whether a compliant, correctly fingerprinted feed is feasible.</p>
+    <a class="btn btn-primary" href="/#contact">Get a free feasibility check</a>
+  </div>
+</main>
+
+<footer class="footer"><div class="container footer-inner">
+  <div><strong>Feedsmith</strong> — reliable data feeds from public sources.
+    <div class="muted small">Public sources only · factual / non-PII data · you operate and own the data.</div></div>
+  <nav class="footer-links">
+    <a href="/">Home</a><a href="/#offers">Offers</a><a href="/#guides">Guides</a>
+    <a href="https://github.com/Massii-08">GitHub</a>
+    <span class="lang-switch"><a href="/">EN</a> · <a href="/de/">DE</a> · <a href="/fr/">FR</a> · <a href="/it/">IT</a></span>
+  </nav>
+</div></footer>
+</body>
+</html>

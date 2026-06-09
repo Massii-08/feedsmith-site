@@ -1,0 +1,8 @@
+# Feedsmith — robots.txt
+# Static marketing + SEO site. All content is public; crawling is welcome.
+# NOTE: swap the domain below if the canonical domain changes (see README.md).
+
+User-agent: *
+Allow: /
+
+Sitemap: https://feedsmith.dev/sitemap.xml

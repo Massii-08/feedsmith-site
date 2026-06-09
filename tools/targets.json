@@ -1,0 +1,37 @@
+[
+  {
+    "slug": "ecommerce-product-prices",
+    "site": "e-commerce catalogs",
+    "vertical": "E-commerce",
+    "what_data": "product names, prices, availability, ratings",
+    "intro": "Need a reliable feed of public product data from e-commerce catalogs? We build a maintained feed of names, prices, availability, and ratings from pages any visitor can see — within each site's terms and rate limits."
+  },
+  {
+    "slug": "real-estate-listings",
+    "site": "real-estate portals",
+    "vertical": "Real estate",
+    "what_data": "listing price, size, rooms, location — public factual fields, no agent personal data",
+    "intro": "Need a dependable feed of public real-estate listings? We collect listing price, size, rooms, and location — public factual fields only, never agent personal data — and keep it stable as portals change their layout."
+  },
+  {
+    "slug": "marketplace-product-data",
+    "site": "online marketplaces",
+    "vertical": "Marketplace",
+    "what_data": "titles, prices, stock, categories",
+    "intro": "Need public product data from online marketplaces without the breakage? We build a maintained feed of titles, prices, stock, and categories, read at a respectful rate from pages every visitor can see."
+  },
+  {
+    "slug": "books-toscrape-com",
+    "site": "books.toscrape.com",
+    "vertical": "Sandbox e-commerce",
+    "what_data": "titles, prices, stock, ratings",
+    "intro": "books.toscrape.com is a public scraping sandbox — a safe place to demonstrate a clean, maintained feed of titles, prices, stock, and ratings the compliant way, with no ToS or PII concerns."
+  },
+  {
+    "slug": "quotes-toscrape-com",
+    "site": "quotes.toscrape.com",
+    "vertical": "Sandbox",
+    "what_data": "public quotes, authors, tags",
+    "intro": "quotes.toscrape.com is a public scraping sandbox — an ideal target to show a reliable feed of public quotes, authors, and tags, extracted cleanly and at a respectful pace."
+  }
+]

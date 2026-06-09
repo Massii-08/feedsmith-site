@@ -1,0 +1,6 @@
+# Cloudflare Pages — redirects. Keep minimal.
+# Docs: https://developers.cloudflare.com/pages/configuration/redirects/
+# Format: <from>  <to>  <status>
+
+# Common convenience alias
+/home    /    301

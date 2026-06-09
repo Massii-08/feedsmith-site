@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Feedsmith sitemap.
+  NOTE: swap the https://feedsmith.dev base domain if the canonical domain changes (see README.md).
+  Scrape (pSEO) pages: add /scrape/<slug>.html <url> entries here as the generator produces them.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home (EN) with hreflang alternates -->
+  <url>
+    <loc>https://feedsmith.dev/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feedsmith.dev/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://feedsmith.dev/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://feedsmith.dev/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://feedsmith.dev/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://feedsmith.dev/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Localized home pages -->
+  <url>
+    <loc>https://feedsmith.dev/de/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feedsmith.dev/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://feedsmith.dev/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://feedsmith.dev/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://feedsmith.dev/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://feedsmith.dev/"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://feedsmith.dev/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feedsmith.dev/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://feedsmith.dev/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://feedsmith.dev/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://feedsmith.dev/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://feedsmith.dev/"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://feedsmith.dev/it/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feedsmith.dev/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://feedsmith.dev/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://feedsmith.dev/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://feedsmith.dev/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://feedsmith.dev/"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Offer pages -->
+  <url>
+    <loc>https://feedsmith.dev/offers/hidden-api-audit.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://feedsmith.dev/offers/one-off-scraper.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://feedsmith.dev/offers/managed-data-feed.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://feedsmith.dev/offers/discord-bot.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Guide pages -->
+  <url>
+    <loc>https://feedsmith.dev/guides/hidden-api-vs-scraping.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://feedsmith.dev/guides/keeping-a-data-feed-reliable.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://feedsmith.dev/guides/gdpr-aware-public-data.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
