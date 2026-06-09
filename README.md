@@ -72,14 +72,14 @@ After generating new pages, **add their `<url>` entries to `sitemap.xml`**
 ## Swap the placeholder domain
 
 The canonical / Open Graph / sitemap / robots base domain is a **placeholder**:
-`https://feedsmith.dev`. When the real domain is known, replace it everywhere:
+`https://feedsmith.net`. When the real domain is known, replace it everywhere:
 
 - `<link rel="canonical">`, `og:url`, and `hreflang` alternates in **every** HTML page
   (incl. `/de/`, `/fr/`, `/it/`, `404.html`).
 - `Sitemap:` line in **`robots.txt`**.
 - Every `<loc>` and `hreflang` `href` in **`sitemap.xml`**.
 
-A quick find-and-replace of `https://feedsmith.dev` across the repo covers all of them.
+A quick find-and-replace of `https://feedsmith.net` across the repo covers all of them.
 
 ## Wire the contact form
 
@@ -95,7 +95,7 @@ To activate it, pick one:
 - **Formspree:** create a form, then replace `REPLACE_ME` with your Formspree form id in
   **every** page's form `action`.
 - **Upwork invite (early on):** instead of a form service, point people to your Upwork
-  profile / job invite. A visible `mailto:hello@feedsmith.dev` fallback is already present
+  profile / job invite. A visible `mailto:hello@feedsmith.net` fallback is already present
   under each form.
 
 (Each form is marked with an HTML `<!-- TODO -->` comment at the `action`.)

@@ -31,7 +31,7 @@ import json
 from pathlib import Path
 
 # Swappable canonical/OG base domain (placeholder until a real domain is set).
-BASE_URL = "https://feedsmith.dev"
+BASE_URL = "https://feedsmith.net"
 
 # Repo root is the parent of this tools/ directory.
 ROOT = Path(__file__).resolve().parent.parent

@@ -5,4 +5,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://feedsmith.dev/sitemap.xml
+Sitemap: https://feedsmith.net/sitemap.xml
