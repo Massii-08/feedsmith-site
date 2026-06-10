@@ -87,12 +87,12 @@ Every contact form uses the **"Get a free feasibility check"** CTA with fields
 `target_url`, `details`, `email`. The form `action` is a **placeholder**:
 
 ```html
-<form action="https://formspree.io/f/REPLACE_ME" method="POST">
+<form action="https://formspree.io/f/mpqelldw" method="POST">
 ```
 
 To activate it, pick one:
 
-- **Formspree:** create a form, then replace `REPLACE_ME` with your Formspree form id in
+- **Formspree:** create a form, then set your Formspree form id (currently `mpqelldw`) in the form `action` of
   **every** page's form `action`.
 - **Upwork invite (early on):** instead of a form service, point people to your Upwork
   profile / job invite. A visible `mailto:hello@feedsmith.net` fallback is already present
