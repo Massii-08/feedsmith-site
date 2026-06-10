@@ -1,196 +1,371 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Feedsmith — Flux de données fiables issus de sources publiques</title>
-  <meta name="description" content="Feedsmith conçoit et maintient des flux de données fiables à partir de sources publiques. Audit d'API cachée, scraper ponctuel, flux géré et bots Discord — pensés DACH et RGPD.">
-  <link rel="canonical" href="https://feedsmith.net/fr/">
-  <link rel="alternate" hreflang="en" href="https://feedsmith.net/">
-  <link rel="alternate" hreflang="de" href="https://feedsmith.net/de/">
-  <link rel="alternate" hreflang="fr" href="https://feedsmith.net/fr/">
-  <link rel="alternate" hreflang="it" href="https://feedsmith.net/it/">
-  <link rel="alternate" hreflang="x-default" href="https://feedsmith.net/">
-  <meta property="og:title" content="Feedsmith — Flux de données fiables issus de sources publiques">
-  <meta property="og:description" content="Des flux de données fiables et maintenus, issus de sources publiques. Pensés DACH et RGPD, en DE/FR/IT.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://feedsmith.net/fr/">
-  <meta property="og:image" content="https://feedsmith.net/assets/og.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#05100C">
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <link rel="stylesheet" href="/css/style.css?v=3">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Feedsmith — Flux de données fiables issus de sources publiques</title>
+<meta name="description" content="Quand les outils no-code et les scrapers IA sont bloqués ou renvoient des pages vides, Feedsmith extrait des données publiques propres et les maintient dans la durée. Données factuelles, non personnelles — vous exploitez et possédez les données." />
+<link rel="canonical" href="https://feedsmith.net/fr/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Feedsmith — Flux de données fiables issus de sources publiques" />
+<meta property="og:description" content="Des flux de données propres et maintenus, issus de sources publiques — quand les scrapers no-code et IA échouent." />
+<meta property="og:url" content="https://feedsmith.net/fr/" />
+<meta property="og:site_name" content="Feedsmith" />
+<link rel="alternate" hreflang="en" href="https://feedsmith.net/" />
+<link rel="alternate" hreflang="de" href="https://feedsmith.net/de/" />
+<link rel="alternate" hreflang="fr" href="https://feedsmith.net/fr/" />
+<link rel="alternate" hreflang="it" href="https://feedsmith.net/it/" />
+<link rel="alternate" hreflang="x-default" href="https://feedsmith.net/" />
+<meta property="og:image" content="https://feedsmith.net/assets/og.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#05100C" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+<link rel="stylesheet" href="/css/style.css?v=4" />
 </head>
 <body>
+
 <header class="nav"><div class="container nav-inner">
-  <a class="brand" href="/"><span class="brand-mark">◆</span> Feedsmith</a>
+  <a class="brand" href="/fr/"><span class="brand-mark">◆</span> Feedsmith</a>
   <nav class="nav-links">
-    <a href="/#offers">Offers</a>
-    <a href="/#guides">Guides</a>
-    <a href="/#portfolio">Portfolio</a>
-    <a class="btn btn-primary btn-sm" href="/#contact">Free feasibility check</a>
+    <a href="#offers">Offres</a>
+    <a href="#guides">Guides</a>
+    <a href="#portfolio">Portfolio</a>
+    <a class="btn btn-primary btn-sm" href="#contact">Étude de faisabilité gratuite</a>
   </nav>
 </div></header>
 
 <main>
-  <section class="hero">
-    <div class="container">
-      <p class="eyebrow">Flux de données issus de sources publiques</p>
-      <h1>Des flux de données fiables, sur lesquels vous pouvez vraiment compter — depuis des sources publiques.</h1>
-      <p class="lead">Feedsmith conçoit et maintient des flux de données issus de sources publiques : des données factuelles, non personnelles, proprement structurées et prêtes à l'emploi. Vous exploitez le flux et vous possédez les données. Nous respectons robots.txt et les limites de débit — et nous faisons en sorte que le flux ne s'interrompe pas.</p>
-      <p>
-        <a class="btn btn-primary" href="/#contact">Demander une étude de faisabilité gratuite</a>
-        <a class="btn btn-ghost" href="/#offers">Voir les prestations</a>
-      </p>
-      <p class="muted small">Sources publiques uniquement · données factuelles / non personnelles · vous exploitez et possédez les données.</p>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero"><div class="container hero-grid">
+  <div>
+    <span class="eyebrow">Web scraping &amp; flux de données maintenus</span>
+    <h1>Des flux de données fiables<br class="lb"> <span class="hl">issus de sources publiques</span>.</h1>
+    <p class="lead">Quand Apify, Octoparse ou un script écrit par ChatGPT se fait bloquer, renvoie des pages vides ou casse à chaque changement du site — j'extrais des données publiques propres, et je les maintiens dans la durée.</p>
+    <form class="contact-form" action="https://formspree.io/f/mpqelldw" method="POST">
+      <input type="url" name="target_url" aria-label="Le site ou l'URL publique dont vous avez besoin" placeholder="Le site / l'URL publique" required />
+      <button class="btn btn-primary" type="submit">Étude de faisabilité gratuite</button>
+    </form>
+    <div class="micro">Sources publiques uniquement · pas de comptes, pas de données personnelles · vous exploitez et possédez les données.</div>
+  </div>
+
+  <!-- signature forge motif: raw public web, forged into a clean live feed -->
+  <div class="hero-art">
+    <svg class="forge-motif" viewBox="0 0 620 540" role="img" aria-labelledby="fmTitle fmDesc" xmlns="http://www.w3.org/2000/svg">
+      <title id="fmTitle">Des pages web publiques brutes, forgées en un flux de données propre et structuré</title>
+      <desc id="fmDesc">Des fenêtres de sites désordonnées traversent une étincelle de forge et ressortent en table de données propre, avec export CSV et JSON.</desc>
+      <defs>
+        <radialGradient id="fmForgeGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#52E6BE" stop-opacity="0.9"/><stop offset="42%" stop-color="#2DD4A7" stop-opacity="0.35"/><stop offset="100%" stop-color="#2DD4A7" stop-opacity="0"/></radialGradient>
+        <radialGradient id="fmCore" cx="50%" cy="42%" r="60%"><stop offset="0%" stop-color="#D7FBEF"/><stop offset="45%" stop-color="#34D399"/><stop offset="100%" stop-color="#0F6E56"/></radialGradient>
+        <radialGradient id="fmSpark" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFE9AE" stop-opacity="0.95"/><stop offset="55%" stop-color="#F6C667" stop-opacity="0.45"/><stop offset="100%" stop-color="#F6C667" stop-opacity="0"/></radialGradient>
+        <linearGradient id="fmCard" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0E241D"/><stop offset="100%" stop-color="#0A1A15"/></linearGradient>
+        <filter id="fmBlur" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="8"/></filter>
+        <filter id="fmBlurL" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="22"/></filter>
+      </defs>
+
+      <ellipse cx="380" cy="250" rx="240" ry="200" fill="#2DD4A7" opacity="0.07" filter="url(#fmBlurL)"/>
+
+      <!-- raw web: tilted, broken source windows -->
+      <g transform="translate(20,228) rotate(-2)" opacity="0.55">
+        <rect width="124" height="84" rx="8" fill="#0B1712" stroke="#2C3D36" stroke-width="0.8"/>
+        <rect x="16" y="20" width="92" height="44" rx="6" fill="none" stroke="#33453F" stroke-width="1" stroke-dasharray="6 6"/>
+        <text x="62" y="48" font-family="ui-monospace,Menlo,monospace" font-size="18" font-weight="700" fill="#3A4A45" text-anchor="middle">— —</text>
+      </g>
+      <g transform="translate(36,84) rotate(-5)">
+        <rect width="182" height="120" rx="10" fill="#0B1813" stroke="#2C3D36" stroke-width="0.8"/>
+        <circle cx="16" cy="15" r="3.2" fill="#2C3D36"/><circle cx="29" cy="15" r="3.2" fill="#2C3D36"/><circle cx="42" cy="15" r="3.2" fill="#2C3D36"/>
+        <rect x="16" y="36" width="52" height="24" rx="5" fill="#2A1413" stroke="#9E3B33" stroke-width="0.8"/>
+        <text x="42" y="53" font-family="ui-monospace,Menlo,monospace" font-size="14" font-weight="700" fill="#E2574C" text-anchor="middle">403</text>
+        <line x1="82" y1="48" x2="158" y2="48" stroke="#33453F" stroke-width="3" stroke-dasharray="9 7"/>
+        <line x1="16" y1="78" x2="142" y2="78" stroke="#33453F" stroke-width="3" stroke-dasharray="20 9"/>
+        <line x1="16" y1="98" x2="120" y2="98" stroke="#33453F" stroke-width="3" stroke-dasharray="12 8"/>
+      </g>
+      <g transform="translate(74,328) rotate(4)">
+        <rect width="158" height="106" rx="9" fill="#0C1A14" stroke="#2C3D36" stroke-width="0.8"/>
+        <circle cx="15" cy="14" r="3" fill="#2C3D36"/><circle cx="27" cy="14" r="3" fill="#2C3D36"/>
+        <line x1="15" y1="38" x2="130" y2="38" stroke="#33453F" stroke-width="3" stroke-dasharray="14 8"/>
+        <line x1="15" y1="58" x2="104" y2="58" stroke="#33453F" stroke-width="3" stroke-dasharray="10 8"/>
+        <line x1="15" y1="78" x2="120" y2="78" stroke="#33453F" stroke-width="3" stroke-dasharray="22 9"/>
+      </g>
+
+      <!-- raw flows in -->
+      <g fill="none" stroke="#3A4F47" stroke-linecap="round" stroke-width="1.1">
+        <path d="M216 140 C 252 162, 268 210, 286 248" opacity="0.8"/>
+        <path d="M148 262 C 196 264, 240 268, 276 272" opacity="0.75"/>
+        <path d="M228 370 C 256 348, 272 318, 288 294" opacity="0.8"/>
+      </g>
+
+      <!-- clean flows out -->
+      <g fill="none" stroke="#2DD4A7" stroke-linecap="round">
+        <path d="M322 252 C 344 222, 350 196, 370 188" stroke-width="1.2" opacity="0.85"/>
+        <path d="M326 264 C 348 254, 354 246, 370 242" stroke-width="1.2" opacity="0.85"/>
+        <path d="M326 280 C 348 290, 354 296, 370 296" stroke-width="1.2" opacity="0.8"/>
+        <path d="M322 292 C 344 322, 352 342, 370 350" stroke-width="1.1" opacity="0.7"/>
+      </g>
+      <g fill="#34D399">
+        <circle cx="372" cy="188" r="3"/><circle cx="372" cy="242" r="3"/><circle cx="372" cy="296" r="3"/><circle cx="372" cy="350" r="2.6"/>
+      </g>
+
+      <!-- animated data packets (CSS offset-path) -->
+      <g transform="translate(304,272)">
+        <circle class="flow-dot" r="2.6" fill="#7FE0C3" style="offset-path:path('M0 0 C 40 -50, 46 -76, 68 -84')"/>
+        <circle class="flow-dot d2" r="2.6" fill="#7FE0C3" style="offset-path:path('M0 0 C 44 -18, 50 -26, 68 -30')"/>
+        <circle class="flow-dot d3" r="2.6" fill="#FFE9AE" style="offset-path:path('M0 0 C 40 50, 48 70, 68 78')"/>
+      </g>
+
+      <!-- forge core -->
+      <circle cx="304" cy="272" r="56" fill="url(#fmForgeGlow)" filter="url(#fmBlur)"/>
+      <circle cx="304" cy="272" r="40" fill="none" stroke="#2DD4A7" stroke-width="0.8" opacity="0.35"/>
+      <circle cx="304" cy="272" r="27" fill="none" stroke="#2DD4A7" stroke-width="1.5" opacity="0.9"/>
+      <g class="spark-pulse">
+        <circle cx="304" cy="272" r="20" fill="url(#fmSpark)" filter="url(#fmBlur)"/>
+        <circle cx="304" cy="272" r="12.5" fill="url(#fmCore)"/>
+        <g stroke="#FFEAB0" stroke-width="1.5" stroke-linecap="round" opacity="0.9">
+          <line x1="304" y1="251" x2="304" y2="293"/>
+          <line x1="283" y1="272" x2="325" y2="272"/>
+          <line x1="290" y1="258" x2="318" y2="286"/>
+          <line x1="318" y1="258" x2="290" y2="286"/>
+        </g>
+      </g>
+
+      <!-- the clean feed card -->
+      <rect x="364" y="92" width="252" height="360" rx="20" fill="#2DD4A7" opacity="0.12" filter="url(#fmBlur)"/>
+      <g transform="translate(372,100)">
+        <rect width="236" height="344" rx="16" fill="url(#fmCard)" stroke="#1D9E75" stroke-width="0.9"/>
+        <!-- column headers -->
+        <g>
+          <rect x="16" y="16" width="45" height="14" rx="4" fill="#11332B"/><rect x="20" y="21" width="24" height="3" rx="1.5" fill="#2DD4A7" opacity="0.7"/>
+          <rect x="69" y="16" width="45" height="14" rx="4" fill="#11332B"/><rect x="73" y="21" width="19" height="3" rx="1.5" fill="#2DD4A7" opacity="0.7"/>
+          <rect x="122" y="16" width="45" height="14" rx="4" fill="#11332B"/><rect x="126" y="21" width="27" height="3" rx="1.5" fill="#2DD4A7" opacity="0.7"/>
+          <rect x="175" y="16" width="45" height="14" rx="4" fill="#11332B"/><rect x="179" y="21" width="16" height="3" rx="1.5" fill="#2DD4A7" opacity="0.7"/>
+        </g>
+        <!-- live feed pill + format chips -->
+        <rect x="16" y="42" width="100" height="26" rx="13" fill="#0C211B" stroke="#1D9E75" stroke-width="0.9"/>
+        <circle cx="32" cy="55" r="4" fill="#34D399"/>
+        <text x="42" y="59" font-family="ui-monospace,Menlo,monospace" font-size="11" font-weight="600" letter-spacing="1.4" fill="#9FE1CB">LIVE FEED</text>
+        <rect x="126" y="44" width="42" height="22" rx="11" fill="#0A1A16" stroke="#16443A" stroke-width="0.7"/>
+        <text x="147" y="58" font-family="ui-monospace,Menlo,monospace" font-size="10.5" font-weight="600" fill="#6FC3A8" text-anchor="middle">CSV</text>
+        <rect x="174" y="44" width="46" height="22" rx="11" fill="#0A1A16" stroke="#16443A" stroke-width="0.7"/>
+        <text x="197" y="58" font-family="ui-monospace,Menlo,monospace" font-size="10.5" font-weight="600" fill="#6FC3A8" text-anchor="middle">JSON</text>
+        <!-- data mosaic -->
+        <g>
+          <rect x="16" y="84" width="45" height="24" rx="5" fill="#2DD4A7"/><rect x="69" y="84" width="45" height="24" rx="5" fill="#14302A"/><rect x="122" y="84" width="45" height="24" rx="5" fill="#1A4E40"/><rect x="175" y="84" width="45" height="24" rx="5" fill="#14302A"/>
+          <rect x="16" y="116" width="45" height="24" rx="5" fill="#14302A"/><rect x="69" y="116" width="45" height="24" rx="5" fill="#2DD4A7" opacity="0.85"/><rect x="122" y="116" width="45" height="24" rx="5" fill="#14302A"/><rect x="175" y="116" width="45" height="24" rx="5" fill="#1A4E40"/>
+          <rect x="16" y="148" width="45" height="24" rx="5" fill="#1A4E40"/><rect x="69" y="148" width="45" height="24" rx="5" fill="#14302A"/><rect x="122" y="148" width="45" height="24" rx="5" fill="#14302A"/><rect x="175" y="148" width="45" height="24" rx="5" fill="#2DD4A7"/>
+          <rect x="16" y="180" width="45" height="24" rx="5" fill="#14302A"/><rect x="69" y="180" width="45" height="24" rx="5" fill="#1A4E40"/><rect x="122" y="180" width="45" height="24" rx="5" fill="#2DD4A7" opacity="0.7"/><rect x="175" y="180" width="45" height="24" rx="5" fill="#14302A"/>
+          <rect x="16" y="212" width="45" height="24" rx="5" fill="#2DD4A7" opacity="0.6"/><rect x="69" y="212" width="45" height="24" rx="5" fill="#14302A"/><rect x="122" y="212" width="45" height="24" rx="5" fill="#14302A"/><rect x="175" y="212" width="45" height="24" rx="5" fill="#1A4E40"/>
+          <rect x="16" y="244" width="45" height="24" rx="5" fill="#14302A"/><rect x="69" y="244" width="45" height="24" rx="5" fill="#1A4E40"/><rect x="122" y="244" width="45" height="24" rx="5" fill="#2DD4A7" opacity="0.8"/><rect x="175" y="244" width="45" height="24" rx="5" fill="#14302A"/>
+        </g>
+        <!-- footer: sync health -->
+        <rect x="12" y="296" width="212" height="32" rx="10" fill="#0A1A15"/>
+        <rect x="26" y="307" width="104" height="10" rx="5" fill="#16443A"/>
+        <rect x="26" y="307" width="68" height="10" rx="5" fill="#2DD4A7" opacity="0.85"/>
+        <text x="208" y="317" font-family="ui-monospace,Menlo,monospace" font-size="11.5" font-weight="600" fill="#6FC3A8" text-anchor="end">98%</text>
+      </g>
+    </svg>
+  </div>
+</div></section>
+
+<!-- ===================== SCREENER / SAMPLE DATA ===================== -->
+<section id="data" class="alt"><div class="container">
+  <div class="sec-head">
+    <div class="kick">Le livrable</div>
+    <h2 class="section-title">Un jeu de données propre, pas une promesse.</h2>
+    <p>Vous recevez des données publiques structurées — CSV, JSON ou API — avec les champs dont vous avez besoin et rien d'autre. Factuelles, non personnelles et vérifiables à la source.</p>
+  </div>
+
+  <div class="screener">
+    <div class="filters" role="group" aria-label="Sample filters">
+      <span class="lab">Devise</span>
+      <button class="chip on" type="button">EUR</button>
+      <span class="lab" style="margin-left:8px">Disponibilité</span>
+      <button class="chip on" type="button">En stock</button>
+      <span class="lab" style="margin-left:8px">Note</span>
+      <button class="chip" type="button">≥ 4.0</button>
+      <span class="spacer"></span>
+      <span class="count"><b>6</b> sur <b>2 480</b> produits</span>
     </div>
-  </section>
-
-  <section class="section" id="offers">
-    <div class="container">
-      <h2 class="section-title">Prestations</h2>
-      <p class="muted">Quatre offres claires — du diagnostic rapide au flux entièrement géré.</p>
-      <div class="grid grid-2">
-        <article class="card">
-          <span class="pill">Pour démarrer</span>
-          <h3>Audit d'API cachée</h3>
-          <p class="price">150–300 €</p>
-          <p>Une évaluation rapide et argumentée : le site expose-t-il déjà ses données via une interface JSON publique ? Nous identifions la voie d'accès la plus fiable et la moins coûteuse à maintenir, et vous remettons un rapport concret.</p>
-          <ul class="check">
-            <li>Analyse des chemins d'accès aux données publiques</li>
-            <li>Faisabilité, effort et risques clairement posés</li>
-            <li>Une recommandation pour la suite — sans engagement</li>
-          </ul>
-          <a class="btn btn-ghost btn-sm" href="/#contact">Demander l'audit</a>
-        </article>
-
-        <article class="card">
-          <h3>Scraper ponctuel</h3>
-          <p class="price">600–1 500 €</p>
-          <p>Un script propre et documenté qui extrait un jeu de données défini depuis une source publique. Vous recevez l'intégralité du code, un guide d'utilisation et la sortie structurée (CSV / JSON).</p>
-          <ul class="check">
-            <li>Extraction unique au périmètre bien délimité</li>
-            <li>Code source complet remis et vous appartient</li>
-            <li>Respect de robots.txt et des limites de débit</li>
-          </ul>
-          <a class="btn btn-ghost btn-sm" href="/#contact">Demander un scraper</a>
-        </article>
-
-        <article class="card">
-          <span class="pill">Récurrent</span>
-          <h3>Flux de données géré</h3>
-          <p class="price">500–1k € installation + 150–500 €/mois</p>
-          <p>Un flux qui tourne dans la durée, se met à jour, est surveillé et ne s'arrête pas en silence. Si la source change, nous maintenons le flux — vous continuez à recevoir des données propres, sans rupture.</p>
-          <ul class="check">
-            <li>Mise à jour planifiée, au format de votre choix</li>
-            <li>Surveillance et réparation en cas de changement de source</li>
-            <li>Mis en place dans un esprit DACH et RGPD</li>
-          </ul>
-          <a class="btn btn-ghost btn-sm" href="/#contact">Demander un flux</a>
-        </article>
-
-        <article class="card">
-          <h3>Bot Discord</h3>
-          <p class="price">500–2 500 € + hébergement</p>
-          <p>Un bot Discord sur mesure qui apporte des données publiques à votre communauté — notifications, requêtes, tableaux de bord. Conçu de façon fiable, et hébergé par nos soins si vous le souhaitez.</p>
-          <ul class="check">
-            <li>Adapté à votre cas d'usage</li>
-            <li>Notifications push issues de flux publics</li>
-            <li>Hébergement géré en option</li>
-          </ul>
-          <a class="btn btn-ghost btn-sm" href="/#contact">Demander un bot</a>
-        </article>
-      </div>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr>
+          <th scope="col">Produit</th>
+          <th scope="col">Catégorie</th>
+          <th scope="col" class="r">Prix</th>
+          <th scope="col" class="r">Disponibilité</th>
+          <th scope="col" class="r">Note</th>
+          <th scope="col">Source</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><span class="em-name">Wireless Keyboard K380</span><div class="sub num">SKU 8290-114</div></td><td>Périphériques</td><td class="r num">€41.90</td><td class="r">En stock</td><td class="r num">4.6</td><td><a class="verify" href="#">catalogue public ↗</a></td></tr>
+          <tr><td><span class="em-name">USB-C Hub 7-in-1</span><div class="sub num">SKU 8290-552</div></td><td>Accessoires</td><td class="r num">€28.50</td><td class="r">En stock</td><td class="r num">4.4</td><td><a class="verify" href="#">catalogue public ↗</a></td></tr>
+          <tr><td><span class="em-name">27&quot; 4K IPS Monitor</span><div class="sub num">SKU 6612-008</div></td><td>Écrans</td><td class="r num">€312.00</td><td class="r">3 restants</td><td class="r num">4.7</td><td><a class="verify" href="#">catalogue public ↗</a></td></tr>
+          <tr><td><span class="em-name">Mechanical Keyboard TKL</span><div class="sub num">SKU 8290-771</div></td><td>Périphériques</td><td class="r num">€89.00</td><td class="r">En stock</td><td class="r num">4.8</td><td><a class="verify" href="#">catalogue public ↗</a></td></tr>
+          <tr><td><span class="em-name">Noise-Cancelling Headset</span><div class="sub num">SKU 4401-230</div></td><td>Audio</td><td class="r num">€129.90</td><td class="r">En stock</td><td class="r num">4.5</td><td><a class="verify" href="#">catalogue public ↗</a></td></tr>
+          <tr><td><span class="em-name">Laptop Stand Aluminium</span><div class="sub num">SKU 5120-019</div></td><td>Accessoires</td><td class="r num">€34.00</td><td class="r">Rupture</td><td class="r num">4.3</td><td><a class="verify" href="#">catalogue public ↗</a></td></tr>
+        </tbody>
+      </table>
     </div>
-  </section>
+    <div class="screener-foot">Données d'exemple, sources publiques uniquement. Champs factuels / non personnels. robots.txt et limites de débit respectés. Vous exploitez et possédez le flux.</div>
+  </div>
+</div></section>
 
-  <section class="section" id="how">
-    <div class="container">
-      <h2 class="section-title">Comment ça marche</h2>
-      <div class="grid grid-3">
-        <article class="card">
-          <span class="badge">1</span>
-          <h3>Vérifier la faisabilité</h3>
-          <p>Vous envoyez l'URL publique et décrivez les données souhaitées. Nous évaluons gratuitement si et comment le flux peut être réalisé proprement.</p>
-        </article>
-        <article class="card">
-          <span class="badge">2</span>
-          <h3>Construire &amp; livrer</h3>
-          <p>Nous construisons le scraper ou le flux, le testons sur la source réelle et livrons des données structurées avec leur documentation.</p>
-        </article>
-        <article class="card">
-          <span class="badge">3</span>
-          <h3>Exploiter &amp; maintenir</h3>
-          <p>Pour les flux gérés, nous assurons surveillance et réparation. Vous possédez les données et gardez le contrôle total.</p>
-        </article>
-      </div>
+<!-- ===================== OFFERS ===================== -->
+<section id="offers"><div class="container">
+  <div class="sec-head">
+    <div class="kick">Offres</div>
+    <h2 class="section-title">Commencez petit. Passez à un flux maintenu.</h2>
+    <p>Démarrez par un audit sans risque, recevez un export ponctuel, ou confiez-moi la maintenance avec un flux géré. Pages de détail en anglais.</p>
+  </div>
+  <div class="grid-4">
+    <a class="card" href="/offers/hidden-api-audit.html">
+      <h3>Audit d'API cachée</h3>
+      <p>J'examine un site public, j'identifie la voie d'accès la plus propre et je vous envoie ~50 lignes d'échantillon réelles. Le point de départ sans risque.</p>
+      <div class="price">Dès 150 €<small> &nbsp;fixe</small></div>
+      <span class="more">Voir le détail →</span>
+    </a>
+    <a class="card" href="/offers/scraper.html">
+      <h3>Scraper ponctuel</h3>
+      <p>Un scraper robuste pour une source publique, livré en code testé qui vous appartient. Sortie propre CSV / JSON / API.</p>
+      <div class="price">€600–1,500</div>
+      <span class="more">Voir le détail →</span>
+    </a>
+    <a class="card feat" href="/offers/managed-data-feed.html">
+      <span class="pill">Cœur</span>
+      <h3>Flux de données géré</h3>
+      <p>Scraper + livraison planifiée + monitoring. La source change, ça casse, je répare — souvent avant que vous le remarquiez.</p>
+      <div class="price">€500–1k<small> + 150–500 €/mois</small></div>
+      <span class="more">Voir le détail →</span>
+    </a>
+    <a class="card" href="/offers/discord-bot.html">
+      <h3>Bot Discord</h3>
+      <p>Un bot sur mesure pour votre communauté : automatisations, requêtes de données publiques, posts planifiés. Construit et hébergé.</p>
+      <div class="price">€500–2,500<small> + hébergement</small></div>
+      <span class="more">Voir le détail →</span>
+    </a>
+  </div>
+</div></section>
+
+<!-- ===================== HOW IT WORKS ===================== -->
+<section class="alt"><div class="container">
+  <div class="sec-head">
+    <div class="kick">Comment ça marche</div>
+    <h2 class="section-title">D'un scraper bloqué à un flux sur lequel compter.</h2>
+  </div>
+  <div class="grid-4">
+    <div class="card"><div class="step-num">1</div><h3>Audit</h3><p>J'examine la source publique et j'identifie la voie d'extraction la plus fiable — une API cachée quand elle existe.</p></div>
+    <div class="card"><div class="step-num">2</div><h3>Construction</h3><p>Un scraper testé qui gère les pages publiques riches en JavaScript ou protégées par Cloudflare, avec une sortie propre.</p></div>
+    <div class="card"><div class="step-num">3</div><h3>Planification &amp; monitoring</h3><p>Livraison à votre cadence, avec surveillance. Quand la source change et que ça casse, je répare.</p></div>
+    <div class="card"><div class="step-num">4</div><h3>Vous exploitez &amp; possédez</h3><p>Vous faites tourner l'outil et possédez les données. Je construis et je maintiens — un outil, pas un service d'exploitation.</p></div>
+  </div>
+</div></section>
+
+<!-- ===================== TRUST / SCOPE ===================== -->
+<section id="scope"><div class="container trust-grid">
+  <div>
+    <div class="sec-head" style="margin-bottom:26px">
+      <div class="kick">Cadre &amp; confiance</div>
+      <h2 class="section-title">De la fiabilité, pas du contournement.</h2>
     </div>
-  </section>
+    <ul class="checklist">
+      <li><div><h4>Pages publiques, hors connexion uniquement</h4><p>Données factuelles / business : prix, specs, stocks, annonces, données de marché, horaires. Pas de comptes, pas de paywalls.</p></div></li>
+      <li><div><h4>Aucune donnée personnelle</h4><p>Strictement non-PII. Pas de noms avec contacts, de profils ou de photos — données B2B et factuelles uniquement.</p></div></li>
+      <li><div><h4>robots.txt &amp; limites de débit respectés</h4><p>Les pages sont lues comme le ferait un visiteur normal, à un rythme respectueux. La sortie est structurée et transformée.</p></div></li>
+      <li><div><h4>Vous exploitez et possédez les données</h4><p>Je construis et maintiens l'outil ; vous l'exploitez et contrôlez les données. Une passation propre et documentée, à chaque fois.</p></div></li>
+    </ul>
+  </div>
+  <div class="sources">
+    <div class="st">Typiquement dans le périmètre</div>
+    <div class="source-row"><span>Prix produits, specs, stocks</span><span class="lk">e-commerce</span></div>
+    <div class="source-row"><span>Annonces (prix, surface, localisation)</span><span class="lk">immobilier</span></div>
+    <div class="source-row"><span>Données catalogue / marketplace</span><span class="lk">marketplace</span></div>
+    <div class="source-row"><span>Données de marché, horaires, prix</span><span class="lk">voyage · finance</span></div>
+    <div class="disclaimer-box">Feedsmith construit un <strong>outil</strong> de lecture de <strong>données publiques et factuelles</strong>. Il ne sert pas à accéder à des comptes, des paywalls ou des données personnelles. Vous restez l'exploitant et le propriétaire des données et confirmez votre droit d'accès à la source.</div>
+  </div>
+</div></section>
 
-  <section class="section" id="portfolio">
-    <div class="container">
-      <h2 class="section-title">Portfolio</h2>
-      <p class="muted">Modèles publics et démos sur GitHub — un aperçu de notre façon de travailler.</p>
-      <div class="grid grid-3">
-        <article class="card">
-          <h3>managed-data-feed-starter</h3>
-          <p>Squelette d'un flux de données planifié et surveillé, avec sortie propre.</p>
-          <a class="btn btn-ghost btn-sm" href="https://github.com/Massii-08/managed-data-feed-starter">Voir sur GitHub</a>
-        </article>
-        <article class="card">
-          <h3>hidden-api-extraction-template</h3>
-          <p>Modèle pour se connecter de façon fiable à des interfaces JSON publiques.</p>
-          <a class="btn btn-ghost btn-sm" href="https://github.com/Massii-08/hidden-api-extraction-template">Voir sur GitHub</a>
-        </article>
-        <article class="card">
-          <h3>tls-fingerprint-scraper-demo</h3>
-          <p>Démo de collecte robuste et fiable de données publiques.</p>
-          <a class="btn btn-ghost btn-sm" href="https://github.com/Massii-08/tls-fingerprint-scraper-demo">Voir sur GitHub</a>
-        </article>
-      </div>
-    </div>
-  </section>
+<!-- ===================== PORTFOLIO ===================== -->
+<section id="portfolio" class="alt"><div class="container">
+  <div class="sec-head">
+    <div class="kick">Preuves</div>
+    <h2 class="section-title">Open source, testé, exécutable.</h2>
+    <p>Pas un slide deck — du vrai code à lire, cloner et lancer. Les 20 % difficiles du scraping où les outils no-code échouent.</p>
+  </div>
+  <div class="grid-3">
+    <a class="card" href="https://github.com/Massii-08/managed-data-feed-starter">
+      <div class="ico">◆</div>
+      <h3>managed-data-feed-starter</h3>
+      <p>L'offre Flux de données géré, en code : fetch résilient → politique no-PII → planification → monitoring auto-réparant → CSV/JSON/webhook, en FastAPI.</p>
+      <span class="more">Voir sur GitHub ↗</span>
+    </a>
+    <a class="card" href="https://github.com/Massii-08/hidden-api-extraction-template">
+      <div class="ico">{ }</div>
+      <h3>hidden-api-extraction-template</h3>
+      <p>Lire directement l'API JSON interne d'un site au lieu de parser un HTML fragile — plus rapide et bien plus stable.</p>
+      <span class="more">Voir sur GitHub ↗</span>
+    </a>
+    <a class="card" href="https://github.com/Massii-08/tls-fingerprint-scraper-demo">
+      <div class="ico">TLS</div>
+      <h3>tls-fingerprint-scraper-demo</h3>
+      <p>Pourquoi une page publique revient vide : un contrôle d'empreinte TLS avant le rendu. La lire comme un navigateur normal, en conformité.</p>
+      <span class="more">Voir sur GitHub ↗</span>
+    </a>
+  </div>
+</div></section>
 
-  <section class="section" id="trust">
-    <div class="container">
-      <h2 class="section-title">Un cadre clair, un travail propre</h2>
-      <div class="note">
-        <p><strong>Ce que nous faisons :</strong> nous travaillons exclusivement à partir de sources publiques et de données factuelles, non personnelles. Vous exploitez le flux et possédez les données. Nous respectons robots.txt et les limites de débit.</p>
-        <p class="muted small">Trilingue DE/FR/IT, sensibilisé Suisse et RGPD — une adéquation que les PME de la zone DACH obtiennent rarement. Des données factuelles, des limites claires, une livraison fiable.</p>
-      </div>
-    </div>
-  </section>
+<!-- ===================== GUIDES ===================== -->
+<section id="guides"><div class="container">
+  <div class="sec-head">
+    <div class="kick">Guides</div>
+    <h2 class="section-title">Le pourquoi derrière le travail.</h2>
+  </div>
+  <div class="grid-3">
+    <a class="card" href="/guides/no-code-scraper-keeps-breaking.html">
+      <h3>Pourquoi votre scraper no-code casse en boucle</h3>
+      <p>Changements de layout, données rendues en JS, contrôles d'empreinte — et ce qui les corrige vraiment. (Guide en anglais.)</p>
+      <span class="more">Lire le guide →</span>
+    </a>
+    <a class="card" href="/guides/what-is-a-hidden-api.html">
+      <h3>Qu'est-ce qu'une API cachée</h3>
+      <p>Les endpoints JSON internes derrière une page — et pourquoi les appeler bat le parsing HTML. (Guide en anglais.)</p>
+      <span class="more">Lire le guide →</span>
+    </a>
+    <a class="card" href="/guides/cloudflare-protected-public-sites.html">
+      <h3>Sites publics protégés par Cloudflare</h3>
+      <p>Une page vide est souvent un contrôle d'empreinte TLS, pas un CAPTCHA — la façon conforme de les lire. (Guide en anglais.)</p>
+      <span class="more">Lire le guide →</span>
+    </a>
+  </div>
+</div></section>
 
-  <section class="cta" id="contact">
-    <div class="container">
-      <h2 class="section-title">Demander une étude de faisabilité gratuite</h2>
-      <p class="muted">Envoyez-nous l'URL publique et quelques lignes sur les données souhaitées. Vous recevrez une évaluation honnête — gratuite et sans engagement.</p>
-      <!-- Form wired to Formspree (id mpqelldw). To route to Upwork later, change the action URL. -->
-      <form class="contact-form" action="https://formspree.io/f/mpqelldw" method="POST">
-        <label for="target_url">Site / URL public</label>
-        <input id="target_url" name="target_url" type="url" placeholder="https://exemple.com/page-publique" required>
+<!-- ===================== CONTACT ===================== -->
+<section id="contact"><div class="container">
+  <div class="cta">
+    <h2>Demandez une étude de faisabilité gratuite</h2>
+    <p>Indiquez-moi le site public et les données dont vous avez besoin. Je vous dis si c'est faisable, comment, et dans quelle langue.</p>
+    <form class="contact-form" action="https://formspree.io/f/mpqelldw" method="POST" style="margin:0 auto;justify-content:center">
+      <input type="url" name="target_url" aria-label="Le site ou l'URL publique" placeholder="Le site / l'URL publique" required />
+      <input type="email" name="email" aria-label="Votre e-mail" placeholder="Votre e-mail" required />
+      <textarea name="details" aria-label="Quelles données vous faut-il, et dans quelle langue" placeholder="Quelles données vous faut-il ? Quelle langue (FR / DE / IT / EN) ?"></textarea>
+      <button class="btn btn-primary" type="submit">Envoyer</button>
+    </form>
+    <p class="muted small" style="margin:14px 0 0">Ou par e-mail : <a href="mailto:hello@feedsmith.net">hello@feedsmith.net</a> · Basé en Suisse · FR / DE / IT / EN.</p>
+  </div>
+</div></section>
 
-        <label for="details">Quelles données vous faut-il ? (et dans quelle langue)</label>
-        <textarea id="details" name="details" rows="4" placeholder="Décrivez les champs souhaités, le format et la fréquence." required></textarea>
-
-        <label for="email">Votre e-mail</label>
-        <input id="email" name="email" type="email" placeholder="vous@entreprise.fr" required>
-
-        <button class="btn btn-primary" type="submit">Demander l'étude de faisabilité</button>
-        <p class="muted small">Ou directement par e-mail : <a href="mailto:hello@feedsmith.net">hello@feedsmith.net</a></p>
-      </form>
-    </div>
-  </section>
 </main>
 
 <footer class="footer"><div class="container footer-inner">
-  <div><strong>Feedsmith</strong> — reliable data feeds from public sources.
-    <div class="muted small">Public sources only · factual / non-PII data · you operate and own the data.</div></div>
+  <div><strong>Feedsmith</strong> — des flux de données fiables issus de sources publiques.
+    <div class="muted small" style="margin-top:8px">Sources publiques uniquement · données factuelles / non-PII · robots.txt &amp; limites de débit respectés · vous exploitez et possédez les données.</div>
+  </div>
   <nav class="footer-links">
-    <a href="/">Home</a><a href="/#offers">Offers</a><a href="/#guides">Guides</a>
+    <a href="/fr/">Accueil</a>
+    <a href="#offers">Offres</a>
+    <a href="#guides">Guides</a>
     <a href="https://github.com/Massii-08">GitHub</a>
     <span class="lang-switch"><a href="/">EN</a> · <a href="/de/">DE</a> · <a href="/fr/">FR</a> · <a href="/it/">IT</a></span>
   </nav>
 </div></footer>
+
 </body>
 </html>
