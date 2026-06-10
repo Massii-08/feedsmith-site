@@ -16,7 +16,11 @@
 <link rel="alternate" hreflang="fr" href="https://feedsmith.net/fr/" />
 <link rel="alternate" hreflang="it" href="https://feedsmith.net/it/" />
 <link rel="alternate" hreflang="x-default" href="https://feedsmith.net/" />
-<link rel="stylesheet" href="/css/style.css" />
+<meta property="og:image" content="https://feedsmith.net/assets/og.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#05100C" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+<link rel="stylesheet" href="/css/style.css?v=2" />
 </head>
 <body>
 
@@ -36,48 +40,129 @@
 <section class="hero"><div class="container hero-grid">
   <div>
     <span class="eyebrow">Web scraping &amp; maintained data feeds</span>
-    <h1>Reliable data feeds from <span class="hl">public sources</span>.</h1>
+    <h1>Reliable data feeds<br class="lb"> <span class="hl">from public sources</span>.</h1>
     <p class="lead">When Apify, Octoparse or a ChatGPT-written script gets blocked, returns empty pages, or breaks every time the site changes — I extract clean public data, and keep it running.</p>
     <form class="contact-form" action="https://formspree.io/f/mpqelldw" method="POST">
-      <input type="url" name="target_url" placeholder="The public site / URL you need data from" required />
+      <input type="url" name="target_url" aria-label="The public site or URL you need data from" placeholder="The public site / URL" required />
       <button class="btn btn-primary" type="submit">Get a free feasibility check</button>
     </form>
     <div class="micro">Public sources only · no logins, no personal data · you operate and own the data.</div>
   </div>
 
-  <!-- signature product-preview card: a managed data feed -->
-  <div class="hcard" role="img" aria-label="Sample managed data feed: an e-commerce price feed, healthy, auto-repaired 2 hours ago">
-    <div class="hcard-top">
-      <span class="t">Feed · ecom-prices-eu · daily</span>
-      <span class="tag-sample">sample data</span>
-    </div>
-    <div class="hcard-body">
-      <div class="hb-row">
-        <div>
-          <div class="hb-name">E-commerce price feed</div>
-          <div class="hb-sub">public catalog · CSV + JSON</div>
-        </div>
-        <div class="hb-big"><small>uptime 30d</small><span class="num">100%</span></div>
-      </div>
+  <!-- signature forge motif: raw public web, forged into a clean live feed -->
+  <div class="hero-art">
+    <svg class="forge-motif" viewBox="0 0 620 540" role="img" aria-labelledby="fmTitle fmDesc" xmlns="http://www.w3.org/2000/svg">
+      <title id="fmTitle">Raw public web pages, forged into a clean structured data feed</title>
+      <desc id="fmDesc">Messy website windows flow through a forge spark and come out as a tidy live data table with CSV and JSON output.</desc>
+      <defs>
+        <radialGradient id="fmForgeGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#52E6BE" stop-opacity="0.9"/><stop offset="42%" stop-color="#2DD4A7" stop-opacity="0.35"/><stop offset="100%" stop-color="#2DD4A7" stop-opacity="0"/></radialGradient>
+        <radialGradient id="fmCore" cx="50%" cy="42%" r="60%"><stop offset="0%" stop-color="#D7FBEF"/><stop offset="45%" stop-color="#34D399"/><stop offset="100%" stop-color="#0F6E56"/></radialGradient>
+        <radialGradient id="fmSpark" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFE9AE" stop-opacity="0.95"/><stop offset="55%" stop-color="#F6C667" stop-opacity="0.45"/><stop offset="100%" stop-color="#F6C667" stop-opacity="0"/></radialGradient>
+        <linearGradient id="fmCard" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0E241D"/><stop offset="100%" stop-color="#0A1A15"/></linearGradient>
+        <filter id="fmBlur" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="8"/></filter>
+        <filter id="fmBlurL" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="22"/></filter>
+      </defs>
 
-      <div style="margin-top:16px;border:1px solid var(--line);border-radius:10px;overflow:hidden">
-        <table style="min-width:0;font-size:13px">
-          <thead><tr><th>Product</th><th class="r">Price</th><th class="r">Stock</th></tr></thead>
-          <tbody>
-            <tr><td>Wireless Keyboard</td><td class="r num">€41.90</td><td class="r">In stock</td></tr>
-            <tr><td>USB-C Hub 7-in-1</td><td class="r num">€28.50</td><td class="r">In stock</td></tr>
-            <tr><td>27&quot; 4K Monitor</td><td class="r num">€312.00</td><td class="r">3 left</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <ellipse cx="380" cy="250" rx="240" ry="200" fill="#2DD4A7" opacity="0.07" filter="url(#fmBlurL)"/>
 
-      <div class="hb-meta">
-        <div><div class="k">Format</div><div class="v">CSV · JSON</div></div>
-        <div><div class="k">Cadence</div><div class="v">Daily</div></div>
-        <div><div class="k">Status</div><div class="v"><span class="badge ok">Healthy</span></div></div>
-      </div>
-      <div class="hb-alert">Auto-repair: source changed its layout — feed fixed 2h ago, no data lost.</div>
-    </div>
+      <!-- raw web: tilted, broken source windows -->
+      <g transform="translate(20,228) rotate(-2)" opacity="0.55">
+        <rect width="124" height="84" rx="8" fill="#0B1712" stroke="#2C3D36" stroke-width="0.8"/>
+        <rect x="16" y="20" width="92" height="44" rx="6" fill="none" stroke="#33453F" stroke-width="1" stroke-dasharray="6 6"/>
+        <text x="62" y="48" font-family="ui-monospace,Menlo,monospace" font-size="18" font-weight="700" fill="#3A4A45" text-anchor="middle">— —</text>
+      </g>
+      <g transform="translate(36,84) rotate(-5)">
+        <rect width="182" height="120" rx="10" fill="#0B1813" stroke="#2C3D36" stroke-width="0.8"/>
+        <circle cx="16" cy="15" r="3.2" fill="#2C3D36"/><circle cx="29" cy="15" r="3.2" fill="#2C3D36"/><circle cx="42" cy="15" r="3.2" fill="#2C3D36"/>
+        <rect x="16" y="36" width="52" height="24" rx="5" fill="#2A1413" stroke="#9E3B33" stroke-width="0.8"/>
+        <text x="42" y="53" font-family="ui-monospace,Menlo,monospace" font-size="14" font-weight="700" fill="#E2574C" text-anchor="middle">403</text>
+        <line x1="82" y1="48" x2="158" y2="48" stroke="#33453F" stroke-width="3" stroke-dasharray="9 7"/>
+        <line x1="16" y1="78" x2="142" y2="78" stroke="#33453F" stroke-width="3" stroke-dasharray="20 9"/>
+        <line x1="16" y1="98" x2="120" y2="98" stroke="#33453F" stroke-width="3" stroke-dasharray="12 8"/>
+      </g>
+      <g transform="translate(74,328) rotate(4)">
+        <rect width="158" height="106" rx="9" fill="#0C1A14" stroke="#2C3D36" stroke-width="0.8"/>
+        <circle cx="15" cy="14" r="3" fill="#2C3D36"/><circle cx="27" cy="14" r="3" fill="#2C3D36"/>
+        <line x1="15" y1="38" x2="130" y2="38" stroke="#33453F" stroke-width="3" stroke-dasharray="14 8"/>
+        <line x1="15" y1="58" x2="104" y2="58" stroke="#33453F" stroke-width="3" stroke-dasharray="10 8"/>
+        <line x1="15" y1="78" x2="120" y2="78" stroke="#33453F" stroke-width="3" stroke-dasharray="22 9"/>
+      </g>
+
+      <!-- raw flows in -->
+      <g fill="none" stroke="#3A4F47" stroke-linecap="round" stroke-width="1.1">
+        <path d="M216 140 C 252 162, 268 210, 286 248" opacity="0.8"/>
+        <path d="M148 262 C 196 264, 240 268, 276 272" opacity="0.75"/>
+        <path d="M228 370 C 256 348, 272 318, 288 294" opacity="0.8"/>
+      </g>
+
+      <!-- clean flows out -->
+      <g fill="none" stroke="#2DD4A7" stroke-linecap="round">
+        <path d="M322 252 C 344 222, 350 196, 370 188" stroke-width="1.2" opacity="0.85"/>
+        <path d="M326 264 C 348 254, 354 246, 370 242" stroke-width="1.2" opacity="0.85"/>
+        <path d="M326 280 C 348 290, 354 296, 370 296" stroke-width="1.2" opacity="0.8"/>
+        <path d="M322 292 C 344 322, 352 342, 370 350" stroke-width="1.1" opacity="0.7"/>
+      </g>
+      <g fill="#34D399">
+        <circle cx="372" cy="188" r="3"/><circle cx="372" cy="242" r="3"/><circle cx="372" cy="296" r="3"/><circle cx="372" cy="350" r="2.6"/>
+      </g>
+
+      <!-- animated data packets (CSS offset-path) -->
+      <g transform="translate(304,272)">
+        <circle class="flow-dot" r="2.6" fill="#7FE0C3" style="offset-path:path('M0 0 C 40 -50, 46 -76, 68 -84')"/>
+        <circle class="flow-dot d2" r="2.6" fill="#7FE0C3" style="offset-path:path('M0 0 C 44 -18, 50 -26, 68 -30')"/>
+        <circle class="flow-dot d3" r="2.6" fill="#FFE9AE" style="offset-path:path('M0 0 C 40 50, 48 70, 68 78')"/>
+      </g>
+
+      <!-- forge core -->
+      <circle cx="304" cy="272" r="56" fill="url(#fmForgeGlow)" filter="url(#fmBlur)"/>
+      <circle cx="304" cy="272" r="40" fill="none" stroke="#2DD4A7" stroke-width="0.8" opacity="0.35"/>
+      <circle cx="304" cy="272" r="27" fill="none" stroke="#2DD4A7" stroke-width="1.5" opacity="0.9"/>
+      <g class="spark-pulse">
+        <circle cx="304" cy="272" r="20" fill="url(#fmSpark)" filter="url(#fmBlur)"/>
+        <circle cx="304" cy="272" r="12.5" fill="url(#fmCore)"/>
+        <g stroke="#FFEAB0" stroke-width="1.5" stroke-linecap="round" opacity="0.9">
+          <line x1="304" y1="251" x2="304" y2="293"/>
+          <line x1="283" y1="272" x2="325" y2="272"/>
+          <line x1="290" y1="258" x2="318" y2="286"/>
+          <line x1="318" y1="258" x2="290" y2="286"/>
+        </g>
+      </g>
+
+      <!-- the clean feed card -->
+      <rect x="364" y="92" width="252" height="360" rx="20" fill="#2DD4A7" opacity="0.12" filter="url(#fmBlur)"/>
+      <g transform="translate(372,100)">
+        <rect width="236" height="344" rx="16" fill="url(#fmCard)" stroke="#1D9E75" stroke-width="0.9"/>
+        <!-- column headers -->
+        <g>
+          <rect x="16" y="16" width="45" height="14" rx="4" fill="#11332B"/><rect x="20" y="21" width="24" height="3" rx="1.5" fill="#2DD4A7" opacity="0.7"/>
+          <rect x="69" y="16" width="45" height="14" rx="4" fill="#11332B"/><rect x="73" y="21" width="19" height="3" rx="1.5" fill="#2DD4A7" opacity="0.7"/>
+          <rect x="122" y="16" width="45" height="14" rx="4" fill="#11332B"/><rect x="126" y="21" width="27" height="3" rx="1.5" fill="#2DD4A7" opacity="0.7"/>
+          <rect x="175" y="16" width="45" height="14" rx="4" fill="#11332B"/><rect x="179" y="21" width="16" height="3" rx="1.5" fill="#2DD4A7" opacity="0.7"/>
+        </g>
+        <!-- live feed pill + format chips -->
+        <rect x="16" y="42" width="100" height="26" rx="13" fill="#0C211B" stroke="#1D9E75" stroke-width="0.9"/>
+        <circle cx="32" cy="55" r="4" fill="#34D399"/>
+        <text x="42" y="59" font-family="ui-monospace,Menlo,monospace" font-size="11" font-weight="600" letter-spacing="1.4" fill="#9FE1CB">LIVE FEED</text>
+        <rect x="126" y="44" width="42" height="22" rx="11" fill="#0A1A16" stroke="#16443A" stroke-width="0.7"/>
+        <text x="147" y="58" font-family="ui-monospace,Menlo,monospace" font-size="10.5" font-weight="600" fill="#6FC3A8" text-anchor="middle">CSV</text>
+        <rect x="174" y="44" width="46" height="22" rx="11" fill="#0A1A16" stroke="#16443A" stroke-width="0.7"/>
+        <text x="197" y="58" font-family="ui-monospace,Menlo,monospace" font-size="10.5" font-weight="600" fill="#6FC3A8" text-anchor="middle">JSON</text>
+        <!-- data mosaic -->
+        <g>
+          <rect x="16" y="84" width="45" height="24" rx="5" fill="#2DD4A7"/><rect x="69" y="84" width="45" height="24" rx="5" fill="#14302A"/><rect x="122" y="84" width="45" height="24" rx="5" fill="#1A4E40"/><rect x="175" y="84" width="45" height="24" rx="5" fill="#14302A"/>
+          <rect x="16" y="116" width="45" height="24" rx="5" fill="#14302A"/><rect x="69" y="116" width="45" height="24" rx="5" fill="#2DD4A7" opacity="0.85"/><rect x="122" y="116" width="45" height="24" rx="5" fill="#14302A"/><rect x="175" y="116" width="45" height="24" rx="5" fill="#1A4E40"/>
+          <rect x="16" y="148" width="45" height="24" rx="5" fill="#1A4E40"/><rect x="69" y="148" width="45" height="24" rx="5" fill="#14302A"/><rect x="122" y="148" width="45" height="24" rx="5" fill="#14302A"/><rect x="175" y="148" width="45" height="24" rx="5" fill="#2DD4A7"/>
+          <rect x="16" y="180" width="45" height="24" rx="5" fill="#14302A"/><rect x="69" y="180" width="45" height="24" rx="5" fill="#1A4E40"/><rect x="122" y="180" width="45" height="24" rx="5" fill="#2DD4A7" opacity="0.7"/><rect x="175" y="180" width="45" height="24" rx="5" fill="#14302A"/>
+          <rect x="16" y="212" width="45" height="24" rx="5" fill="#2DD4A7" opacity="0.6"/><rect x="69" y="212" width="45" height="24" rx="5" fill="#14302A"/><rect x="122" y="212" width="45" height="24" rx="5" fill="#14302A"/><rect x="175" y="212" width="45" height="24" rx="5" fill="#1A4E40"/>
+          <rect x="16" y="244" width="45" height="24" rx="5" fill="#14302A"/><rect x="69" y="244" width="45" height="24" rx="5" fill="#1A4E40"/><rect x="122" y="244" width="45" height="24" rx="5" fill="#2DD4A7" opacity="0.8"/><rect x="175" y="244" width="45" height="24" rx="5" fill="#14302A"/>
+        </g>
+        <!-- footer: sync health -->
+        <rect x="12" y="296" width="212" height="32" rx="10" fill="#0A1A15"/>
+        <rect x="26" y="307" width="104" height="10" rx="5" fill="#16443A"/>
+        <rect x="26" y="307" width="68" height="10" rx="5" fill="#2DD4A7" opacity="0.85"/>
+        <text x="208" y="317" font-family="ui-monospace,Menlo,monospace" font-size="11.5" font-weight="600" fill="#6FC3A8" text-anchor="end">98%</text>
+      </g>
+    </svg>
   </div>
 </div></section>
 
@@ -219,7 +304,7 @@
       <span class="more">View on GitHub ↗</span>
     </a>
     <a class="card" href="https://github.com/Massii-08/tls-fingerprint-scraper-demo">
-      <div class="ico">⚷</div>
+      <div class="ico">TLS</div>
       <h3>tls-fingerprint-scraper-demo</h3>
       <p>Why a public page returns empty: a TLS fingerprint check before render. Read it like a normal browser, compliantly.</p>
       <span class="more">View on GitHub ↗</span>
@@ -258,13 +343,12 @@
     <h2>Get a free feasibility check</h2>
     <p>Tell me the public site and the data you need. I'll tell you if it's doable, how, and in which language.</p>
     <form class="contact-form" action="https://formspree.io/f/mpqelldw" method="POST" style="margin:0 auto;justify-content:center">
-      <input type="url" name="target_url" placeholder="The public site / URL" required />
-      <input type="email" name="email" placeholder="Your email" required />
-      <textarea name="details" placeholder="What data do you need? Which language (DE / FR / IT / EN)?"></textarea>
+      <input type="url" name="target_url" aria-label="The public site or URL" placeholder="The public site / URL" required />
+      <input type="email" name="email" aria-label="Your email" placeholder="Your email" required />
+      <textarea name="details" aria-label="What data do you need, and in which language" placeholder="What data do you need? Which language (DE / FR / IT / EN)?"></textarea>
       <button class="btn btn-primary" type="submit">Send</button>
     </form>
-    <!-- TODO: wire action to a real form service (Formspree id) or route to an Upwork invite while building reviews. -->
-    <p class="muted small" style="margin:14px 0 0">Or email <a href="mailto:hello@feedsmith.net" style="color:var(--accent)">hello@feedsmith.net</a> · Based in Switzerland · DE / FR / IT / EN.</p>
+    <p class="muted small" style="margin:14px 0 0">Or email <a href="mailto:hello@feedsmith.net">hello@feedsmith.net</a> · Based in Switzerland · DE / FR / IT / EN.</p>
   </div>
 </div></section>
 

@@ -58,7 +58,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://feedsmith.net/offers/one-off-scraper.html</loc>
+    <loc>https://feedsmith.net/offers/scraper.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -75,19 +75,46 @@
 
   <!-- Guide pages -->
   <url>
-    <loc>https://feedsmith.net/guides/hidden-api-vs-scraping.html</loc>
+    <loc>https://feedsmith.net/guides/what-is-a-hidden-api.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://feedsmith.net/guides/keeping-a-data-feed-reliable.html</loc>
+    <loc>https://feedsmith.net/guides/no-code-scraper-keeps-breaking.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://feedsmith.net/guides/gdpr-aware-public-data.html</loc>
+    <loc>https://feedsmith.net/guides/cloudflare-protected-public-sites.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- Scrape (pSEO) pages -->
+  <url>
+    <loc>https://feedsmith.net/scrape/ecommerce-product-prices.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://feedsmith.net/scrape/real-estate-listings.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://feedsmith.net/scrape/marketplace-product-data.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://feedsmith.net/scrape/books-toscrape-com.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://feedsmith.net/scrape/quotes-toscrape-com.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
 </urlset>
