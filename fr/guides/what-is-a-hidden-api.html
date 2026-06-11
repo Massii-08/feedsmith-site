@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qu'est-ce qu'une API cachée, et pourquoi c'est le moyen le plus fiable d'obtenir des données — Feedsmith</title>
+  <meta name="description" content="Une API cachée est l'endpoint JSON interne qu'une page appelle déjà pour charger ses propres données. Voici comment la trouver avec les DevTools, pourquoi l'appeler bat le parsing HTML, et les CGU à respecter sur les sources publiques.">
+  <link rel="canonical" href="https://feedsmith.net/fr/guides/what-is-a-hidden-api.html">
+  <link rel="alternate" hreflang="en" href="https://feedsmith.net/guides/what-is-a-hidden-api.html">
+  <link rel="alternate" hreflang="de" href="https://feedsmith.net/de/guides/what-is-a-hidden-api.html">
+  <link rel="alternate" hreflang="fr" href="https://feedsmith.net/fr/guides/what-is-a-hidden-api.html">
+  <link rel="alternate" hreflang="it" href="https://feedsmith.net/it/guides/what-is-a-hidden-api.html">
+  <link rel="alternate" hreflang="x-default" href="https://feedsmith.net/guides/what-is-a-hidden-api.html">
+  <meta property="og:title" content="Qu'est-ce qu'une API cachée, et pourquoi c'est le moyen le plus fiable d'obtenir des données">
+  <meta property="og:description" content="Une API cachée est l'endpoint JSON interne qu'une page appelle déjà. Comment la trouver avec les DevTools, pourquoi elle bat le parsing HTML, et les CGU à respecter sur les données publiques.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://feedsmith.net/assets/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#05100C">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css?v=5">
+</head>
+<body>
+<header class="nav"><div class="container nav-inner">
+  <a class="brand" href="/fr/"><span class="brand-mark">◆</span> Feedsmith</a>
+  <nav class="nav-links">
+    <a href="/fr/#offers">Offres</a>
+    <a href="/fr/#guides">Guides</a>
+    <a href="/fr/#portfolio">Portfolio</a>
+    <a class="btn btn-primary btn-sm" href="/fr/#contact">Étude de faisabilité gratuite</a>
+  </nav>
+</div></header>
+
+<main class="container">
+  <nav class="breadcrumb">
+    <a href="/fr/">Accueil</a> / <a href="/fr/#guides">Guides</a> / <span>Qu'est-ce qu'une API cachée</span>
+  </nav>
+
+  <article>
+    <p class="eyebrow">Guide</p>
+    <h1>Qu'est-ce qu'une API cachée, et pourquoi c'est le moyen le plus fiable d'obtenir des données</h1>
+    <p class="lead">Quand une page charge des prix, des annonces ou des résultats de recherche, ces données ne vivent généralement pas dans le HTML — elles arrivent d'un endpoint JSON interne que la page appelle en arrière-plan. C'est ce qu'on appelle une API cachée. Pour des données publiques et factuelles, la lire est presque toujours plus fiable que parser la page rendue.</p>
+
+    <div class="forge-line" aria-hidden="true">
+    <svg viewBox="0 0 560 100" xmlns="http://www.w3.org/2000/svg" focusable="false">
+      <defs>
+        <radialGradient id="flGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#52E6BE" stop-opacity="0.85"/><stop offset="45%" stop-color="#2DD4A7" stop-opacity="0.30"/><stop offset="100%" stop-color="#2DD4A7" stop-opacity="0"/></radialGradient>
+        <radialGradient id="flCore" cx="50%" cy="42%" r="60%"><stop offset="0%" stop-color="#D7FBEF"/><stop offset="45%" stop-color="#34D399"/><stop offset="100%" stop-color="#0F6E56"/></radialGradient>
+        <radialGradient id="flSpark" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFE9AE" stop-opacity="0.95"/><stop offset="55%" stop-color="#F6C667" stop-opacity="0.4"/><stop offset="100%" stop-color="#F6C667" stop-opacity="0"/></radialGradient>
+        <linearGradient id="flBase" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0F6E56" stop-opacity="0"/><stop offset="25%" stop-color="#2DD4A7" stop-opacity="0.5"/><stop offset="62%" stop-color="#0F6E56" stop-opacity="0.22"/><stop offset="100%" stop-color="#0F6E56" stop-opacity="0"/></linearGradient>
+        <filter id="flBlur" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6"/></filter>
+      </defs>
+      <g transform="translate(4,14) rotate(-3)">
+        <rect width="88" height="58" rx="8" fill="#0B1813" stroke="#2C3D36" stroke-width="0.8"/>
+        <circle cx="11" cy="11" r="2.2" fill="#2C3D36"/><circle cx="20" cy="11" r="2.2" fill="#2C3D36"/>
+        <line x1="11" y1="27" x2="74" y2="27" stroke="#33453F" stroke-width="2.5" stroke-dasharray="9 6"/>
+        <line x1="11" y1="40" x2="62" y2="40" stroke="#33453F" stroke-width="2.5" stroke-dasharray="6 6"/>
+      </g>
+      <path d="M96 44 C 150 46, 180 48, 222 48" fill="none" stroke="#3A4F47" stroke-width="1.1" opacity="0.85"/>
+      <circle cx="248" cy="48" r="26" fill="url(#flGlow)" filter="url(#flBlur)"/>
+      <g class="spark-pulse">
+        <circle cx="248" cy="48" r="14" fill="none" stroke="#2DD4A7" stroke-width="1.2" opacity="0.9"/>
+        <circle cx="248" cy="48" r="10" fill="url(#flSpark)" filter="url(#flBlur)"/>
+        <circle cx="248" cy="48" r="6.5" fill="url(#flCore)"/>
+        <g stroke="#FFEAB0" stroke-width="1.2" stroke-linecap="round" opacity="0.9">
+          <line x1="248" y1="37" x2="248" y2="59"/><line x1="237" y1="48" x2="259" y2="48"/>
+          <line x1="241" y1="41" x2="255" y2="55"/><line x1="255" y1="41" x2="241" y2="55"/>
+        </g>
+      </g>
+      <path d="M274 48 C 320 48, 360 46, 404 44" fill="none" stroke="#2DD4A7" stroke-width="1.2" opacity="0.85"/>
+      <circle cx="406" cy="44" r="2.8" fill="#34D399"/>
+      <g transform="translate(96,44)"><circle class="flow-dot" r="2.2" fill="#7FE0C3" style="offset-path:path('M0 0 C 54 2, 84 4, 126 4')"/></g>
+      <g transform="translate(274,48)"><circle class="flow-dot d2" r="2.2" fill="#FFE9AE" style="offset-path:path('M0 0 C 46 0, 86 -2, 130 -4')"/></g>
+      <g transform="translate(418,12)">
+        <rect width="64" height="64" rx="14" fill="#0C211B" stroke="#1D9E75" stroke-width="0.9" opacity="0.9"/>
+        <g fill="none" stroke="#2DD4A7" stroke-width="1.5" stroke-linecap="round">
+          <rect x="20" y="14" width="24" height="34" rx="4"/>
+          <line x1="26" y1="24" x2="38" y2="24"/>
+          <line x1="26" y1="31" x2="38" y2="31" opacity="0.6"/>
+          <line x1="26" y1="38" x2="33" y2="38" opacity="0.6"/>
+        </g>
+      </g>
+      <rect x="0" y="94" width="560" height="3" fill="url(#flBase)"/>
+    </svg>
+  </div>
+
+    <section class="section">
+      <h2>Ce que « cachée » veut vraiment dire</h2>
+      <p>Rien de louche. Une page web moderne est une coquille légère qui, une fois chargée, appelle un ou plusieurs de ses propres endpoints backend pour récupérer le vrai contenu en JSON structuré. Ces endpoints ne sont « cachés » qu'au sens où ils ne sont ni documentés pour un usage externe ni affichés dans la barre d'adresse — mais votre propre navigateur les utilise à chaque ouverture de la page. Ils font partie de la façon dont le site public vous livre ses données publiques.</p>
+
+      <div class="note">
+        <strong>Le point clé :</strong> le JSON que la page reçoit est plus propre, plus stable et plus complet que le HTML qu'elle finit par afficher. La mise en page change constamment ; le contrat de données sous-jacent change beaucoup moins souvent.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Pourquoi l'appeler bat le parsing HTML</h2>
+      <ul class="check">
+        <li><strong>Stabilité.</strong> Une refonte peut réécrire toutes les classes CSS et casser un scraper HTML du jour au lendemain. Le champ JSON <code>price</code> tend à rester <code>price</code> refonte après refonte. Moins de pièces mobiles, moins de pannes à 2 h du matin.</li>
+        <li><strong>Données plus propres.</strong> Vous recevez des champs typés — les nombres en nombres, les dates en dates, des objets imbriqués — au lieu d'extraire du texte d'un balisage mis en forme puis de le re-parser. Moins de devinettes, moins de bugs de cas limites.</li>
+        <li><strong>Exhaustivité.</strong> L'endpoint renvoie souvent plus que ce que la page affiche : attributs supplémentaires, niveaux de stock, identifiants, métadonnées de pagination. Vous obtenez fréquemment des données plus riches que ce qui est visible.</li>
+        <li><strong>Efficacité.</strong> Un seul appel JSON peut renvoyer ce qui exigerait autrement le rendu d'une page complète avec images et scripts — soit une empreinte plus légère et plus respectueuse pour le site source.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Comment trouver une API cachée (DevTools, Network, XHR)</h2>
+      <p>Vous pouvez le faire vous-même dans n'importe quel navigateur, sur n'importe quelle page publique, en deux minutes :</p>
+      <ol>
+        <li>Ouvrez la page et appuyez sur <code>F12</code> (ou clic droit → Inspecter) pour ouvrir les DevTools.</li>
+        <li>Allez dans l'onglet <strong>Network</strong> et filtrez sur <strong>Fetch/XHR</strong>. Cela masque les images et les scripts pour ne montrer que les requêtes de données.</li>
+        <li>Rechargez la page, ou déclenchez l'action qui vous intéresse — paginer, chercher, ouvrir une annonce.</li>
+        <li>Observez les requêtes apparaître. Cliquez sur celles qui renvoient du JSON et regardez l'onglet <strong>Response</strong> / <strong>Preview</strong>.</li>
+        <li>Quand vous repérez la requête dont la réponse contient vos champs — les prix, les annonces, les résultats de recherche — vous avez trouvé l'API cachée. Notez son URL, sa méthode et les paramètres qu'elle accepte.</li>
+      </ol>
+      <p>À partir de là, le travail consiste à lire cet endpoint de façon fiable : les bons paramètres, une pagination sensée, un rythme de requêtes respectueux, et la gestion des cas où le site attend d'abord une vraie session de navigateur. Cette dernière partie est exactement ce que couvre mon <a href="/fr/guides/cloudflare-protected-public-sites.html">guide sur les sites publics protégés par Cloudflare</a>.</p>
+
+      <p>Je garde un point de départ fonctionnel en open source : voir le dépôt <a href="https://github.com/Massii-08/hidden-api-extraction-template">hidden-api-extraction-template</a> pour une structure propre sur laquelle construire.</p>
+    </section>
+
+    <section class="section">
+      <h2>Le faire de façon conforme</h2>
+      <p>Une API cachée reste l'infrastructure du site : les mêmes règles s'appliquent que pour tout accès à une source publique :</p>
+      <ul class="check">
+        <li>Lisez les <strong>conditions d'utilisation</strong> du site et respectez-les. Si elles interdisent l'accès automatisé, c'est un stop.</li>
+        <li>Respectez <code>robots.txt</code> et les limites de débit. Espacez vos requêtes ; ne martelez pas l'endpoint.</li>
+        <li>Tenez-vous-en aux <strong>données publiques, factuelles et non personnelles</strong> — des champs de catalogue et d'annonces, pas d'informations personnelles ni rien derrière une connexion.</li>
+        <li>Vous exploitez et possédez le flux qui en résulte. Je le construis pour qu'il soit un bon citoyen de la source.</li>
+      </ul>
+      <div class="note">
+        Il ne s'agit jamais de contourner quoi que ce soit. Une API cachée est simplement l'endroit le plus fiable pour lire des données publiques que le site sert déjà à chaque visiteur — utilisée de façon responsable, dans le respect des conditions et des limites de débit.
+      </div>
+    </section>
+  </article>
+
+  <div class="cta">
+    <h2 class="section-title">Pas sûr qu'un site ait une API cachée exploitable ?</h2>
+    <p class="muted">Envoyez-moi l'URL publique et les champs dont vous avez besoin. Mon Audit d'API cachée vous dit rapidement si un endpoint propre existe — et à quoi ressemblerait un flux construit dessus.</p>
+    <a class="btn btn-primary" href="/fr/#contact">Demander une étude de faisabilité gratuite</a>
+  </div>
+</main>
+
+<footer class="footer"><div class="container footer-inner">
+  <div><strong>Feedsmith</strong> — des flux de données fiables issus de sources publiques.
+    <div class="muted small">Sources publiques uniquement · données factuelles / non-PII · vous exploitez et possédez les données.</div></div>
+  <nav class="footer-links">
+    <a href="/fr/">Accueil</a><a href="/fr/#offers">Offres</a><a href="/fr/#guides">Guides</a>
+    <a href="https://github.com/Massii-08">GitHub</a>
+    <span class="lang-switch"><a href="/guides/what-is-a-hidden-api.html">EN</a> · <a href="/de/guides/what-is-a-hidden-api.html">DE</a> · <a href="/fr/guides/what-is-a-hidden-api.html">FR</a> · <a href="/it/guides/what-is-a-hidden-api.html">IT</a></span>
+  </nav>
+</div></footer>
+</body>
+</html>

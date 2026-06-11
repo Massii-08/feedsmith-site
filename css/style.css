@@ -171,11 +171,15 @@ h1::before{
 }
 .hero-art svg{width:100%;height:auto;}
 
-/* forge-motif micro-life (gated below by reduced-motion) */
-.forge-motif .spark-pulse{transform-origin:center;transform-box:fill-box;animation:sparkPulse 3.2s ease-in-out infinite;}
-.forge-motif .flow-dot{animation:flowDot 4.5s linear infinite;}
-.forge-motif .flow-dot.d2{animation-delay:1.5s;}
-.forge-motif .flow-dot.d3{animation-delay:3s;}
+/* forge micro-life — shared by the hero motif and the forge-line ornaments
+   (gated below by reduced-motion) */
+.spark-pulse{transform-origin:center;transform-box:fill-box;animation:sparkPulse 3.2s ease-in-out infinite;}
+.flow-dot{animation:flowDot 4.5s linear infinite;}
+.flow-dot.d2{animation-delay:1.5s;}
+.flow-dot.d3{animation-delay:3s;}
+.forge-line .flow-dot{animation-duration:3.6s;}
+.forge-line .flow-dot.d2{animation-delay:1.8s;}
+.live-dot{animation:livePulse 2.2s ease-in-out infinite;}
 @keyframes sparkPulse{
   0%,100%{opacity:.85;transform:scale(1);}
   50%{opacity:1;transform:scale(1.12);}
@@ -185,6 +189,10 @@ h1::before{
   8%{opacity:.9;}
   88%{opacity:.9;}
   100%{offset-distance:100%;opacity:0;}
+}
+@keyframes livePulse{
+  0%,100%{opacity:1;}
+  50%{opacity:.45;}
 }
 
 /* ---------- Forge ornament (offer / guide heroes) ---------- */
@@ -537,5 +545,5 @@ footer.footer::before{
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important;animation:none!important;scroll-behavior:auto!important;}
-  .forge-motif .flow-dot{display:none;}
+  .flow-dot{display:none;}
 }

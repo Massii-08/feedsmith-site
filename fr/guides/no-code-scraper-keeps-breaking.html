@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pourquoi votre scraper no-code casse en boucle (et ce qui le corrige vraiment) — Feedsmith</title>
+  <meta name="description" content="Les scrapers no-code cassent sur les changements de layout, les données rendues en JS, les contrôles d'empreinte et les limites de débit. Voici pourquoi ça arrive sur des données publiques — et le dispositif maintenu qui garde un flux vraiment fiable.">
+  <link rel="canonical" href="https://feedsmith.net/fr/guides/no-code-scraper-keeps-breaking.html">
+  <link rel="alternate" hreflang="en" href="https://feedsmith.net/guides/no-code-scraper-keeps-breaking.html">
+  <link rel="alternate" hreflang="de" href="https://feedsmith.net/de/guides/no-code-scraper-keeps-breaking.html">
+  <link rel="alternate" hreflang="fr" href="https://feedsmith.net/fr/guides/no-code-scraper-keeps-breaking.html">
+  <link rel="alternate" hreflang="it" href="https://feedsmith.net/it/guides/no-code-scraper-keeps-breaking.html">
+  <link rel="alternate" hreflang="x-default" href="https://feedsmith.net/guides/no-code-scraper-keeps-breaking.html">
+  <meta property="og:title" content="Pourquoi votre scraper no-code casse en boucle (et ce qui le corrige vraiment)">
+  <meta property="og:description" content="Les scrapers no-code cassent sur les changements de layout, les données rendues en JS, les contrôles d'empreinte et les limites de débit. Voici le dispositif maintenu qui assure la fiabilité d'un flux issu de sources publiques.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://feedsmith.net/assets/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#05100C">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css?v=5">
+</head>
+<body>
+<header class="nav"><div class="container nav-inner">
+  <a class="brand" href="/fr/"><span class="brand-mark">◆</span> Feedsmith</a>
+  <nav class="nav-links">
+    <a href="/fr/#offers">Offres</a>
+    <a href="/fr/#guides">Guides</a>
+    <a href="/fr/#portfolio">Portfolio</a>
+    <a class="btn btn-primary btn-sm" href="/fr/#contact">Étude de faisabilité gratuite</a>
+  </nav>
+</div></header>
+
+<main class="container">
+  <nav class="breadcrumb">
+    <a href="/fr/">Accueil</a> / <a href="/fr/#guides">Guides</a> / <span>Pourquoi votre scraper no-code casse en boucle</span>
+  </nav>
+
+  <article>
+    <p class="eyebrow">Guide</p>
+    <h1>Pourquoi votre scraper no-code casse en boucle (et ce qui le corrige vraiment)</h1>
+    <p class="lead">Les scrapers no-code sont parfaits pour une preuve de concept rapide. Mais un flux dont vous dépendez vraiment a tendance à casser quelques semaines plus tard — en silence, au pire moment. Voici pourquoi ça arrive quand vous extrayez depuis des sources publiques, et le dispositif maintenu qui fait que les données continuent d'arriver.</p>
+
+    <div class="forge-line" aria-hidden="true">
+    <svg viewBox="0 0 560 100" xmlns="http://www.w3.org/2000/svg" focusable="false">
+      <defs>
+        <radialGradient id="flGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#52E6BE" stop-opacity="0.85"/><stop offset="45%" stop-color="#2DD4A7" stop-opacity="0.30"/><stop offset="100%" stop-color="#2DD4A7" stop-opacity="0"/></radialGradient>
+        <radialGradient id="flCore" cx="50%" cy="42%" r="60%"><stop offset="0%" stop-color="#D7FBEF"/><stop offset="45%" stop-color="#34D399"/><stop offset="100%" stop-color="#0F6E56"/></radialGradient>
+        <radialGradient id="flSpark" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFE9AE" stop-opacity="0.95"/><stop offset="55%" stop-color="#F6C667" stop-opacity="0.4"/><stop offset="100%" stop-color="#F6C667" stop-opacity="0"/></radialGradient>
+        <linearGradient id="flBase" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0F6E56" stop-opacity="0"/><stop offset="25%" stop-color="#2DD4A7" stop-opacity="0.5"/><stop offset="62%" stop-color="#0F6E56" stop-opacity="0.22"/><stop offset="100%" stop-color="#0F6E56" stop-opacity="0"/></linearGradient>
+        <filter id="flBlur" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6"/></filter>
+      </defs>
+      <g transform="translate(4,14) rotate(-3)">
+        <rect width="88" height="58" rx="8" fill="#0B1813" stroke="#2C3D36" stroke-width="0.8"/>
+        <circle cx="11" cy="11" r="2.2" fill="#2C3D36"/><circle cx="20" cy="11" r="2.2" fill="#2C3D36"/>
+        <line x1="11" y1="27" x2="74" y2="27" stroke="#33453F" stroke-width="2.5" stroke-dasharray="9 6"/>
+        <line x1="11" y1="40" x2="62" y2="40" stroke="#33453F" stroke-width="2.5" stroke-dasharray="6 6"/>
+      </g>
+      <path d="M96 44 C 150 46, 180 48, 222 48" fill="none" stroke="#3A4F47" stroke-width="1.1" opacity="0.85"/>
+      <circle cx="248" cy="48" r="26" fill="url(#flGlow)" filter="url(#flBlur)"/>
+      <g class="spark-pulse">
+        <circle cx="248" cy="48" r="14" fill="none" stroke="#2DD4A7" stroke-width="1.2" opacity="0.9"/>
+        <circle cx="248" cy="48" r="10" fill="url(#flSpark)" filter="url(#flBlur)"/>
+        <circle cx="248" cy="48" r="6.5" fill="url(#flCore)"/>
+        <g stroke="#FFEAB0" stroke-width="1.2" stroke-linecap="round" opacity="0.9">
+          <line x1="248" y1="37" x2="248" y2="59"/><line x1="237" y1="48" x2="259" y2="48"/>
+          <line x1="241" y1="41" x2="255" y2="55"/><line x1="255" y1="41" x2="241" y2="55"/>
+        </g>
+      </g>
+      <path d="M274 48 C 320 48, 360 46, 404 44" fill="none" stroke="#2DD4A7" stroke-width="1.2" opacity="0.85"/>
+      <circle cx="406" cy="44" r="2.8" fill="#34D399"/>
+      <g transform="translate(96,44)"><circle class="flow-dot" r="2.2" fill="#7FE0C3" style="offset-path:path('M0 0 C 54 2, 84 4, 126 4')"/></g>
+      <g transform="translate(274,48)"><circle class="flow-dot d2" r="2.2" fill="#FFE9AE" style="offset-path:path('M0 0 C 46 0, 86 -2, 130 -4')"/></g>
+      <g transform="translate(418,12)">
+        <rect width="64" height="64" rx="14" fill="#0C211B" stroke="#1D9E75" stroke-width="0.9" opacity="0.9"/>
+        <g fill="none" stroke="#2DD4A7" stroke-width="1.5" stroke-linecap="round">
+          <rect x="20" y="14" width="24" height="34" rx="4"/>
+          <line x1="26" y1="24" x2="38" y2="24"/>
+          <line x1="26" y1="31" x2="38" y2="31" opacity="0.6"/>
+          <line x1="26" y1="38" x2="33" y2="38" opacity="0.6"/>
+        </g>
+      </g>
+      <rect x="0" y="94" width="560" height="3" fill="url(#flBase)"/>
+    </svg>
+  </div>
+
+    <section class="section">
+      <h2>Les quatre façons dont un scraper no-code casse</h2>
+
+      <h3>1. Le layout de la page a changé</h3>
+      <p>La plupart des outils point-and-click fonctionnent en mémorisant la position d'un élément dans la page : « le prix est le troisième span dans ce div ». Dès que le site déploie une refonte — ou même un petit test A/B — ce chemin ne pointe plus vers le prix. Le scraper ne renvoie pas d'erreur ; il retourne tranquillement la mauvaise cellule, ou rien du tout. Vous ne le remarquez que lorsqu'un rapport en aval semble faux. Les catalogues publics et les portails d'annonces changent leur markup en permanence : un sélecteur basé sur la position est la fondation la plus fragile qui soit pour un flux.</p>
+
+      <h3>2. Les données sont rendues par JavaScript</h3>
+      <p>Beaucoup de sites modernes envoient une coquille HTML quasi vide, puis chargent le vrai contenu en JavaScript après le chargement de la page. Un outil qui se contente de récupérer le HTML voit la coquille et conclut qu'il n'y a « aucune donnée ». Les valeurs sont pourtant publiques et visibles dans un navigateur normal — elles arrivent simplement un cran après le moment où l'outil regarde. Sans une vraie étape de rendu (ou une approche plus maligne, voir plus bas), vous obtenez des champs vides qui vont et viennent selon le timing.</p>
+
+      <h3>3. Le handshake a l'air automatisé</h3>
+      <p>Certains sites publics inspectent la signature technique du client qui se connecte — le handshake TLS et les en-têtes qu'un navigateur présente — avant de rendre quoi que ce soit. Une bibliothèque de script par défaut a une signature qui ne correspond pas à un vrai navigateur, donc le serveur renvoie une page vide ou minimale. Ce n'est ni un mur de connexion ni un CAPTCHA ; c'est le site qui décide que la requête ne ressemblait pas à un visiteur normal. La solution : lire la page publique avec une session navigateur à l'empreinte correcte, à un rythme respectueux, comme le ferait un visiteur ordinaire. (J'en parle en détail dans le <a href="/fr/guides/cloudflare-protected-public-sites.html">guide sur les sites publics protégés par Cloudflare</a>.)</p>
+
+      <h3>4. Limites de débit et problèmes d'IP</h3>
+      <p>Envoyez trop de requêtes trop vite depuis une même adresse, et un site public se mettra à brider vos requêtes ou à renvoyer des erreurs — à juste titre. Les outils no-code offrent rarement un contrôle fin du rythme, des nouvelles tentatives ou du back-off progressif. Un flux qui fonctionnait à cinq pages par jour s'effondre donc le jour où vous passez à cinq cents. Respecter <code>robots.txt</code>, honorer le crawl-delay et étaler les requêtes n'est pas optionnel ; c'est ce qui garde l'accès stable sur la durée.</p>
+    </section>
+
+    <section class="section">
+      <h2>Ce qui le corrige vraiment</h2>
+      <p>La fiabilité sur des données publiques n'est pas une astuce unique — c'est un petit système qui s'attend au changement et l'absorbe.</p>
+
+      <ul class="check">
+        <li><strong>Un scraper maintenu, pas un scraper figé.</strong> Des sélecteurs écrits de façon défensive (qui ciblent du texte et une structure stables, pas des positions fragiles), plus quelqu'un qui les répare quand le site déploie une refonte. Un flux est une relation, pas un export ponctuel.</li>
+        <li><strong>Utiliser une API cachée quand elle existe.</strong> Beaucoup de sites qui rendent leur contenu en JavaScript appellent discrètement leur propre endpoint JSON pour récupérer les données. Lire cet endpoint est radicalement plus stable que parser du HTML, car les champs JSON changent bien moins souvent que le layout visuel. Voir <a href="/fr/guides/what-is-a-hidden-api.html">ce qu'est une API cachée</a>.</li>
+        <li><strong>Une session navigateur à l'empreinte correcte</strong> pour les sites qui contrôlent le handshake avant le rendu — afin que la page publique se charge comme pour n'importe quel visiteur, à un rythme courtois.</li>
+        <li><strong>Monitoring et alertes.</strong> La plus grande différence entre un scraper amateur et un flux fiable : le flux vous prévient dès qu'un champ se vide ou que le nombre de lignes chute — avant que ça n'atteigne votre dashboard. Le vrai ennemi, c'est la panne silencieuse.</li>
+        <li><strong>Une discipline de débit par conception.</strong> Rythme, nouvelles tentatives avec back-off et respect de <code>robots.txt</code> intégrés d'origine, pour que l'accès reste sain quand le volume augmente.</li>
+      </ul>
+
+      <div class="note">
+        <strong>Le principe derrière tout ça :</strong> je me concentre sur <em>la fiabilité, sur des données publiques et factuelles</em> — prix produits, champs d'annonces, entrées de catalogues publics. Vous exploitez et possédez les données produites. Je travaille dans le cadre des conditions et des limites de débit de chaque site, et je ne touche jamais aux informations personnelles ni à celles accessibles après connexion.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Quand arrêter de rafistoler et passer à un vrai flux</h2>
+      <p>Si vous avez reconstruit le même flow no-code trois fois ce trimestre, le problème n'est pas l'outil — c'est l'approche. Un scraper maintenu, avec une API cachée quand elle existe, du monitoring et des limites de débit raisonnables, transforme un export capricieux en une base sur laquelle construire sereinement. C'est tout l'intérêt d'un flux de données géré : vous arrêtez d'y penser.</p>
+    </section>
+  </article>
+
+  <div class="cta">
+    <h2 class="section-title">Fatigué d'un flux qui casse ?</h2>
+    <p class="muted">Envoyez-moi l'URL publique et ce dont vous avez besoin. Je vous dis gratuitement si un flux maintenu est faisable, et ce que ça demanderait.</p>
+    <a class="btn btn-primary" href="/fr/#contact">Demander une étude de faisabilité gratuite</a>
+  </div>
+</main>
+
+<footer class="footer"><div class="container footer-inner">
+  <div><strong>Feedsmith</strong> — des flux de données fiables issus de sources publiques.
+    <div class="muted small">Sources publiques uniquement · données factuelles / non-PII · vous exploitez et possédez les données.</div></div>
+  <nav class="footer-links">
+    <a href="/fr/">Accueil</a><a href="/fr/#offers">Offres</a><a href="/fr/#guides">Guides</a>
+    <a href="https://github.com/Massii-08">GitHub</a>
+    <span class="lang-switch"><a href="/guides/no-code-scraper-keeps-breaking.html">EN</a> · <a href="/de/guides/no-code-scraper-keeps-breaking.html">DE</a> · <a href="/fr/guides/no-code-scraper-keeps-breaking.html">FR</a> · <a href="/it/guides/no-code-scraper-keeps-breaking.html">IT</a></span>
+  </nav>
+</div></footer>
+</body>
+</html>

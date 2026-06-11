@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITLE}}</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <link rel="canonical" href="{{CANONICAL}}">
+{{ALTERNATES}}
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://feedsmith.net/assets/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#05100C">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css?v=5">
+</head>
+<body>
+<header class="nav"><div class="container nav-inner">
+  <a class="brand" href="/fr/"><span class="brand-mark">◆</span> Feedsmith</a>
+  <nav class="nav-links">
+    <a href="/fr/#offers">Offres</a>
+    <a href="/fr/#guides">Guides</a>
+    <a href="/fr/#portfolio">Portfolio</a>
+    <a class="btn btn-primary btn-sm" href="/fr/#contact">Étude de faisabilité gratuite</a>
+  </nav>
+</div></header>
+
+<main class="container">
+  <nav class="breadcrumb">
+    <a href="/fr/">Accueil</a> / <a href="/fr/#offers">Scrape</a> / <span>{{SITE}}</span>
+  </nav>
+
+  <article>
+    <p class="eyebrow">{{VERTICAL}}</p>
+    <h1>{{H1}}</h1>
+    <p class="lead">{{BODY_INTRO}}</p>
+
+    <section class="section">
+      <h2>Les données que vous pouvez obtenir depuis {{SITE}}</h2>
+      <p>Je construis un flux fiable et maintenu de champs publics et factuels : {{WHAT_DATA}}. Les données sont lues sur des pages et endpoints déjà servis par {{SITE}} aux visiteurs ordinaires — aucun contenu derrière connexion, aucune information personnelle.</p>
+      <ul class="check">
+        <li>Un scraper maintenu qui survit aux changements de layout, avec une API cachée utilisée quand elle existe.</li>
+        <li>Uniquement des champs publics, factuels et non-PII — vous exploitez et possédez les données.</li>
+        <li>Le respect des conditions d'utilisation du site, du <code>robots.txt</code> et des limites de débit, dès la conception.</li>
+        <li>Un monitoring qui vous signale un champ vide ou une baisse du nombre de lignes avant que votre dashboard ne s'en aperçoive.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Comment je maintiens un flux {{VERTICAL}} fiable</h2>
+      <p>Les sources du secteur {{VERTICAL}} changent souvent de markup, alors j'écris du code défensif, je privilégie l'endpoint JSON interne plutôt que le parsing HTML fragile, et j'espace les requêtes comme un visiteur courtois. Le résultat : un flux sur lequel construire sereinement, au lieu d'un export ponctuel qui casse le mois prochain. Vous découvrez le sujet ? Commencez par mes guides sur <a href="/fr/guides/what-is-a-hidden-api.html">les API cachées</a> et <a href="/fr/guides/no-code-scraper-keeps-breaking.html">pourquoi les scrapers no-code cassent en boucle</a>.</p>
+      <div class="note">
+        <strong>La conformité d'abord.</strong> Mon travail porte sur la fiabilité de données publiques — jamais sur le contournement de protections. Si les conditions d'un site interdisent l'accès automatisé, je m'arrête là.
+      </div>
+    </section>
+  </article>
+
+  <div class="cta">
+    <h2 class="section-title">Vous voulez un flux depuis {{SITE}} ?</h2>
+    <p class="muted">Envoyez-moi l'URL publique et les champs dont vous avez besoin. Je vous dis, gratuitement, si un flux conforme et maintenu est faisable.</p>
+    <a class="btn btn-primary" href="/fr/#contact">Demander une étude de faisabilité gratuite</a>
+  </div>
+</main>
+
+<footer class="footer"><div class="container footer-inner">
+  <div><strong>Feedsmith</strong> — des flux de données fiables issus de sources publiques.
+    <div class="muted small">Sources publiques uniquement · données factuelles / non-PII · vous exploitez et possédez les données.</div></div>
+  <nav class="footer-links">
+    <a href="/fr/">Accueil</a><a href="/fr/#offers">Offres</a><a href="/fr/#guides">Guides</a>
+    <a href="https://github.com/Massii-08">GitHub</a>
+    <span class="lang-switch">{{LANGSWITCH}}</span>
+  </nav>
+</div></footer>
+</body>
+</html>

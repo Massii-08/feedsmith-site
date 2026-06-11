@@ -110,7 +110,7 @@ FR = {
     # offers
     '<div class="kick">Offers</div>': '<div class="kick">Offres</div>',
     '<h2 class="section-title">Start small. Scale to a maintained feed.</h2>': '<h2 class="section-title">Commencez petit. Passez à un flux maintenu.</h2>',
-    'Begin with a low-risk audit, get a one-off dataset, or hand the upkeep to me with a managed feed.': "Démarrez par un audit sans risque, recevez un export ponctuel, ou confiez-moi la maintenance avec un flux géré. Pages de détail en anglais.",
+    'Begin with a low-risk audit, get a one-off dataset, or hand the upkeep to me with a managed feed.': "Démarrez par un audit sans risque, recevez un export ponctuel, ou confiez-moi la maintenance avec un flux géré.",
     '<h3>Hidden-API Audit</h3>': "<h3>Audit d'API cachée</h3>",
     'I check one public site, find the cleanest data route, and send you ~50 real sample rows. A low-risk way to start.': "J'examine un site public, j'identifie la voie d'accès la plus propre et je vous envoie ~50 lignes d'échantillon réelles. Le point de départ sans risque.",
     '<div class="price">From €150<small> &nbsp;fixed</small></div>': '<div class="price">Dès 150 €<small> &nbsp;fixe</small></div>',
@@ -156,11 +156,11 @@ FR = {
     '<div class="kick">Guides</div>': '<div class="kick">Guides</div>',
     '<h2 class="section-title">The why behind the work.</h2>': '<h2 class="section-title">Le pourquoi derrière le travail.</h2>',
     '<h3>Why your no-code scraper keeps breaking</h3>': '<h3>Pourquoi votre scraper no-code casse en boucle</h3>',
-    'Layout changes, JS-rendered data, fingerprint checks — and what actually fixes them.': "Changements de layout, données rendues en JS, contrôles d'empreinte — et ce qui les corrige vraiment. (Guide en anglais.)",
+    'Layout changes, JS-rendered data, fingerprint checks — and what actually fixes them.': "Changements de layout, données rendues en JS, contrôles d'empreinte — et ce qui les corrige vraiment.",
     '<h3>What is a hidden API</h3>': '<h3>Qu\'est-ce qu\'une API cachée</h3>',
-    'The internal JSON endpoints behind a page — and why calling them beats HTML parsing.': "Les endpoints JSON internes derrière une page — et pourquoi les appeler bat le parsing HTML. (Guide en anglais.)",
+    'The internal JSON endpoints behind a page — and why calling them beats HTML parsing.': "Les endpoints JSON internes derrière une page — et pourquoi les appeler bat le parsing HTML.",
     '<h3>Cloudflare-protected public sites</h3>': '<h3>Sites publics protégés par Cloudflare</h3>',
-    'Empty pages are usually a TLS fingerprint check, not a CAPTCHA — the compliant way to read them.': "Une page vide est souvent un contrôle d'empreinte TLS, pas un CAPTCHA — la façon conforme de les lire. (Guide en anglais.)",
+    'Empty pages are usually a TLS fingerprint check, not a CAPTCHA — the compliant way to read them.': "Une page vide est souvent un contrôle d'empreinte TLS, pas un CAPTCHA — la façon conforme de les lire.",
     '<span class="more">Read the guide →</span>': '<span class="more">Lire le guide →</span>',
     # contact CTA
     '<h2>Get a free feasibility check</h2>': '<h2>Demandez une étude de faisabilité gratuite</h2>',
@@ -216,7 +216,7 @@ DE = {
     'Sample data, public sources only. Factual / non-personal fields. robots.txt and sensible rate limits respected. You operate and own the feed.': "Beispieldaten, nur öffentliche Quellen. Faktische / nicht personenbezogene Felder. robots.txt und Rate-Limits respektiert. Sie betreiben und besitzen den Feed.",
     '<div class="kick">Offers</div>': '<div class="kick">Leistungen</div>',
     '<h2 class="section-title">Start small. Scale to a maintained feed.</h2>': '<h2 class="section-title">Klein starten. Zum betreuten Feed ausbauen.</h2>',
-    'Begin with a low-risk audit, get a one-off dataset, or hand the upkeep to me with a managed feed.': "Beginnen Sie mit einem risikoarmen Audit, holen Sie sich einen einmaligen Datensatz — oder geben Sie die Wartung mit einem betreuten Feed an mich ab. Detailseiten auf Englisch.",
+    'Begin with a low-risk audit, get a one-off dataset, or hand the upkeep to me with a managed feed.': "Beginnen Sie mit einem risikoarmen Audit, holen Sie sich einen einmaligen Datensatz — oder geben Sie die Wartung mit einem betreuten Feed an mich ab.",
     '<h3>Hidden-API Audit</h3>': '<h3>Hidden-API-Audit</h3>',
     'I check one public site, find the cleanest data route, and send you ~50 real sample rows. A low-risk way to start.': "Ich prüfe eine öffentliche Website, finde den saubersten Datenweg und sende Ihnen ~50 echte Beispielzeilen. Der risikoarme Einstieg.",
     '<div class="price">From €150<small> &nbsp;fixed</small></div>': '<div class="price">Ab 150 €<small> &nbsp;fix</small></div>',
@@ -257,11 +257,11 @@ DE = {
     '<span class="more">View on GitHub ↗</span>': '<span class="more">Auf GitHub ansehen ↗</span>',
     '<h2 class="section-title">The why behind the work.</h2>': '<h2 class="section-title">Das Warum hinter der Arbeit.</h2>',
     '<h3>Why your no-code scraper keeps breaking</h3>': '<h3>Warum Ihr No-Code-Scraper immer wieder bricht</h3>',
-    'Layout changes, JS-rendered data, fingerprint checks — and what actually fixes them.': "Layout-Änderungen, JS-gerenderte Daten, Fingerprint-Checks — und was wirklich hilft. (Guide auf Englisch.)",
+    'Layout changes, JS-rendered data, fingerprint checks — and what actually fixes them.': "Layout-Änderungen, JS-gerenderte Daten, Fingerprint-Checks — und was wirklich hilft.",
     '<h3>What is a hidden API</h3>': '<h3>Was ist eine Hidden API</h3>',
-    'The internal JSON endpoints behind a page — and why calling them beats HTML parsing.': "Die internen JSON-Endpunkte hinter einer Seite — und warum sie das HTML-Parsing schlagen. (Guide auf Englisch.)",
+    'The internal JSON endpoints behind a page — and why calling them beats HTML parsing.': "Die internen JSON-Endpunkte hinter einer Seite — und warum sie das HTML-Parsing schlagen.",
     '<h3>Cloudflare-protected public sites</h3>': '<h3>Cloudflare-geschützte öffentliche Seiten</h3>',
-    'Empty pages are usually a TLS fingerprint check, not a CAPTCHA — the compliant way to read them.': "Leere Seiten sind meist ein TLS-Fingerprint-Check, kein CAPTCHA — der regelkonforme Weg, sie zu lesen. (Guide auf Englisch.)",
+    'Empty pages are usually a TLS fingerprint check, not a CAPTCHA — the compliant way to read them.': "Leere Seiten sind meist ein TLS-Fingerprint-Check, kein CAPTCHA — der regelkonforme Weg, sie zu lesen.",
     '<span class="more">Read the guide →</span>': '<span class="more">Guide lesen →</span>',
     '<h2>Get a free feasibility check</h2>': '<h2>Kostenlose Machbarkeitsprüfung anfragen</h2>',
     "Tell me the public site and the data you need. I'll tell you if it's doable, how, and in which language.": "Nennen Sie mir die öffentliche Website und die Daten, die Sie brauchen. Ich sage Ihnen, ob es machbar ist, wie — und in welcher Sprache.",
@@ -315,7 +315,7 @@ IT = {
     'Sample data, public sources only. Factual / non-personal fields. robots.txt and sensible rate limits respected. You operate and own the feed.': "Dati di esempio, solo fonti pubbliche. Campi fattuali / non personali. robots.txt e limiti di frequenza rispettati. Tu gestisci e possiedi il feed.",
     '<div class="kick">Offers</div>': '<div class="kick">Servizi</div>',
     '<h2 class="section-title">Start small. Scale to a maintained feed.</h2>': '<h2 class="section-title">Parti in piccolo. Passa a un feed mantenuto.</h2>',
-    'Begin with a low-risk audit, get a one-off dataset, or hand the upkeep to me with a managed feed.': "Inizia con un audit a basso rischio, ottieni un'estrazione una tantum, oppure affidami la manutenzione con un feed gestito. Pagine di dettaglio in inglese.",
+    'Begin with a low-risk audit, get a one-off dataset, or hand the upkeep to me with a managed feed.': "Inizia con un audit a basso rischio, ottieni un'estrazione una tantum, oppure affidami la manutenzione con un feed gestito.",
     '<h3>Hidden-API Audit</h3>': '<h3>Audit di API nascosta</h3>',
     'I check one public site, find the cleanest data route, and send you ~50 real sample rows. A low-risk way to start.': "Esamino un sito pubblico, trovo la via d'accesso più pulita e ti invio ~50 righe di esempio reali. Il punto di partenza a basso rischio.",
     '<div class="price">From €150<small> &nbsp;fixed</small></div>': '<div class="price">Da 150 €<small> &nbsp;fisso</small></div>',
@@ -357,11 +357,11 @@ IT = {
     '<div class="kick">Guides</div>': '<div class="kick">Guide</div>',
     '<h2 class="section-title">The why behind the work.</h2>': '<h2 class="section-title">Il perché dietro il lavoro.</h2>',
     '<h3>Why your no-code scraper keeps breaking</h3>': '<h3>Perché il tuo scraper no-code continua a rompersi</h3>',
-    'Layout changes, JS-rendered data, fingerprint checks — and what actually fixes them.': "Cambi di layout, dati renderizzati in JS, controlli di fingerprint — e cosa li risolve davvero. (Guida in inglese.)",
+    'Layout changes, JS-rendered data, fingerprint checks — and what actually fixes them.': "Cambi di layout, dati renderizzati in JS, controlli di fingerprint — e cosa li risolve davvero.",
     '<h3>What is a hidden API</h3>': '<h3>Che cos\'è una API nascosta</h3>',
-    'The internal JSON endpoints behind a page — and why calling them beats HTML parsing.': "Gli endpoint JSON interni dietro una pagina — e perché chiamarli batte il parsing dell'HTML. (Guida in inglese.)",
+    'The internal JSON endpoints behind a page — and why calling them beats HTML parsing.': "Gli endpoint JSON interni dietro una pagina — e perché chiamarli batte il parsing dell'HTML.",
     '<h3>Cloudflare-protected public sites</h3>': '<h3>Siti pubblici protetti da Cloudflare</h3>',
-    'Empty pages are usually a TLS fingerprint check, not a CAPTCHA — the compliant way to read them.': "Le pagine vuote di solito sono un controllo dell'impronta TLS, non un CAPTCHA — il modo conforme di leggerle. (Guida in inglese.)",
+    'Empty pages are usually a TLS fingerprint check, not a CAPTCHA — the compliant way to read them.': "Le pagine vuote di solito sono un controllo dell'impronta TLS, non un CAPTCHA — il modo conforme di leggerle.",
     '<span class="more">Read the guide →</span>': '<span class="more">Leggi la guida →</span>',
     '<h2>Get a free feasibility check</h2>': '<h2>Richiedi uno studio di fattibilità gratuito</h2>',
     "Tell me the public site and the data you need. I'll tell you if it's doable, how, and in which language.": "Indicami il sito pubblico e i dati che ti servono. Ti dico se è fattibile, come, e in quale lingua.",
@@ -417,6 +417,9 @@ def build(lang: str, texts: dict, head: dict) -> None:
         )
     for old, new in texts.items():
         out = out.replace(old, new)
+    # detail pages exist in every language now — link to the localized versions
+    out = out.replace('href="/offers/', f'href="/{lang}/offers/')
+    out = out.replace('href="/guides/', f'href="/{lang}/guides/')
     dest = ROOT / lang / "index.html"
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(out, encoding="utf-8")

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estrarre dati da siti pubblici protetti da Cloudflare (in modo conforme) — Feedsmith</title>
+  <meta name="description" content="Le pagine vuote da un sito protetto da Cloudflare sono spesso un controllo dell'impronta TLS prima del rendering, non un CAPTCHA. Ecco come una sessione browser con l'impronta corretta legge le pagine pubbliche come un normale visitatore — nel rispetto dei termini di servizio e di robots.txt.">
+  <link rel="canonical" href="https://feedsmith.net/it/guides/cloudflare-protected-public-sites.html">
+  <link rel="alternate" hreflang="en" href="https://feedsmith.net/guides/cloudflare-protected-public-sites.html">
+  <link rel="alternate" hreflang="de" href="https://feedsmith.net/de/guides/cloudflare-protected-public-sites.html">
+  <link rel="alternate" hreflang="fr" href="https://feedsmith.net/fr/guides/cloudflare-protected-public-sites.html">
+  <link rel="alternate" hreflang="it" href="https://feedsmith.net/it/guides/cloudflare-protected-public-sites.html">
+  <link rel="alternate" hreflang="x-default" href="https://feedsmith.net/guides/cloudflare-protected-public-sites.html">
+  <meta property="og:title" content="Estrarre dati da siti pubblici protetti da Cloudflare (in modo conforme)">
+  <meta property="og:description" content="Le pagine vuote sono spesso un controllo dell'impronta TLS prima del rendering, non un CAPTCHA. Come una sessione browser con l'impronta corretta legge le pagine pubbliche come un normale visitatore — nel rispetto dei termini di servizio e di robots.txt.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://feedsmith.net/assets/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#05100C">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css?v=5">
+</head>
+<body>
+<header class="nav"><div class="container nav-inner">
+  <a class="brand" href="/it/"><span class="brand-mark">◆</span> Feedsmith</a>
+  <nav class="nav-links">
+    <a href="/it/#offers">Servizi</a>
+    <a href="/it/#guides">Guide</a>
+    <a href="/it/#portfolio">Portfolio</a>
+    <a class="btn btn-primary btn-sm" href="/it/#contact">Studio di fattibilità gratuito</a>
+  </nav>
+</div></header>
+
+<main class="container">
+  <nav class="breadcrumb">
+    <a href="/it/">Home</a> / <a href="/it/#guides">Guide</a> / <span>Siti pubblici protetti da Cloudflare</span>
+  </nav>
+
+  <article>
+    <p class="eyebrow">Guida</p>
+    <h1>Estrarre dati da siti pubblici protetti da Cloudflare (in modo conforme)</h1>
+    <p class="lead">Apri un catalogo pubblico o una pagina di annunci nel browser e i dati sono lì. Il tuo script scarica lo stesso URL e riceve una pagina vuota. La conclusione abituale — &ldquo;è bloccato da un CAPTCHA&rdquo; — è spesso sbagliata. Più spesso si tratta di un controllo tecnico dell'impronta che avviene prima del rendering della pagina. Ecco cosa succede davvero, e come leggere quelle pagine pubbliche in modo conforme.</p>
+
+    <div class="forge-line" aria-hidden="true">
+    <svg viewBox="0 0 560 100" xmlns="http://www.w3.org/2000/svg" focusable="false">
+      <defs>
+        <radialGradient id="flGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#52E6BE" stop-opacity="0.85"/><stop offset="45%" stop-color="#2DD4A7" stop-opacity="0.30"/><stop offset="100%" stop-color="#2DD4A7" stop-opacity="0"/></radialGradient>
+        <radialGradient id="flCore" cx="50%" cy="42%" r="60%"><stop offset="0%" stop-color="#D7FBEF"/><stop offset="45%" stop-color="#34D399"/><stop offset="100%" stop-color="#0F6E56"/></radialGradient>
+        <radialGradient id="flSpark" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFE9AE" stop-opacity="0.95"/><stop offset="55%" stop-color="#F6C667" stop-opacity="0.4"/><stop offset="100%" stop-color="#F6C667" stop-opacity="0"/></radialGradient>
+        <linearGradient id="flBase" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0F6E56" stop-opacity="0"/><stop offset="25%" stop-color="#2DD4A7" stop-opacity="0.5"/><stop offset="62%" stop-color="#0F6E56" stop-opacity="0.22"/><stop offset="100%" stop-color="#0F6E56" stop-opacity="0"/></linearGradient>
+        <filter id="flBlur" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6"/></filter>
+      </defs>
+      <g transform="translate(4,14) rotate(-3)">
+        <rect width="88" height="58" rx="8" fill="#0B1813" stroke="#2C3D36" stroke-width="0.8"/>
+        <circle cx="11" cy="11" r="2.2" fill="#2C3D36"/><circle cx="20" cy="11" r="2.2" fill="#2C3D36"/>
+        <line x1="11" y1="27" x2="74" y2="27" stroke="#33453F" stroke-width="2.5" stroke-dasharray="9 6"/>
+        <line x1="11" y1="40" x2="62" y2="40" stroke="#33453F" stroke-width="2.5" stroke-dasharray="6 6"/>
+      </g>
+      <path d="M96 44 C 150 46, 180 48, 222 48" fill="none" stroke="#3A4F47" stroke-width="1.1" opacity="0.85"/>
+      <circle cx="248" cy="48" r="26" fill="url(#flGlow)" filter="url(#flBlur)"/>
+      <g class="spark-pulse">
+        <circle cx="248" cy="48" r="14" fill="none" stroke="#2DD4A7" stroke-width="1.2" opacity="0.9"/>
+        <circle cx="248" cy="48" r="10" fill="url(#flSpark)" filter="url(#flBlur)"/>
+        <circle cx="248" cy="48" r="6.5" fill="url(#flCore)"/>
+        <g stroke="#FFEAB0" stroke-width="1.2" stroke-linecap="round" opacity="0.9">
+          <line x1="248" y1="37" x2="248" y2="59"/><line x1="237" y1="48" x2="259" y2="48"/>
+          <line x1="241" y1="41" x2="255" y2="55"/><line x1="255" y1="41" x2="241" y2="55"/>
+        </g>
+      </g>
+      <path d="M274 48 C 320 48, 360 46, 404 44" fill="none" stroke="#2DD4A7" stroke-width="1.2" opacity="0.85"/>
+      <circle cx="406" cy="44" r="2.8" fill="#34D399"/>
+      <g transform="translate(96,44)"><circle class="flow-dot" r="2.2" fill="#7FE0C3" style="offset-path:path('M0 0 C 54 2, 84 4, 126 4')"/></g>
+      <g transform="translate(274,48)"><circle class="flow-dot d2" r="2.2" fill="#FFE9AE" style="offset-path:path('M0 0 C 46 0, 86 -2, 130 -4')"/></g>
+      <g transform="translate(418,12)">
+        <rect width="64" height="64" rx="14" fill="#0C211B" stroke="#1D9E75" stroke-width="0.9" opacity="0.9"/>
+        <g fill="none" stroke="#2DD4A7" stroke-width="1.5" stroke-linecap="round">
+          <rect x="20" y="14" width="24" height="34" rx="4"/>
+          <line x1="26" y1="24" x2="38" y2="24"/>
+          <line x1="26" y1="31" x2="38" y2="31" opacity="0.6"/>
+          <line x1="26" y1="38" x2="33" y2="38" opacity="0.6"/>
+        </g>
+      </g>
+      <rect x="0" y="94" width="560" height="3" fill="url(#flBase)"/>
+    </svg>
+  </div>
+
+    <section class="section">
+      <h2>La &ldquo;pagina vuota&rdquo; di solito non è un CAPTCHA</h2>
+      <p>Quando un sito protetto da Cloudflare restituisce a uno script una pagina vuota o quasi, ma al tuo browser la pagina completa, la causa più comune è un <strong>controllo dell'impronta TLS</strong>. Prima che qualsiasi contenuto venga renderizzato, il server esamina la firma tecnica del client che si connette — la forma dell'handshake TLS, l'ordine degli header, i parametri negoziati. Un browser vero presenta una certa firma; una libreria di scripting standard ne presenta una nettamente diversa. Se la firma non somiglia a quella di un normale browser, il server taglia corto e non serve nulla di utile.</p>
+      <p>Il punto importante: <strong>tutto questo avviene a livello di connessione, prima di qualsiasi verifica rivolta all'utente.</strong> Non c'è nessun enigma da risolvere, nessuna casella &ldquo;sei un robot?&rdquo;. La pagina, semplicemente, non è mai stata renderizzata per quel client. Ecco perché si vedono &ldquo;pagine vuote&rdquo; e si pensa, a torto, a un CAPTCHA — il meccanismo reale è un handshake che non corrisponde a quello che un browser invierebbe.</p>
+
+      <div class="note">
+        <strong>Cosa non è:</strong> non è un muro di login, non sono dati personali e non è qualcosa da forzare. È un controllo di forma su come appare la connessione di un normale visitatore. La soluzione è far sì che una richiesta legittima <em>sembri legittima quanto lo è davvero</em> — una sessione browser reale che legge una pagina pubblica.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Come una sessione con l'impronta corretta legge la pagina pubblica</h2>
+      <p>L'approccio conforme è semplice: connettersi con una sessione browser reale, con l'impronta corretta, così che la pagina pubblica si carichi come per qualsiasi altro visitatore — e farlo a un ritmo rispettoso.</p>
+      <ul class="check">
+        <li><strong>Una sessione browser autentica.</strong> Usa un motore browser reale, con handshake TLS e header identici a quelli che il sito si aspetta già dai visitatori di tutti i giorni, così la pagina pubblica viene renderizzata come previsto.</li>
+        <li><strong>Il ritmo di un solo visitatore.</strong> Leggi le pagine a un ritmo umano, senza fretta — richieste distanziate, crawl-delay rispettato — invece di inondare la fonte. Un'impronta rispettosa mantiene l'accesso stabile, ed è semplicemente la cosa giusta da fare.</li>
+        <li><strong>Solo pagine pubbliche.</strong> Leggi ciò che qualsiasi visitatore può vedere senza login. Niente contenuti riservati, niente dati personali — solo i campi pubblici e fattuali che cercavi.</li>
+        <li><strong>API nascosta, quando esiste.</strong> Una volta che la sessione viene renderizzata correttamente, la pagina può esporre lo stesso endpoint JSON interno che descrivo in <a href="/it/guides/what-is-a-hidden-api.html">che cos'è una API nascosta</a> — di solito il modo più pulito e leggero di leggere i dati.</li>
+      </ul>
+      <p>Tengo una dimostrazione open source del concetto di fingerprinting: vedi il repository <a href="https://github.com/Massii-08/tls-fingerprint-scraper-demo">tls-fingerprint-scraper-demo</a>, che mostra perché un client standard riceve una pagina vuota dove una sessione con l'impronta corretta legge normalmente il contenuto pubblico.</p>
+    </section>
+
+    <section class="section">
+      <h2>Restare dalla parte giusta della linea</h2>
+      <p>Leggere dati pubblici in modo affidabile e farlo in modo responsabile sono lo stesso lavoro. Le mie regole non si piegano:</p>
+      <ul class="check">
+        <li>Leggo e rispetto i <strong>Termini di servizio</strong> del sito. Se i termini vietano l'accesso automatizzato, non procedo.</li>
+        <li>Rispetto <code>robots.txt</code> e i limiti di frequenza — sempre, per scelta progettuale.</li>
+        <li>Accedo solo a <strong>dati pubblici, fattuali e senza PII</strong>. Niente contenuti dietro login, niente informazioni personali.</li>
+        <li>Tu gestisci e possiedi il feed risultante; io lo costruisco perché si comporti come un visitatore cortese della fonte.</li>
+      </ul>
+      <div class="note">
+        Inquadro questo lavoro come <strong>affidabilità sui dati pubblici</strong> — far sì che una richiesta legittima venga renderizzata come dovrebbe — mai come l'aggiramento di una protezione. Questa distinzione è tutto il punto, ed è il motivo per cui una PMI può fidarsi del risultato.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>In breve</h2>
+      <p>Le pagine vuote da un sito pubblico protetto da Cloudflare sono di solito un controllo dell'impronta TLS, non un CAPTCHA. Una sessione browser con l'impronta corretta legge la pagina pubblica come qualsiasi normale visitatore, a un ritmo rispettoso, nel rispetto dei termini del sito. È così che &ldquo;funziona nel mio browser ma non nel mio script&rdquo; diventa un feed su cui contare.</p>
+    </section>
+  </article>
+
+  <div class="cta">
+    <h2 class="section-title">Ricevi pagine vuote da un sito pubblico?</h2>
+    <p class="muted">Inviami l'URL pubblico e i campi che ti servono. Verifico gratuitamente se un feed conforme, con l'impronta corretta, è fattibile.</p>
+    <a class="btn btn-primary" href="/it/#contact">Richiedi uno studio di fattibilità gratuito</a>
+  </div>
+</main>
+
+<footer class="footer"><div class="container footer-inner">
+  <div><strong>Feedsmith</strong> — feed di dati affidabili da fonti pubbliche.
+    <div class="muted small">Solo fonti pubbliche · dati fattuali / non-PII · tu gestisci e possiedi i dati.</div></div>
+  <nav class="footer-links">
+    <a href="/it/">Home</a><a href="/it/#offers">Servizi</a><a href="/it/#guides">Guide</a>
+    <a href="https://github.com/Massii-08">GitHub</a>
+    <span class="lang-switch"><a href="/guides/cloudflare-protected-public-sites.html">EN</a> · <a href="/de/guides/cloudflare-protected-public-sites.html">DE</a> · <a href="/fr/guides/cloudflare-protected-public-sites.html">FR</a> · <a href="/it/guides/cloudflare-protected-public-sites.html">IT</a></span>
+  </nav>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "ecommerce-product-prices": {
+    "site": "catalogues e-commerce",
+    "vertical": "E-commerce",
+    "what_data": "noms de produits, prix, disponibilité, notes",
+    "intro": "Besoin d'un flux fiable de données produits publiques issues de catalogues e-commerce ? Je construis un flux maintenu de noms, prix, disponibilités et notes à partir de pages que tout visiteur peut consulter — dans le respect des conditions d'utilisation et des limites de débit de chaque site."
+  },
+  "real-estate-listings": {
+    "site": "portails immobiliers",
+    "vertical": "Immobilier",
+    "what_data": "prix de l'annonce, surface, nombre de pièces, localisation — champs factuels publics uniquement, aucune donnée personnelle d'agent",
+    "intro": "Besoin d'un flux fiable d'annonces immobilières publiques ? Je collecte le prix de l'annonce, la surface, le nombre de pièces et la localisation — uniquement des champs factuels publics, jamais de données personnelles d'agents — et je garde le flux stable quand les portails changent de mise en page."
+  },
+  "marketplace-product-data": {
+    "site": "places de marché en ligne",
+    "vertical": "Place de marché",
+    "what_data": "titres, prix, stocks, catégories",
+    "intro": "Besoin de données produits publiques issues de places de marché en ligne, sans la casse habituelle ? Je construis un flux maintenu de titres, prix, stocks et catégories, lu à un rythme respectueux depuis des pages que tout visiteur peut consulter."
+  },
+  "books-toscrape-com": {
+    "site": "books.toscrape.com",
+    "vertical": "Bac à sable e-commerce",
+    "what_data": "titres, prix, stocks, notes",
+    "intro": "books.toscrape.com est un bac à sable public dédié au scraping — un terrain sûr pour démontrer un flux propre et maintenu de titres, prix, stocks et notes, réalisé dans les règles, sans enjeu de conditions d'utilisation ni de données personnelles."
+  },
+  "quotes-toscrape-com": {
+    "site": "quotes.toscrape.com",
+    "vertical": "Bac à sable",
+    "what_data": "citations publiques, auteurs, tags",
+    "intro": "quotes.toscrape.com est un bac à sable public dédié au scraping — une cible idéale pour montrer un flux fiable de citations publiques, d'auteurs et de tags, extraits proprement et à un rythme respectueux."
+  }
+}

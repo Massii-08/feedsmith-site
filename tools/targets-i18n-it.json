@@ -1,0 +1,32 @@
+{
+  "ecommerce-product-prices": {
+    "site": "cataloghi e-commerce",
+    "vertical": "E-commerce",
+    "what_data": "nomi dei prodotti, prezzi, disponibilità, valutazioni",
+    "intro": "Ti serve un feed affidabile di dati pubblici di prodotto dai cataloghi e-commerce? Costruisco un feed mantenuto nel tempo con nomi, prezzi, disponibilità e valutazioni, presi dalle pagine che qualsiasi visitatore può vedere — sempre entro i termini d'uso e i limiti di richiesta di ogni sito."
+  },
+  "real-estate-listings": {
+    "site": "portali immobiliari",
+    "vertical": "Immobiliare",
+    "what_data": "prezzo dell'annuncio, superficie, locali, posizione — solo campi fattuali pubblici, nessun dato personale degli agenti",
+    "intro": "Ti serve un feed solido di annunci immobiliari pubblici? Raccolgo prezzo, superficie, locali e posizione — solo campi fattuali pubblici, mai dati personali degli agenti — e tengo il feed stabile anche quando i portali cambiano layout."
+  },
+  "marketplace-product-data": {
+    "site": "marketplace online",
+    "vertical": "Marketplace",
+    "what_data": "titoli, prezzi, stock, categorie",
+    "intro": "Ti servono dati pubblici di prodotto dai marketplace online, senza rotture continue? Costruisco un feed mantenuto nel tempo con titoli, prezzi, stock e categorie, letti a un ritmo rispettoso dalle pagine che ogni visitatore può vedere."
+  },
+  "books-toscrape-com": {
+    "site": "books.toscrape.com",
+    "vertical": "Sandbox e-commerce",
+    "what_data": "titoli, prezzi, stock, valutazioni",
+    "intro": "books.toscrape.com è una sandbox pubblica per lo scraping — un terreno sicuro dove dimostrare un feed pulito e mantenuto nel tempo di titoli, prezzi, stock e valutazioni, realizzato in modo conforme, senza problemi di termini d'uso o dati personali."
+  },
+  "quotes-toscrape-com": {
+    "site": "quotes.toscrape.com",
+    "vertical": "Sandbox",
+    "what_data": "citazioni pubbliche, autori, tag",
+    "intro": "quotes.toscrape.com è una sandbox pubblica per lo scraping — il target ideale per mostrare un feed affidabile di citazioni pubbliche, autori e tag, estratti in modo pulito e a un ritmo rispettoso."
+  }
+}

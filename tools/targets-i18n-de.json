@@ -1,0 +1,32 @@
+{
+  "ecommerce-product-prices": {
+    "site": "E-Commerce-Kataloge",
+    "vertical": "E-Commerce",
+    "what_data": "Produktnamen, Preise, Verfügbarkeit, Bewertungen",
+    "intro": "Sie benötigen einen verlässlichen Feed öffentlicher Produktdaten aus E-Commerce-Katalogen? Ich erstelle einen betreuten Feed aus Namen, Preisen, Verfügbarkeit und Bewertungen — von Seiten, die jeder Besucher sehen kann, und stets im Rahmen der Nutzungsbedingungen und Rate-Limits der jeweiligen Website."
+  },
+  "real-estate-listings": {
+    "site": "Immobilienportale",
+    "vertical": "Immobilien",
+    "what_data": "Angebotspreis, Wohnfläche, Zimmerzahl, Lage — ausschließlich öffentliche Sachangaben, keine personenbezogenen Daten von Maklern",
+    "intro": "Sie benötigen einen verlässlichen Feed öffentlicher Immobilienanzeigen? Ich erfasse Angebotspreis, Wohnfläche, Zimmerzahl und Lage — ausschließlich öffentliche Sachangaben, niemals personenbezogene Daten von Maklern — und halte den Feed stabil, auch wenn die Portale ihr Layout ändern."
+  },
+  "marketplace-product-data": {
+    "site": "Online-Marktplätze",
+    "vertical": "Marktplatz",
+    "what_data": "Titel, Preise, Lagerbestand, Kategorien",
+    "intro": "Sie benötigen öffentliche Produktdaten von Online-Marktplätzen — ohne ständige Ausfälle? Ich erstelle einen betreuten Feed aus Titeln, Preisen, Lagerbestand und Kategorien, ausgelesen in respektvollem Tempo von Seiten, die jeder Besucher sehen kann."
+  },
+  "books-toscrape-com": {
+    "site": "books.toscrape.com",
+    "vertical": "Sandbox-E-Commerce",
+    "what_data": "Titel, Preise, Lagerbestand, Bewertungen",
+    "intro": "books.toscrape.com ist eine öffentliche Scraping-Sandbox — ein sicherer Ort, um auf regelkonforme Weise einen sauberen, betreuten Feed aus Titeln, Preisen, Lagerbestand und Bewertungen zu demonstrieren, ganz ohne Bedenken hinsichtlich Nutzungsbedingungen oder personenbezogener Daten."
+  },
+  "quotes-toscrape-com": {
+    "site": "quotes.toscrape.com",
+    "vertical": "Sandbox",
+    "what_data": "öffentliche Zitate, Autoren, Tags",
+    "intro": "quotes.toscrape.com ist eine öffentliche Scraping-Sandbox — ein ideales Ziel, um einen verlässlichen Feed aus öffentlichen Zitaten, Autoren und Tags zu zeigen, sauber und in respektvollem Tempo extrahiert."
+  }
+}

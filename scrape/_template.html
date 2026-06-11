@@ -6,6 +6,7 @@
   <title>{{TITLE}}</title>
   <meta name="description" content="{{DESCRIPTION}}">
   <link rel="canonical" href="{{CANONICAL}}">
+{{ALTERNATES}}
   <meta property="og:title" content="{{TITLE}}">
   <meta property="og:description" content="{{DESCRIPTION}}">
   <meta property="og:type" content="website">
@@ -13,7 +14,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#05100C">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <link rel="stylesheet" href="/css/style.css?v=4">
+  <link rel="stylesheet" href="/css/style.css?v=5">
 </head>
 <body>
 <header class="nav"><div class="container nav-inner">
@@ -69,7 +70,7 @@
   <nav class="footer-links">
     <a href="/">Home</a><a href="/#offers">Offers</a><a href="/#guides">Guides</a>
     <a href="https://github.com/Massii-08">GitHub</a>
-    <span class="lang-switch"><a href="/">EN</a> · <a href="/de/">DE</a> · <a href="/fr/">FR</a> · <a href="/it/">IT</a></span>
+    <span class="lang-switch">{{LANGSWITCH}}</span>
   </nav>
 </div></footer>
 </body>
