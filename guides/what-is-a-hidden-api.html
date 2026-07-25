@@ -16,13 +16,13 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://feedsmith.net/assets/og.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#05100C">
+  <meta name="theme-color" content="#F2F2EF">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <link rel="stylesheet" href="/css/style.css?v=5">
+  <link rel="stylesheet" href="/css/style.css?v=7">
 </head>
 <body>
 <header class="nav"><div class="container nav-inner">
-  <a class="brand" href="/"><span class="brand-mark">◆</span> Feedsmith</a>
+  <a class="brand" href="/">Feedsmith</a>
   <nav class="nav-links">
     <a href="/#offers">Offers</a>
     <a href="/#guides">Guides</a>
@@ -39,54 +39,12 @@
   <article>
     <p class="eyebrow">Guide</p>
     <h1>What is a hidden API, and why it is the most reliable way to get data</h1>
-    <p class="lead">When a page loads prices, listings, or search results, that data usually does not live in the HTML — it arrives from an internal JSON endpoint the page calls in the background. We call that a hidden API. For public, factual data, reading it is almost always more reliable than parsing the rendered page.</p>
+    <p class="lead">When a page loads prices, listings, or search results, that data usually does not live in the HTML. It arrives from an internal JSON endpoint the page calls in the background. We call that a hidden API. For public, factual data, reading it is almost always more reliable than parsing the rendered page.</p>
 
-    <div class="forge-line" aria-hidden="true">
-    <svg viewBox="0 0 560 100" xmlns="http://www.w3.org/2000/svg" focusable="false">
-      <defs>
-        <radialGradient id="flGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#52E6BE" stop-opacity="0.85"/><stop offset="45%" stop-color="#2DD4A7" stop-opacity="0.30"/><stop offset="100%" stop-color="#2DD4A7" stop-opacity="0"/></radialGradient>
-        <radialGradient id="flCore" cx="50%" cy="42%" r="60%"><stop offset="0%" stop-color="#D7FBEF"/><stop offset="45%" stop-color="#34D399"/><stop offset="100%" stop-color="#0F6E56"/></radialGradient>
-        <radialGradient id="flSpark" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFE9AE" stop-opacity="0.95"/><stop offset="55%" stop-color="#F6C667" stop-opacity="0.4"/><stop offset="100%" stop-color="#F6C667" stop-opacity="0"/></radialGradient>
-        <linearGradient id="flBase" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0F6E56" stop-opacity="0"/><stop offset="25%" stop-color="#2DD4A7" stop-opacity="0.5"/><stop offset="62%" stop-color="#0F6E56" stop-opacity="0.22"/><stop offset="100%" stop-color="#0F6E56" stop-opacity="0"/></linearGradient>
-        <filter id="flBlur" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6"/></filter>
-      </defs>
-      <g transform="translate(4,14) rotate(-3)">
-        <rect width="88" height="58" rx="8" fill="#0B1813" stroke="#2C3D36" stroke-width="0.8"/>
-        <circle cx="11" cy="11" r="2.2" fill="#2C3D36"/><circle cx="20" cy="11" r="2.2" fill="#2C3D36"/>
-        <line x1="11" y1="27" x2="74" y2="27" stroke="#33453F" stroke-width="2.5" stroke-dasharray="9 6"/>
-        <line x1="11" y1="40" x2="62" y2="40" stroke="#33453F" stroke-width="2.5" stroke-dasharray="6 6"/>
-      </g>
-      <path d="M96 44 C 150 46, 180 48, 222 48" fill="none" stroke="#3A4F47" stroke-width="1.1" opacity="0.85"/>
-      <circle cx="248" cy="48" r="26" fill="url(#flGlow)" filter="url(#flBlur)"/>
-      <g class="spark-pulse">
-        <circle cx="248" cy="48" r="14" fill="none" stroke="#2DD4A7" stroke-width="1.2" opacity="0.9"/>
-        <circle cx="248" cy="48" r="10" fill="url(#flSpark)" filter="url(#flBlur)"/>
-        <circle cx="248" cy="48" r="6.5" fill="url(#flCore)"/>
-        <g stroke="#FFEAB0" stroke-width="1.2" stroke-linecap="round" opacity="0.9">
-          <line x1="248" y1="37" x2="248" y2="59"/><line x1="237" y1="48" x2="259" y2="48"/>
-          <line x1="241" y1="41" x2="255" y2="55"/><line x1="255" y1="41" x2="241" y2="55"/>
-        </g>
-      </g>
-      <path d="M274 48 C 320 48, 360 46, 404 44" fill="none" stroke="#2DD4A7" stroke-width="1.2" opacity="0.85"/>
-      <circle cx="406" cy="44" r="2.8" fill="#34D399"/>
-      <g transform="translate(96,44)"><circle class="flow-dot" r="2.2" fill="#7FE0C3" style="offset-path:path('M0 0 C 54 2, 84 4, 126 4')"/></g>
-      <g transform="translate(274,48)"><circle class="flow-dot d2" r="2.2" fill="#FFE9AE" style="offset-path:path('M0 0 C 46 0, 86 -2, 130 -4')"/></g>
-      <g transform="translate(418,12)">
-        <rect width="64" height="64" rx="14" fill="#0C211B" stroke="#1D9E75" stroke-width="0.9" opacity="0.9"/>
-        <g fill="none" stroke="#2DD4A7" stroke-width="1.5" stroke-linecap="round">
-          <rect x="20" y="14" width="24" height="34" rx="4"/>
-          <line x1="26" y1="24" x2="38" y2="24"/>
-          <line x1="26" y1="31" x2="38" y2="31" opacity="0.6"/>
-          <line x1="26" y1="38" x2="33" y2="38" opacity="0.6"/>
-        </g>
-      </g>
-      <rect x="0" y="94" width="560" height="3" fill="url(#flBase)"/>
-    </svg>
-  </div>
-
+    
     <section class="section">
       <h2>What "hidden" actually means</h2>
-      <p>Nothing nefarious. A modern web page is a thin shell that, once loaded, calls one or more of its own backend endpoints to fetch the real content as structured JSON. These endpoints are "hidden" only in the sense that they are not documented for outside use and not shown in the address bar — but your own browser uses them every single time you open the page. They are part of how the public site delivers its public data to you.</p>
+      <p>Nothing nefarious. A modern web page is a thin shell that, once loaded, calls one or more of its own backend endpoints to fetch the real content as structured JSON. These endpoints are "hidden" only in the sense that they are not documented for outside use and not shown in the address bar, but your own browser uses them every single time you open the page. They are part of how the public site delivers its public data to you.</p>
 
       <div class="note">
         <strong>The key insight:</strong> the JSON the page receives is cleaner, more stable, and more complete than the HTML it eventually renders. Visual layout changes constantly; the underlying data contract changes far less often.
@@ -97,9 +55,9 @@
       <h2>Why calling it beats parsing HTML</h2>
       <ul class="check">
         <li><strong>Stability.</strong> A redesign can rewrite every CSS class and break an HTML scraper overnight. The JSON field <code>price</code> tends to stay <code>price</code> through redesign after redesign. Fewer moving parts means fewer 2 a.m. failures.</li>
-        <li><strong>Cleaner data.</strong> You get typed fields — numbers as numbers, dates as dates, nested objects — instead of scraping text out of formatted markup and re-parsing it. Less guesswork, fewer edge-case bugs.</li>
+        <li><strong>Cleaner data.</strong> You get typed fields, numbers as numbers, dates as dates, nested objects, instead of scraping text out of formatted markup and re-parsing it. Less guesswork, fewer edge-case bugs.</li>
         <li><strong>Completeness.</strong> The endpoint often returns more than the page shows: extra attributes, stock levels, identifiers, pagination metadata. You frequently get richer data than what is visible.</li>
-        <li><strong>Efficiency.</strong> One JSON call can return what would otherwise take rendering a full page with images and scripts — which means a lighter, more respectful footprint on the source site.</li>
+        <li><strong>Efficiency.</strong> One JSON call can return what would otherwise take rendering a full page with images and scripts, which means a lighter, more respectful footprint on the source site.</li>
       </ul>
     </section>
 
@@ -109,9 +67,9 @@
       <ol>
         <li>Open the page and press <code>F12</code> (or right-click → Inspect) to open DevTools.</li>
         <li>Go to the <strong>Network</strong> tab and filter by <strong>Fetch/XHR</strong>. This hides images and scripts so you see only data requests.</li>
-        <li>Reload the page, or trigger the action you care about — paginate, search, open a listing.</li>
+        <li>Reload the page, or trigger the action you care about, paginate, search, open a listing.</li>
         <li>Watch the requests appear. Click the ones that return JSON and look at the <strong>Response</strong> / <strong>Preview</strong> tab.</li>
-        <li>When you spot the request whose response contains your fields — the prices, the listings, the search results — you have found the hidden API. Note its URL, method, and the parameters it takes.</li>
+        <li>When you spot the request whose response contains your fields (the prices, the listings, the search results), you have found the hidden API. Note its URL, method, and the parameters it takes.</li>
       </ol>
       <p>From there, the work is reading that endpoint reliably: correct parameters, sensible pagination, a respectful request rate, and handling for the cases where the site expects a real browser session first. That last part is exactly what our <a href="/guides/cloudflare-protected-public-sites.html">guide on Cloudflare-protected public sites</a> covers.</p>
 
@@ -124,25 +82,25 @@
       <ul class="check">
         <li>Read the site's <strong>Terms of Service</strong> and respect them. If the terms forbid automated access, that is a stop sign.</li>
         <li>Honor <code>robots.txt</code> and any rate limits. Pace your requests; do not hammer the endpoint.</li>
-        <li>Stick to <strong>public, factual, non-PII data</strong> — catalog and listing fields, not personal information and not anything behind a login.</li>
+        <li>Stick to <strong>public, factual, non-PII data</strong>, catalog and listing fields, not personal information and not anything behind a login.</li>
         <li>You operate and own the resulting feed. We build it to be a good citizen of the source.</li>
       </ul>
       <div class="note">
-        We never frame this as getting around anything. A hidden API is simply the most reliable place to read public data that the site already serves to every visitor — used responsibly, within terms and rate limits.
-      </div>
+ We never frame this as getting around anything. A hidden API is simply the most reliable place to read public data that the site already serves to every visitor, used responsibly, within terms and rate limits.
+ </div>
     </section>
   </article>
 
   <div class="cta">
     <h2 class="section-title">Not sure if a site has a usable hidden API?</h2>
-    <p class="muted">Send us the public URL and the fields you need. Our Hidden-API Audit tells you quickly whether a clean endpoint exists — and what a feed on it would look like.</p>
+    <p class="muted">Send us the public URL and the fields you need. Our Hidden-API Audit tells you quickly whether a clean endpoint exists, and what a feed on it would look like.</p>
     <a class="btn btn-primary" href="/#contact">Get a free feasibility check</a>
   </div>
 </main>
 
 <footer class="footer"><div class="container footer-inner">
-  <div><strong>Feedsmith</strong> — reliable data feeds from public sources.
-    <div class="muted small">Public sources only · factual / non-PII data · you operate and own the data.</div></div>
+  <div><strong>Feedsmith</strong>, reliable data feeds from public sources.
+ <div class="muted small">Public sources only · factual / non-PII data · you operate and own the data.</div></div>
   <nav class="footer-links">
     <a href="/">Home</a><a href="/#offers">Offers</a><a href="/#guides">Guides</a>
     <a href="https://github.com/Massii-08">GitHub</a>

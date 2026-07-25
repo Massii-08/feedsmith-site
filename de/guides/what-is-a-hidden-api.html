@@ -16,13 +16,13 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://feedsmith.net/assets/og.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#05100C">
+  <meta name="theme-color" content="#F2F2EF">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <link rel="stylesheet" href="/css/style.css?v=5">
+  <link rel="stylesheet" href="/css/style.css?v=7">
 </head>
 <body>
 <header class="nav"><div class="container nav-inner">
-  <a class="brand" href="/de/"><span class="brand-mark">◆</span> Feedsmith</a>
+  <a class="brand" href="/de/">Feedsmith</a>
   <nav class="nav-links">
     <a href="/de/#offers">Leistungen</a>
     <a href="/de/#guides">Guides</a>
@@ -39,54 +39,12 @@
   <article>
     <p class="eyebrow">Guide</p>
     <h1>Was ist eine Hidden API, und warum sie der verlässlichste Weg zu Daten ist</h1>
-    <p class="lead">Wenn eine Seite Preise, Inserate oder Suchergebnisse lädt, stehen diese Daten meist nicht im HTML — sie kommen von einem internen JSON-Endpunkt, den die Seite im Hintergrund aufruft. Genau das nenne ich eine Hidden API. Für öffentliche, faktische Daten ist es fast immer verlässlicher, sie dort zu lesen, als die gerenderte Seite zu parsen.</p>
+    <p class="lead">Wenn eine Seite Preise, Inserate oder Suchergebnisse lädt, stehen diese Daten meist nicht im HTML – sie kommen von einem internen JSON-Endpunkt, den die Seite im Hintergrund aufruft. Genau das nenne ich eine Hidden API. Für öffentliche, faktische Daten ist es fast immer verlässlicher, sie dort zu lesen, als die gerenderte Seite zu parsen.</p>
 
-    <div class="forge-line" aria-hidden="true">
-    <svg viewBox="0 0 560 100" xmlns="http://www.w3.org/2000/svg" focusable="false">
-      <defs>
-        <radialGradient id="flGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#52E6BE" stop-opacity="0.85"/><stop offset="45%" stop-color="#2DD4A7" stop-opacity="0.30"/><stop offset="100%" stop-color="#2DD4A7" stop-opacity="0"/></radialGradient>
-        <radialGradient id="flCore" cx="50%" cy="42%" r="60%"><stop offset="0%" stop-color="#D7FBEF"/><stop offset="45%" stop-color="#34D399"/><stop offset="100%" stop-color="#0F6E56"/></radialGradient>
-        <radialGradient id="flSpark" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFE9AE" stop-opacity="0.95"/><stop offset="55%" stop-color="#F6C667" stop-opacity="0.4"/><stop offset="100%" stop-color="#F6C667" stop-opacity="0"/></radialGradient>
-        <linearGradient id="flBase" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0F6E56" stop-opacity="0"/><stop offset="25%" stop-color="#2DD4A7" stop-opacity="0.5"/><stop offset="62%" stop-color="#0F6E56" stop-opacity="0.22"/><stop offset="100%" stop-color="#0F6E56" stop-opacity="0"/></linearGradient>
-        <filter id="flBlur" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6"/></filter>
-      </defs>
-      <g transform="translate(4,14) rotate(-3)">
-        <rect width="88" height="58" rx="8" fill="#0B1813" stroke="#2C3D36" stroke-width="0.8"/>
-        <circle cx="11" cy="11" r="2.2" fill="#2C3D36"/><circle cx="20" cy="11" r="2.2" fill="#2C3D36"/>
-        <line x1="11" y1="27" x2="74" y2="27" stroke="#33453F" stroke-width="2.5" stroke-dasharray="9 6"/>
-        <line x1="11" y1="40" x2="62" y2="40" stroke="#33453F" stroke-width="2.5" stroke-dasharray="6 6"/>
-      </g>
-      <path d="M96 44 C 150 46, 180 48, 222 48" fill="none" stroke="#3A4F47" stroke-width="1.1" opacity="0.85"/>
-      <circle cx="248" cy="48" r="26" fill="url(#flGlow)" filter="url(#flBlur)"/>
-      <g class="spark-pulse">
-        <circle cx="248" cy="48" r="14" fill="none" stroke="#2DD4A7" stroke-width="1.2" opacity="0.9"/>
-        <circle cx="248" cy="48" r="10" fill="url(#flSpark)" filter="url(#flBlur)"/>
-        <circle cx="248" cy="48" r="6.5" fill="url(#flCore)"/>
-        <g stroke="#FFEAB0" stroke-width="1.2" stroke-linecap="round" opacity="0.9">
-          <line x1="248" y1="37" x2="248" y2="59"/><line x1="237" y1="48" x2="259" y2="48"/>
-          <line x1="241" y1="41" x2="255" y2="55"/><line x1="255" y1="41" x2="241" y2="55"/>
-        </g>
-      </g>
-      <path d="M274 48 C 320 48, 360 46, 404 44" fill="none" stroke="#2DD4A7" stroke-width="1.2" opacity="0.85"/>
-      <circle cx="406" cy="44" r="2.8" fill="#34D399"/>
-      <g transform="translate(96,44)"><circle class="flow-dot" r="2.2" fill="#7FE0C3" style="offset-path:path('M0 0 C 54 2, 84 4, 126 4')"/></g>
-      <g transform="translate(274,48)"><circle class="flow-dot d2" r="2.2" fill="#FFE9AE" style="offset-path:path('M0 0 C 46 0, 86 -2, 130 -4')"/></g>
-      <g transform="translate(418,12)">
-        <rect width="64" height="64" rx="14" fill="#0C211B" stroke="#1D9E75" stroke-width="0.9" opacity="0.9"/>
-        <g fill="none" stroke="#2DD4A7" stroke-width="1.5" stroke-linecap="round">
-          <rect x="20" y="14" width="24" height="34" rx="4"/>
-          <line x1="26" y1="24" x2="38" y2="24"/>
-          <line x1="26" y1="31" x2="38" y2="31" opacity="0.6"/>
-          <line x1="26" y1="38" x2="33" y2="38" opacity="0.6"/>
-        </g>
-      </g>
-      <rect x="0" y="94" width="560" height="3" fill="url(#flBase)"/>
-    </svg>
-  </div>
-
+    
     <section class="section">
       <h2>Was „hidden“ wirklich bedeutet</h2>
-      <p>Nichts Anrüchiges. Eine moderne Webseite ist eine dünne Hülle, die nach dem Laden einen oder mehrere ihrer eigenen Backend-Endpunkte aufruft, um den eigentlichen Inhalt als strukturiertes JSON zu holen. „Hidden“ sind diese Endpunkte nur insofern, als sie nicht für die externe Nutzung dokumentiert sind und nicht in der Adresszeile erscheinen — Ihr eigener Browser nutzt sie aber bei jedem einzelnen Öffnen der Seite. Sie sind Teil dessen, wie die öffentliche Website ihre öffentlichen Daten an Sie ausliefert.</p>
+      <p>Nichts Anrüchiges. Eine moderne Webseite ist eine dünne Hülle, die nach dem Laden einen oder mehrere ihrer eigenen Backend-Endpunkte aufruft, um den eigentlichen Inhalt als strukturiertes JSON zu holen. „Hidden“ sind diese Endpunkte nur insofern, als sie nicht für die externe Nutzung dokumentiert sind und nicht in der Adresszeile erscheinen – Ihr eigener Browser nutzt sie aber bei jedem einzelnen Öffnen der Seite. Sie sind Teil dessen, wie die öffentliche Website ihre öffentlichen Daten an Sie ausliefert.</p>
 
       <div class="note">
         <strong>Die zentrale Erkenntnis:</strong> Das JSON, das die Seite empfängt, ist sauberer, stabiler und vollständiger als das HTML, das sie am Ende daraus rendert. Das visuelle Layout ändert sich ständig; der zugrunde liegende Datenvertrag deutlich seltener.
@@ -97,21 +55,21 @@
       <h2>Warum der Aufruf das HTML-Parsing schlägt</h2>
       <ul class="check">
         <li><strong>Stabilität.</strong> Ein Redesign kann über Nacht jede CSS-Klasse umschreiben und einen HTML-Scraper brechen. Das JSON-Feld <code>price</code> bleibt dagegen Redesign für Redesign <code>price</code>. Weniger bewegliche Teile bedeuten weniger Ausfälle um 2 Uhr nachts.</li>
-        <li><strong>Sauberere Daten.</strong> Sie erhalten typisierte Felder — Zahlen als Zahlen, Datumswerte als Datumswerte, verschachtelte Objekte — statt Text aus formatiertem Markup zu kratzen und neu zu parsen. Weniger Rätselraten, weniger Edge-Case-Bugs.</li>
+        <li><strong>Sauberere Daten.</strong> Sie erhalten typisierte Felder – Zahlen als Zahlen, Datumswerte als Datumswerte, verschachtelte Objekte – statt Text aus formatiertem Markup zu kratzen und neu zu parsen. Weniger Rätselraten, weniger Edge-Case-Bugs.</li>
         <li><strong>Vollständigkeit.</strong> Der Endpunkt liefert oft mehr, als die Seite anzeigt: zusätzliche Attribute, Lagerbestände, Identifier, Paginierungs-Metadaten. Häufig erhalten Sie reichere Daten als das, was sichtbar ist.</li>
-        <li><strong>Effizienz.</strong> Ein einziger JSON-Aufruf liefert, wofür sonst eine komplette Seite mit Bildern und Skripten gerendert werden müsste — also ein leichterer, respektvollerer Fußabdruck auf der Quellseite.</li>
+        <li><strong>Effizienz.</strong> Ein einziger JSON-Aufruf liefert, wofür sonst eine komplette Seite mit Bildern und Skripten gerendert werden müsste – also ein leichterer, respektvollerer Fußabdruck auf der Quellseite.</li>
       </ul>
     </section>
 
     <section class="section">
       <h2>So finden Sie eine Hidden API (DevTools, Network, XHR)</h2>
-      <p>Das können Sie selbst tun — in jedem Browser, auf jeder öffentlichen Seite, in wenigen Minuten:</p>
+      <p>Das können Sie selbst tun – in jedem Browser, auf jeder öffentlichen Seite, in wenigen Minuten:</p>
       <ol>
         <li>Öffnen Sie die Seite und drücken Sie <code>F12</code> (oder Rechtsklick → Untersuchen), um die DevTools zu öffnen.</li>
         <li>Wechseln Sie zum Tab <strong>Network</strong> und filtern Sie nach <strong>Fetch/XHR</strong>. Das blendet Bilder und Skripte aus, sodass Sie nur Datenanfragen sehen.</li>
-        <li>Laden Sie die Seite neu oder lösen Sie die Aktion aus, die Sie interessiert — blättern, suchen, ein Inserat öffnen.</li>
+        <li>Laden Sie die Seite neu oder lösen Sie die Aktion aus, die Sie interessiert – blättern, suchen, ein Inserat öffnen.</li>
         <li>Beobachten Sie die eintreffenden Requests. Klicken Sie diejenigen an, die JSON zurückgeben, und sehen Sie sich den Tab <strong>Response</strong> / <strong>Preview</strong> an.</li>
-        <li>Sobald Sie den Request entdecken, dessen Antwort Ihre Felder enthält — die Preise, die Inserate, die Suchergebnisse — haben Sie die Hidden API gefunden. Notieren Sie URL, Methode und die Parameter, die sie entgegennimmt.</li>
+        <li>Sobald Sie den Request entdecken, dessen Antwort Ihre Felder enthält – die Preise, die Inserate, die Suchergebnisse – haben Sie die Hidden API gefunden. Notieren Sie URL, Methode und die Parameter, die sie entgegennimmt.</li>
       </ol>
       <p>Von dort an besteht die Arbeit darin, diesen Endpunkt verlässlich zu lesen: korrekte Parameter, sinnvolle Paginierung, ein respektvolles Anfragetempo und der Umgang mit den Fällen, in denen die Website zuerst eine echte Browser-Session erwartet. Genau diesen letzten Teil behandelt mein <a href="/de/guides/cloudflare-protected-public-sites.html">Guide zu Cloudflare-geschützten öffentlichen Seiten</a>.</p>
 
@@ -120,28 +78,28 @@
 
     <section class="section">
       <h2>Der regelkonforme Weg</h2>
-      <p>Eine Hidden API ist weiterhin Infrastruktur der Website — es gelten also dieselben Regeln wie für jeden Zugriff auf eine öffentliche Quelle:</p>
+      <p>Eine Hidden API ist weiterhin Infrastruktur der Website – es gelten also dieselben Regeln wie für jeden Zugriff auf eine öffentliche Quelle:</p>
       <ul class="check">
         <li>Lesen Sie die <strong>Nutzungsbedingungen</strong> der Website und respektieren Sie sie. Verbieten die Bedingungen automatisierte Zugriffe, ist das ein Stoppschild.</li>
         <li>Beachten Sie <code>robots.txt</code> und alle Rate-Limits. Takten Sie Ihre Anfragen; bombardieren Sie den Endpunkt nicht.</li>
-        <li>Bleiben Sie bei <strong>öffentlichen, faktischen, nicht personenbezogenen Daten</strong> — Katalog- und Inseratsfeldern, keinen persönlichen Informationen und nichts hinter einem Login.</li>
+        <li>Bleiben Sie bei <strong>öffentlichen, faktischen, nicht personenbezogenen Daten</strong> – Katalog- und Inseratsfeldern, keinen persönlichen Informationen und nichts hinter einem Login.</li>
         <li>Sie betreiben und besitzen den entstehenden Feed. Ich baue ihn so, dass er ein guter Bürger der Quelle ist.</li>
       </ul>
       <div class="note">
-        Das ist keine Umgehung von irgendetwas. Eine Hidden API ist schlicht der verlässlichste Ort, um öffentliche Daten zu lesen, die die Website ohnehin jedem Besucher ausliefert — verantwortungsvoll genutzt, innerhalb der Nutzungsbedingungen und Rate-Limits.
+        Das ist keine Umgehung von irgendetwas. Eine Hidden API ist schlicht der verlässlichste Ort, um öffentliche Daten zu lesen, die die Website ohnehin jedem Besucher ausliefert – verantwortungsvoll genutzt, innerhalb der Nutzungsbedingungen und Rate-Limits.
       </div>
     </section>
   </article>
 
   <div class="cta">
     <h2 class="section-title">Nicht sicher, ob eine Website eine nutzbare Hidden API hat?</h2>
-    <p class="muted">Senden Sie mir die öffentliche URL und die Felder, die Sie brauchen. Mein Hidden-API-Audit sagt Ihnen schnell, ob ein sauberer Endpunkt existiert — und wie ein Feed darauf aussehen würde.</p>
+    <p class="muted">Senden Sie mir die öffentliche URL und die Felder, die Sie brauchen. Mein Hidden-API-Audit sagt Ihnen schnell, ob ein sauberer Endpunkt existiert – und wie ein Feed darauf aussehen würde.</p>
     <a class="btn btn-primary" href="/de/#contact">Kostenlose Machbarkeitsprüfung anfragen</a>
   </div>
 </main>
 
 <footer class="footer"><div class="container footer-inner">
-  <div><strong>Feedsmith</strong> — verlässliche Datenfeeds aus öffentlichen Quellen.
+  <div><strong>Feedsmith</strong> – verlässliche Datenfeeds aus öffentlichen Quellen.
     <div class="muted small">Nur öffentliche Quellen · faktische / nicht personenbezogene Daten · Sie betreiben und besitzen die Daten.</div></div>
   <nav class="footer-links">
     <a href="/de/">Start</a><a href="/de/#offers">Leistungen</a><a href="/de/#guides">Guides</a>

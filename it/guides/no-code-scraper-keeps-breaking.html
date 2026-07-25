@@ -16,13 +16,13 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://feedsmith.net/assets/og.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#05100C">
+  <meta name="theme-color" content="#F2F2EF">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <link rel="stylesheet" href="/css/style.css?v=5">
+  <link rel="stylesheet" href="/css/style.css?v=7">
 </head>
 <body>
 <header class="nav"><div class="container nav-inner">
-  <a class="brand" href="/it/"><span class="brand-mark">◆</span> Feedsmith</a>
+  <a class="brand" href="/it/">Feedsmith</a>
   <nav class="nav-links">
     <a href="/it/#offers">Servizi</a>
     <a href="/it/#guides">Guide</a>
@@ -39,87 +39,45 @@
   <article>
     <p class="eyebrow">Guida</p>
     <h1>Perché il tuo scraper no-code continua a rompersi (e cosa lo risolve davvero)</h1>
-    <p class="lead">Gli scraper no-code sono perfetti per un proof of concept veloce. Ma un feed da cui dipendi davvero tende a rompersi qualche settimana dopo — in silenzio, nel momento peggiore. Ecco perché succede quando estrai da fonti pubbliche, e il setup mantenuto che tiene il flusso di dati attivo.</p>
+    <p class="lead">Gli scraper no-code sono perfetti per un proof of concept veloce. Ma un feed da cui dipendi davvero tende a rompersi qualche settimana dopo – in silenzio, nel momento peggiore. Ecco perché succede quando estrai da fonti pubbliche, e il setup mantenuto che tiene il flusso di dati attivo.</p>
 
-    <div class="forge-line" aria-hidden="true">
-    <svg viewBox="0 0 560 100" xmlns="http://www.w3.org/2000/svg" focusable="false">
-      <defs>
-        <radialGradient id="flGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#52E6BE" stop-opacity="0.85"/><stop offset="45%" stop-color="#2DD4A7" stop-opacity="0.30"/><stop offset="100%" stop-color="#2DD4A7" stop-opacity="0"/></radialGradient>
-        <radialGradient id="flCore" cx="50%" cy="42%" r="60%"><stop offset="0%" stop-color="#D7FBEF"/><stop offset="45%" stop-color="#34D399"/><stop offset="100%" stop-color="#0F6E56"/></radialGradient>
-        <radialGradient id="flSpark" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFE9AE" stop-opacity="0.95"/><stop offset="55%" stop-color="#F6C667" stop-opacity="0.4"/><stop offset="100%" stop-color="#F6C667" stop-opacity="0"/></radialGradient>
-        <linearGradient id="flBase" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0F6E56" stop-opacity="0"/><stop offset="25%" stop-color="#2DD4A7" stop-opacity="0.5"/><stop offset="62%" stop-color="#0F6E56" stop-opacity="0.22"/><stop offset="100%" stop-color="#0F6E56" stop-opacity="0"/></linearGradient>
-        <filter id="flBlur" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6"/></filter>
-      </defs>
-      <g transform="translate(4,14) rotate(-3)">
-        <rect width="88" height="58" rx="8" fill="#0B1813" stroke="#2C3D36" stroke-width="0.8"/>
-        <circle cx="11" cy="11" r="2.2" fill="#2C3D36"/><circle cx="20" cy="11" r="2.2" fill="#2C3D36"/>
-        <line x1="11" y1="27" x2="74" y2="27" stroke="#33453F" stroke-width="2.5" stroke-dasharray="9 6"/>
-        <line x1="11" y1="40" x2="62" y2="40" stroke="#33453F" stroke-width="2.5" stroke-dasharray="6 6"/>
-      </g>
-      <path d="M96 44 C 150 46, 180 48, 222 48" fill="none" stroke="#3A4F47" stroke-width="1.1" opacity="0.85"/>
-      <circle cx="248" cy="48" r="26" fill="url(#flGlow)" filter="url(#flBlur)"/>
-      <g class="spark-pulse">
-        <circle cx="248" cy="48" r="14" fill="none" stroke="#2DD4A7" stroke-width="1.2" opacity="0.9"/>
-        <circle cx="248" cy="48" r="10" fill="url(#flSpark)" filter="url(#flBlur)"/>
-        <circle cx="248" cy="48" r="6.5" fill="url(#flCore)"/>
-        <g stroke="#FFEAB0" stroke-width="1.2" stroke-linecap="round" opacity="0.9">
-          <line x1="248" y1="37" x2="248" y2="59"/><line x1="237" y1="48" x2="259" y2="48"/>
-          <line x1="241" y1="41" x2="255" y2="55"/><line x1="255" y1="41" x2="241" y2="55"/>
-        </g>
-      </g>
-      <path d="M274 48 C 320 48, 360 46, 404 44" fill="none" stroke="#2DD4A7" stroke-width="1.2" opacity="0.85"/>
-      <circle cx="406" cy="44" r="2.8" fill="#34D399"/>
-      <g transform="translate(96,44)"><circle class="flow-dot" r="2.2" fill="#7FE0C3" style="offset-path:path('M0 0 C 54 2, 84 4, 126 4')"/></g>
-      <g transform="translate(274,48)"><circle class="flow-dot d2" r="2.2" fill="#FFE9AE" style="offset-path:path('M0 0 C 46 0, 86 -2, 130 -4')"/></g>
-      <g transform="translate(418,12)">
-        <rect width="64" height="64" rx="14" fill="#0C211B" stroke="#1D9E75" stroke-width="0.9" opacity="0.9"/>
-        <g fill="none" stroke="#2DD4A7" stroke-width="1.5" stroke-linecap="round">
-          <rect x="20" y="14" width="24" height="34" rx="4"/>
-          <line x1="26" y1="24" x2="38" y2="24"/>
-          <line x1="26" y1="31" x2="38" y2="31" opacity="0.6"/>
-          <line x1="26" y1="38" x2="33" y2="38" opacity="0.6"/>
-        </g>
-      </g>
-      <rect x="0" y="94" width="560" height="3" fill="url(#flBase)"/>
-    </svg>
-  </div>
-
+    
     <section class="section">
       <h2>I quattro modi in cui uno scraper no-code si rompe</h2>
 
       <h3>1. Il layout della pagina è cambiato</h3>
-      <p>La maggior parte dei tool point-and-click funziona memorizzando dove si trova un elemento nella pagina: "il prezzo è il terzo span dentro questo div". Nel momento in cui il sito rilascia un redesign — o anche un piccolo A/B test — quel percorso non punta più al prezzo. Lo scraper non dà errore: restituisce tranquillamente la cella sbagliata, o niente del tutto. Te ne accorgi solo quando un report a valle sembra strano. Cataloghi pubblici e portali di annunci cambiano markup di continuo, quindi un selettore basato sulla posizione è la cosa più fragile su cui costruire un feed.</p>
+      <p>La maggior parte dei tool point-and-click funziona memorizzando dove si trova un elemento nella pagina: "il prezzo è il terzo span dentro questo div". Nel momento in cui il sito rilascia un redesign – o anche un piccolo A/B test – quel percorso non punta più al prezzo. Lo scraper non dà errore: restituisce tranquillamente la cella sbagliata, o niente del tutto. Te ne accorgi solo quando un report a valle sembra strano. Cataloghi pubblici e portali di annunci cambiano markup di continuo, quindi un selettore basato sulla posizione è la cosa più fragile su cui costruire un feed.</p>
 
       <h3>2. I dati sono renderizzati da JavaScript</h3>
-      <p>Molti siti moderni inviano un guscio HTML quasi vuoto, poi caricano il contenuto vero con JavaScript dopo il caricamento della pagina. Un tool che si limita a scaricare l'HTML vede il guscio e conclude che "non ci sono dati". I valori sono pubblici e visibili in un browser normale — arrivano solo un passo dopo rispetto a quando il tool guarda. Senza un vero step di rendering (o un approccio più intelligente, vedi sotto), ottieni campi vuoti che vanno e vengono a seconda dei tempi.</p>
+      <p>Molti siti moderni inviano un guscio HTML quasi vuoto, poi caricano il contenuto vero con JavaScript dopo il caricamento della pagina. Un tool che si limita a scaricare l'HTML vede il guscio e conclude che "non ci sono dati". I valori sono pubblici e visibili in un browser normale – arrivano solo un passo dopo rispetto a quando il tool guarda. Senza un vero step di rendering (o un approccio più intelligente, vedi sotto), ottieni campi vuoti che vanno e vengono a seconda dei tempi.</p>
 
       <h3>3. L'handshake sembra automatizzato</h3>
-      <p>Alcuni siti pubblici esaminano la firma tecnica del client che si connette — l'handshake TLS e gli header che un browser presenta — prima di renderizzare qualsiasi cosa. Una libreria di scripting standard ha una firma che non corrisponde a un browser reale, così il server restituisce una pagina vuota o minimale. Non è un muro di login e non è un CAPTCHA: è il sito che decide che la richiesta non sembrava arrivare da un normale visitatore. La soluzione è leggere la pagina pubblica con una sessione browser dall'impronta corretta, a un ritmo rispettoso, come farebbe un normale visitatore. (Lo approfondisco nella <a href="/it/guides/cloudflare-protected-public-sites.html">guida sui siti pubblici protetti da Cloudflare</a>.)</p>
+      <p>Alcuni siti pubblici esaminano la firma tecnica del client che si connette – l'handshake TLS e gli header che un browser presenta – prima di renderizzare qualsiasi cosa. Una libreria di scripting standard ha una firma che non corrisponde a un browser reale, così il server restituisce una pagina vuota o minimale. Non è un muro di login e non è un CAPTCHA: è il sito che decide che la richiesta non sembrava arrivare da un normale visitatore. La soluzione è leggere la pagina pubblica con una sessione browser dall'impronta corretta, a un ritmo rispettoso, come farebbe un normale visitatore. (Lo approfondisco nella <a href="/it/guides/cloudflare-protected-public-sites.html">guida sui siti pubblici protetti da Cloudflare</a>.)</p>
 
       <h3>4. Limiti di frequenza e problemi di IP</h3>
-      <p>Lancia troppe richieste troppo in fretta da un solo indirizzo e un sito pubblico inizierà a rallentarti o a restituire errori — giustamente. I tool no-code raramente ti danno un controllo fine su ritmo, retry o back-off graduale. Così un feed che funzionava a cinque pagine al giorno crolla il giorno in cui lo porti a cinquecento. Rispettare <code>robots.txt</code>, onorare il crawl-delay e distribuire le richieste nel tempo non è opzionale: è ciò che tiene l'accesso stabile nel lungo periodo.</p>
+      <p>Lancia troppe richieste troppo in fretta da un solo indirizzo e un sito pubblico inizierà a rallentarti o a restituire errori – giustamente. I tool no-code raramente ti danno un controllo fine su ritmo, retry o back-off graduale. Così un feed che funzionava a cinque pagine al giorno crolla il giorno in cui lo porti a cinquecento. Rispettare <code>robots.txt</code>, onorare il crawl-delay e distribuire le richieste nel tempo non è opzionale: è ciò che tiene l'accesso stabile nel lungo periodo.</p>
     </section>
 
     <section class="section">
       <h2>Cosa lo risolve davvero</h2>
-      <p>L'affidabilità sui dati pubblici non è un trucco — è un piccolo sistema che si aspetta il cambiamento e lo assorbe.</p>
+      <p>L'affidabilità sui dati pubblici non è un trucco – è un piccolo sistema che si aspetta il cambiamento e lo assorbe.</p>
 
       <ul class="check">
         <li><strong>Uno scraper mantenuto, non congelato.</strong> Selettori scritti in modo difensivo (match su testo e struttura stabili, non su posizioni fragili), più qualcuno che li ripara quando il sito rilascia un redesign. Un feed è una relazione, non un export una tantum.</li>
         <li><strong>Usare un'API nascosta dove esiste.</strong> Molti siti che renderizzano con JavaScript chiamano in silenzio il proprio endpoint JSON per ottenere i dati. Leggere quell'endpoint è enormemente più stabile che fare parsing dell'HTML, perché i campi JSON cambiano molto meno spesso del layout visivo. Vedi <a href="/it/guides/what-is-a-hidden-api.html">che cos'è una API nascosta</a>.</li>
-        <li><strong>Una sessione browser con l'impronta corretta</strong> per i siti che controllano l'handshake prima di renderizzare — così la pagina pubblica si carica come per qualsiasi visitatore, a un ritmo educato.</li>
-        <li><strong>Monitoraggio e avvisi.</strong> La differenza più grande tra uno scraper amatoriale e un feed affidabile è che il feed ti avvisa nel momento in cui un campo si svuota o il numero di righe cala — prima che arrivi alla tua dashboard. Il guasto silenzioso è il vero nemico.</li>
+        <li><strong>Una sessione browser con l'impronta corretta</strong> per i siti che controllano l'handshake prima di renderizzare – così la pagina pubblica si carica come per qualsiasi visitatore, a un ritmo educato.</li>
+        <li><strong>Monitoraggio e avvisi.</strong> La differenza più grande tra uno scraper amatoriale e un feed affidabile è che il feed ti avvisa nel momento in cui un campo si svuota o il numero di righe cala – prima che arrivi alla tua dashboard. Il guasto silenzioso è il vero nemico.</li>
         <li><strong>Disciplina di frequenza fin dal design.</strong> Ritmo, retry con back-off e rispetto di <code>robots.txt</code> integrati, così l'accesso resta sano mentre il volume cresce.</li>
       </ul>
 
       <div class="note">
-        <strong>Il principio dietro tutto questo:</strong> mi concentro sull'<em>affidabilità su dati pubblici e fattuali</em> — prezzi prodotto, campi di annunci, voci di cataloghi pubblici. Tu gestisci e possiedi i dati risultanti. Lavoro entro i termini e i limiti di frequenza di ogni sito, e non tocco mai informazioni personali o dietro login.
+        <strong>Il principio dietro tutto questo:</strong> mi concentro sull'<em>affidabilità su dati pubblici e fattuali</em> – prezzi prodotto, campi di annunci, voci di cataloghi pubblici. Tu gestisci e possiedi i dati risultanti. Lavoro entro i termini e i limiti di frequenza di ogni sito, e non tocco mai informazioni personali o dietro login.
       </div>
     </section>
 
     <section class="section">
       <h2>Quando smettere di rattoppare e passare a un feed vero</h2>
-      <p>Se hai ricostruito lo stesso flusso no-code tre volte in un trimestre, il problema non è il tool — è l'approccio. Uno scraper mantenuto, con un'API nascosta dove disponibile, monitoraggio e limiti di frequenza sensati, trasforma un export instabile in qualcosa su cui costruire con tranquillità. È tutto il senso di un feed di dati gestito: smetti di pensarci.</p>
+      <p>Se hai ricostruito lo stesso flusso no-code tre volte in un trimestre, il problema non è il tool – è l'approccio. Uno scraper mantenuto, con un'API nascosta dove disponibile, monitoraggio e limiti di frequenza sensati, trasforma un export instabile in qualcosa su cui costruire con tranquillità. È tutto il senso di un feed di dati gestito: smetti di pensarci.</p>
     </section>
   </article>
 
@@ -131,7 +89,7 @@
 </main>
 
 <footer class="footer"><div class="container footer-inner">
-  <div><strong>Feedsmith</strong> — feed di dati affidabili da fonti pubbliche.
+  <div><strong>Feedsmith</strong> – feed di dati affidabili da fonti pubbliche.
     <div class="muted small">Solo fonti pubbliche · dati fattuali / non-PII · tu gestisci e possiedi i dati.</div></div>
   <nav class="footer-links">
     <a href="/it/">Home</a><a href="/it/#offers">Servizi</a><a href="/it/#guides">Guide</a>

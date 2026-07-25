@@ -10,6 +10,7 @@ The brand is **faceless**: no person, no photo. Professional, confident, concret
 
 - Pure **HTML5** + **one** CSS file (`/css/style.css`).
 - **No build step**, no JS framework. (Tiny inline vanilla JS only if ever truly needed — none required for v1.)
+- **Zero external requests**: the two typefaces (Archivo, IBM Plex Mono) are self-hosted in `/fonts/`.
 - Deploys **as-is** to **Cloudflare Pages**.
 - All internal links are **absolute root-relative** (`/css/style.css`, `/offers/…`, `/de/`, …) because the site is served from the root.
 
@@ -22,6 +23,7 @@ The brand is **faceless**: no person, no photo. Professional, confident, concret
 /guides/*.html            The 3 guides (EN)
 /scrape/<slug>.html       pSEO landing pages (generated — see below)
 /css/style.css            The single stylesheet (design tokens + class contract)
+/fonts/*.woff2            Self-hosted Archivo + IBM Plex Mono (latin + latin-ext)
 404.html                  Branded not-found page
 robots.txt                Allow all + Sitemap reference
 sitemap.xml               Home + localized + offers + guides

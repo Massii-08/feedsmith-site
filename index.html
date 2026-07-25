@@ -18,14 +18,15 @@
 <link rel="alternate" hreflang="x-default" href="https://feedsmith.net/" />
 <meta property="og:image" content="https://feedsmith.net/assets/og.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="theme-color" content="#05100C" />
+<meta name="theme-color" content="#F2F2EF" />
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
-<link rel="stylesheet" href="/css/style.css?v=5" />
+<link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="/css/style.css?v=7" />
 </head>
 <body>
 
 <header class="nav"><div class="container nav-inner">
-  <a class="brand" href="/"><span class="brand-mark">◆</span> Feedsmith</a>
+  <a class="brand" href="/">Feedsmith</a>
   <nav class="nav-links">
     <a href="/#offers">Offers</a>
     <a href="/#guides">Guides</a>
@@ -39,301 +40,180 @@
 <!-- ===================== HERO ===================== -->
 <section class="hero"><div class="container hero-grid">
   <div>
-    <span class="eyebrow">Web scraping &amp; maintained data feeds</span>
-    <h1>Reliable data feeds<br class="lb"> <span class="hl">from public sources</span>.</h1>
-    <p class="lead">When Apify, Octoparse or a ChatGPT-written script gets blocked, returns empty pages, or breaks every time the site changes — I extract clean public data, and keep it running.</p>
+    <h1>Reliable data feeds from public sources.</h1>
+    <p class="lead">When no-code tools and AI-written scripts get blocked or return empty pages, I extract the data and keep it running.</p>
     <form class="contact-form" action="https://formspree.io/f/mpqelldw" method="POST">
       <input type="url" name="target_url" aria-label="The public site or URL you need data from" placeholder="The public site / URL" required />
+      <input type="email" name="email" aria-label="Your email" placeholder="Your email" required />
+      <textarea name="details" aria-label="What data do you need, and in which language" placeholder="What data do you need? Which language (DE / FR / IT / EN)?" required></textarea>
       <button class="btn btn-primary" type="submit">Get a free feasibility check</button>
     </form>
-    <div class="micro">Public sources only · no logins, no personal data · you operate and own the data.</div>
+    <p class="micro">Public sources only. No logins, no personal data. You operate and own the feed.</p>
   </div>
 
-  <!-- signature forge motif: raw public web, forged into a clean live feed -->
-  <div class="hero-art">
-    <svg class="forge-motif" viewBox="0 0 620 540" role="img" aria-labelledby="fmTitle fmDesc" xmlns="http://www.w3.org/2000/svg">
-      <title id="fmTitle">Raw public web pages, forged into a clean structured data feed</title>
-      <desc id="fmDesc">Messy website windows flow through a forge spark and come out as a tidy live data table with CSV and JSON output.</desc>
-      <defs>
-        <radialGradient id="fmForgeGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#52E6BE" stop-opacity="0.9"/><stop offset="42%" stop-color="#2DD4A7" stop-opacity="0.35"/><stop offset="100%" stop-color="#2DD4A7" stop-opacity="0"/></radialGradient>
-        <radialGradient id="fmCore" cx="50%" cy="42%" r="60%"><stop offset="0%" stop-color="#D7FBEF"/><stop offset="45%" stop-color="#34D399"/><stop offset="100%" stop-color="#0F6E56"/></radialGradient>
-        <radialGradient id="fmSpark" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFE9AE" stop-opacity="0.95"/><stop offset="55%" stop-color="#F6C667" stop-opacity="0.45"/><stop offset="100%" stop-color="#F6C667" stop-opacity="0"/></radialGradient>
-        <linearGradient id="fmCard" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0E241D"/><stop offset="100%" stop-color="#0A1A15"/></linearGradient>
-        <filter id="fmBlur" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="8"/></filter>
-        <filter id="fmBlurL" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="22"/></filter>
-      </defs>
-
-      <ellipse cx="380" cy="250" rx="240" ry="200" fill="#2DD4A7" opacity="0.07" filter="url(#fmBlurL)"/>
-
-      <!-- raw web: tilted, broken source windows -->
-      <g transform="translate(20,228) rotate(-2)" opacity="0.55">
-        <rect width="124" height="84" rx="8" fill="#0B1712" stroke="#2C3D36" stroke-width="0.8"/>
-        <rect x="16" y="20" width="92" height="44" rx="6" fill="none" stroke="#33453F" stroke-width="1" stroke-dasharray="6 6"/>
-        <text x="62" y="48" font-family="ui-monospace,Menlo,monospace" font-size="18" font-weight="700" fill="#3A4A45" text-anchor="middle">— —</text>
-      </g>
-      <g transform="translate(36,84) rotate(-5)">
-        <rect width="182" height="120" rx="10" fill="#0B1813" stroke="#2C3D36" stroke-width="0.8"/>
-        <circle cx="16" cy="15" r="3.2" fill="#2C3D36"/><circle cx="29" cy="15" r="3.2" fill="#2C3D36"/><circle cx="42" cy="15" r="3.2" fill="#2C3D36"/>
-        <rect x="16" y="36" width="52" height="24" rx="5" fill="#2A1413" stroke="#9E3B33" stroke-width="0.8"/>
-        <text x="42" y="53" font-family="ui-monospace,Menlo,monospace" font-size="14" font-weight="700" fill="#E2574C" text-anchor="middle">403</text>
-        <line x1="82" y1="48" x2="158" y2="48" stroke="#33453F" stroke-width="3" stroke-dasharray="9 7"/>
-        <line x1="16" y1="78" x2="142" y2="78" stroke="#33453F" stroke-width="3" stroke-dasharray="20 9"/>
-        <line x1="16" y1="98" x2="120" y2="98" stroke="#33453F" stroke-width="3" stroke-dasharray="12 8"/>
-      </g>
-      <g transform="translate(74,328) rotate(4)">
-        <rect width="158" height="106" rx="9" fill="#0C1A14" stroke="#2C3D36" stroke-width="0.8"/>
-        <circle cx="15" cy="14" r="3" fill="#2C3D36"/><circle cx="27" cy="14" r="3" fill="#2C3D36"/>
-        <line x1="15" y1="38" x2="130" y2="38" stroke="#33453F" stroke-width="3" stroke-dasharray="14 8"/>
-        <line x1="15" y1="58" x2="104" y2="58" stroke="#33453F" stroke-width="3" stroke-dasharray="10 8"/>
-        <line x1="15" y1="78" x2="120" y2="78" stroke="#33453F" stroke-width="3" stroke-dasharray="22 9"/>
-      </g>
-
-      <!-- raw flows in -->
-      <g fill="none" stroke="#3A4F47" stroke-linecap="round" stroke-width="1.1">
-        <path d="M216 140 C 252 162, 268 210, 286 248" opacity="0.8"/>
-        <path d="M148 262 C 196 264, 240 268, 276 272" opacity="0.75"/>
-        <path d="M228 370 C 256 348, 272 318, 288 294" opacity="0.8"/>
-      </g>
-
-      <!-- clean flows out -->
-      <g fill="none" stroke="#2DD4A7" stroke-linecap="round">
-        <path d="M322 252 C 344 222, 350 196, 370 188" stroke-width="1.2" opacity="0.85"/>
-        <path d="M326 264 C 348 254, 354 246, 370 242" stroke-width="1.2" opacity="0.85"/>
-        <path d="M326 280 C 348 290, 354 296, 370 296" stroke-width="1.2" opacity="0.8"/>
-        <path d="M322 292 C 344 322, 352 342, 370 350" stroke-width="1.1" opacity="0.7"/>
-      </g>
-      <g fill="#34D399">
-        <circle cx="372" cy="188" r="3"/><circle cx="372" cy="242" r="3"/><circle cx="372" cy="296" r="3"/><circle cx="372" cy="350" r="2.6"/>
-      </g>
-
-      <!-- animated data packets (CSS offset-path) -->
-      <g transform="translate(304,272)">
-        <circle class="flow-dot" r="2.6" fill="#7FE0C3" style="offset-path:path('M0 0 C 40 -50, 46 -76, 68 -84')"/>
-        <circle class="flow-dot d2" r="2.6" fill="#7FE0C3" style="offset-path:path('M0 0 C 44 -18, 50 -26, 68 -30')"/>
-        <circle class="flow-dot d3" r="2.6" fill="#FFE9AE" style="offset-path:path('M0 0 C 40 50, 48 70, 68 78')"/>
-      </g>
-
-      <!-- forge core -->
-      <circle cx="304" cy="272" r="56" fill="url(#fmForgeGlow)" filter="url(#fmBlur)"/>
-      <circle cx="304" cy="272" r="40" fill="none" stroke="#2DD4A7" stroke-width="0.8" opacity="0.35"/>
-      <circle cx="304" cy="272" r="27" fill="none" stroke="#2DD4A7" stroke-width="1.5" opacity="0.9"/>
-      <g class="spark-pulse">
-        <circle cx="304" cy="272" r="20" fill="url(#fmSpark)" filter="url(#fmBlur)"/>
-        <circle cx="304" cy="272" r="12.5" fill="url(#fmCore)"/>
-        <g stroke="#FFEAB0" stroke-width="1.5" stroke-linecap="round" opacity="0.9">
-          <line x1="304" y1="251" x2="304" y2="293"/>
-          <line x1="283" y1="272" x2="325" y2="272"/>
-          <line x1="290" y1="258" x2="318" y2="286"/>
-          <line x1="318" y1="258" x2="290" y2="286"/>
-        </g>
-      </g>
-
-      <!-- the clean feed card -->
-      <rect x="364" y="92" width="252" height="360" rx="20" fill="#2DD4A7" opacity="0.12" filter="url(#fmBlur)"/>
-      <g transform="translate(372,100)">
-        <rect width="236" height="344" rx="16" fill="url(#fmCard)" stroke="#1D9E75" stroke-width="0.9"/>
-        <!-- column headers -->
-        <g>
-          <rect x="16" y="16" width="45" height="14" rx="4" fill="#11332B"/><rect x="20" y="21" width="24" height="3" rx="1.5" fill="#2DD4A7" opacity="0.7"/>
-          <rect x="69" y="16" width="45" height="14" rx="4" fill="#11332B"/><rect x="73" y="21" width="19" height="3" rx="1.5" fill="#2DD4A7" opacity="0.7"/>
-          <rect x="122" y="16" width="45" height="14" rx="4" fill="#11332B"/><rect x="126" y="21" width="27" height="3" rx="1.5" fill="#2DD4A7" opacity="0.7"/>
-          <rect x="175" y="16" width="45" height="14" rx="4" fill="#11332B"/><rect x="179" y="21" width="16" height="3" rx="1.5" fill="#2DD4A7" opacity="0.7"/>
-        </g>
-        <!-- live feed pill + format chips -->
-        <rect x="16" y="42" width="100" height="26" rx="13" fill="#0C211B" stroke="#1D9E75" stroke-width="0.9"/>
-        <circle class="live-dot" cx="32" cy="55" r="4" fill="#34D399"/>
-        <text x="42" y="59" font-family="ui-monospace,Menlo,monospace" font-size="11" font-weight="600" letter-spacing="1.4" fill="#9FE1CB">LIVE FEED</text>
-        <rect x="126" y="44" width="42" height="22" rx="11" fill="#0A1A16" stroke="#16443A" stroke-width="0.7"/>
-        <text x="147" y="58" font-family="ui-monospace,Menlo,monospace" font-size="10.5" font-weight="600" fill="#6FC3A8" text-anchor="middle">CSV</text>
-        <rect x="174" y="44" width="46" height="22" rx="11" fill="#0A1A16" stroke="#16443A" stroke-width="0.7"/>
-        <text x="197" y="58" font-family="ui-monospace,Menlo,monospace" font-size="10.5" font-weight="600" fill="#6FC3A8" text-anchor="middle">JSON</text>
-        <!-- data mosaic -->
-        <g>
-          <rect x="16" y="84" width="45" height="24" rx="5" fill="#2DD4A7"/><rect x="69" y="84" width="45" height="24" rx="5" fill="#14302A"/><rect x="122" y="84" width="45" height="24" rx="5" fill="#1A4E40"/><rect x="175" y="84" width="45" height="24" rx="5" fill="#14302A"/>
-          <rect x="16" y="116" width="45" height="24" rx="5" fill="#14302A"/><rect x="69" y="116" width="45" height="24" rx="5" fill="#2DD4A7" opacity="0.85"/><rect x="122" y="116" width="45" height="24" rx="5" fill="#14302A"/><rect x="175" y="116" width="45" height="24" rx="5" fill="#1A4E40"/>
-          <rect x="16" y="148" width="45" height="24" rx="5" fill="#1A4E40"/><rect x="69" y="148" width="45" height="24" rx="5" fill="#14302A"/><rect x="122" y="148" width="45" height="24" rx="5" fill="#14302A"/><rect x="175" y="148" width="45" height="24" rx="5" fill="#2DD4A7"/>
-          <rect x="16" y="180" width="45" height="24" rx="5" fill="#14302A"/><rect x="69" y="180" width="45" height="24" rx="5" fill="#1A4E40"/><rect x="122" y="180" width="45" height="24" rx="5" fill="#2DD4A7" opacity="0.7"/><rect x="175" y="180" width="45" height="24" rx="5" fill="#14302A"/>
-          <rect x="16" y="212" width="45" height="24" rx="5" fill="#2DD4A7" opacity="0.6"/><rect x="69" y="212" width="45" height="24" rx="5" fill="#14302A"/><rect x="122" y="212" width="45" height="24" rx="5" fill="#14302A"/><rect x="175" y="212" width="45" height="24" rx="5" fill="#1A4E40"/>
-          <rect x="16" y="244" width="45" height="24" rx="5" fill="#14302A"/><rect x="69" y="244" width="45" height="24" rx="5" fill="#1A4E40"/><rect x="122" y="244" width="45" height="24" rx="5" fill="#2DD4A7" opacity="0.8"/><rect x="175" y="244" width="45" height="24" rx="5" fill="#14302A"/>
-        </g>
-        <!-- footer: sync health -->
-        <rect x="12" y="296" width="212" height="32" rx="10" fill="#0A1A15"/>
-        <rect x="26" y="307" width="104" height="10" rx="5" fill="#16443A"/>
-        <rect x="26" y="307" width="68" height="10" rx="5" fill="#2DD4A7" opacity="0.85"/>
-        <text x="208" y="317" font-family="ui-monospace,Menlo,monospace" font-size="11.5" font-weight="600" fill="#6FC3A8" text-anchor="end">98%</text>
-      </g>
-    </svg>
+  <div class="register">
+    <p class="st">What a feed contains</p>
+    <dl>
+      <div class="r"><dt>Output</dt><dd>CSV · JSON · webhook</dd></div>
+      <div class="r"><dt>Cadence</dt><dd>hourly to weekly</dd></div>
+      <div class="r"><dt>Monitoring</dt><dd>on every run</dd></div>
+      <div class="r"><dt>Repair when the source changes</dt><dd>included</dd></div>
+      <div class="r"><dt>Source data</dt><dd>public, factual, non-personal</dd></div>
+      <div class="r"><dt>Ownership</dt><dd>yours, with the code</dd></div>
+    </dl>
+    <p class="micro">Pages are read the way a normal visitor reads them, at a respectful rate, with robots.txt honoured.</p>
   </div>
 </div></section>
 
-<!-- ===================== SCREENER / SAMPLE DATA ===================== -->
-<section id="data" class="alt"><div class="container">
-  <div class="sec-head">
-    <div class="kick">The deliverable</div>
-    <h2 class="section-title">A clean dataset, not a promise.</h2>
-    <p>You get structured public data — CSV, JSON, or an API — with the fields you need and nothing you don't. Factual, non-personal, and verifiable against the source.</p>
-  </div>
+<!-- ===================== SAMPLE OUTPUT (real run) ===================== -->
+<section id="data"><div class="container">
+  <h2 class="section-title">A dataset you can check, not a promise.</h2>
+  <p class="lead">Below is real output from the open-source starter behind the Managed Data Feed offer, run against a public sandbox catalogue. Same shape as what lands in your inbox or your database.</p>
 
-  <div class="screener">
-    <div class="filters" role="group" aria-label="Sample filters">
-      <span class="lab">Currency</span>
-      <button class="chip on" type="button">EUR</button>
-      <span class="lab" style="margin-left:8px">Availability</span>
-      <button class="chip on" type="button">In stock</button>
-      <span class="lab" style="margin-left:8px">Rating</span>
-      <button class="chip" type="button">≥ 4.0</button>
-      <span class="spacer"></span>
-      <span class="count"><b>6</b> of <b>2,480</b> products</span>
-    </div>
+  <div class="panel">
+    <div class="panel-head"><span>books-demo.csv · run 2026-06-17 21:05 UTC</span><b>CSV</b></div>
     <div class="tbl-scroll">
       <table>
         <thead><tr>
-          <th scope="col">Product</th>
-          <th scope="col">Category</th>
-          <th scope="col" class="r">Price</th>
-          <th scope="col" class="r">Availability</th>
-          <th scope="col" class="r">Rating</th>
-          <th scope="col">Source</th>
+          <th scope="col">title</th>
+          <th scope="col">price</th>
+          <th scope="col">availability</th>
+          <th scope="col">rating</th>
+          <th scope="col">source</th>
         </tr></thead>
         <tbody>
-          <tr><td><span class="em-name">Wireless Keyboard K380</span><div class="sub num">SKU 8290-114</div></td><td>Peripherals</td><td class="r num">€41.90</td><td class="r">In stock</td><td class="r num">4.6</td><td><a class="verify" href="#">public catalog ↗</a></td></tr>
-          <tr><td><span class="em-name">USB-C Hub 7-in-1</span><div class="sub num">SKU 8290-552</div></td><td>Accessories</td><td class="r num">€28.50</td><td class="r">In stock</td><td class="r num">4.4</td><td><a class="verify" href="#">public catalog ↗</a></td></tr>
-          <tr><td><span class="em-name">27&quot; 4K IPS Monitor</span><div class="sub num">SKU 6612-008</div></td><td>Displays</td><td class="r num">€312.00</td><td class="r">3 left</td><td class="r num">4.7</td><td><a class="verify" href="#">public catalog ↗</a></td></tr>
-          <tr><td><span class="em-name">Mechanical Keyboard TKL</span><div class="sub num">SKU 8290-771</div></td><td>Peripherals</td><td class="r num">€89.00</td><td class="r">In stock</td><td class="r num">4.8</td><td><a class="verify" href="#">public catalog ↗</a></td></tr>
-          <tr><td><span class="em-name">Noise-Cancelling Headset</span><div class="sub num">SKU 4401-230</div></td><td>Audio</td><td class="r num">€129.90</td><td class="r">In stock</td><td class="r num">4.5</td><td><a class="verify" href="#">public catalog ↗</a></td></tr>
-          <tr><td><span class="em-name">Laptop Stand Aluminium</span><div class="sub num">SKU 5120-019</div></td><td>Accessories</td><td class="r num">€34.00</td><td class="r">Out of stock</td><td class="r num">4.3</td><td><a class="verify" href="#">public catalog ↗</a></td></tr>
+          <tr><td>A Light in the Attic</td><td>£51.77</td><td>In stock</td><td>Three</td><td>books.toscrape.com</td></tr>
+          <tr><td>Tipping the Velvet</td><td>£53.74</td><td>In stock</td><td>One</td><td>books.toscrape.com</td></tr>
+          <tr><td>Soumission</td><td>£50.10</td><td>In stock</td><td>One</td><td>books.toscrape.com</td></tr>
+          <tr><td>Sharp Objects</td><td>£47.82</td><td>In stock</td><td>Four</td><td>books.toscrape.com</td></tr>
+          <tr><td>Sapiens: A Brief History of Humankind</td><td>£54.23</td><td>In stock</td><td>Five</td><td>books.toscrape.com</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="screener-foot">Sample data, public sources only. Factual / non-personal fields. robots.txt and sensible rate limits respected. You operate and own the feed.</div>
+    <div class="panel-foot">Public sandbox source. Factual, non-personal fields. One row per product, one column per field, with the fetch timestamp kept.</div>
   </div>
+
+  <p class="micro">Your feed carries your fields and nothing else: the columns you asked for, in the format you asked for.</p>
 </div></section>
 
 <!-- ===================== OFFERS ===================== -->
-<section id="offers"><div class="container">
-  <div class="sec-head">
-    <div class="kick">Offers</div>
-    <h2 class="section-title">Start small. Scale to a maintained feed.</h2>
-    <p>Begin with a low-risk audit, get a one-off dataset, or hand the upkeep to me with a managed feed.</p>
+<section id="offers" class="alt"><div class="container">
+  <p class="kick">Offers</p>
+  <h2 class="section-title">Start with an audit. Scale to a maintained feed.</h2>
+  <p class="lead">Four ways in, from a low-risk check to a feed I keep alive.</p>
+
+  <div class="offer-row">
+    <div><h3>Hidden-API Audit</h3><a class="more" href="/offers/hidden-api-audit.html">See details</a></div>
+    <p>I check one public site, find the cleanest data route, and send you about 50 real sample rows. The low-risk way to start.</p>
+    <div class="price">from €150<span>fixed fee</span></div>
   </div>
-  <div class="grid-4">
-    <a class="card" href="/offers/hidden-api-audit.html">
-      <h3>Hidden-API Audit</h3>
-      <p>I check one public site, find the cleanest data route, and send you ~50 real sample rows. A low-risk way to start.</p>
-      <div class="price">From €150<small> &nbsp;fixed</small></div>
-      <span class="more">See details →</span>
-    </a>
-    <a class="card" href="/offers/scraper.html">
-      <h3>One-off Scraper</h3>
-      <p>A robust scraper for one public source, delivered as tested code you own. Clean CSV / JSON / API output.</p>
-      <div class="price">€600–1,500</div>
-      <span class="more">See details →</span>
-    </a>
-    <a class="card feat" href="/offers/managed-data-feed.html">
-      <span class="pill">Core</span>
-      <h3>Managed Data Feed</h3>
-      <p>Scraper + scheduled delivery + monitoring. The source changes, it breaks, I fix it — usually before you notice.</p>
-      <div class="price">€500–1k<small> + €150–500/mo</small></div>
-      <span class="more">See details →</span>
-    </a>
-    <a class="card" href="/offers/discord-bot.html">
-      <h3>Discord Bot</h3>
-      <p>A custom bot for your community: automation, public-data lookups, scheduled posts. Built and hosted.</p>
-      <div class="price">€500–2,500<small> + hosting</small></div>
-      <span class="more">See details →</span>
-    </a>
+  <div class="offer-row">
+    <div><h3>One-off Scraper</h3><a class="more" href="/offers/scraper.html">See details</a></div>
+    <p>A robust scraper for one public source, delivered as tested code you own. Clean CSV, JSON or API output.</p>
+    <div class="price">€600 to 1,500<span>one time</span></div>
+  </div>
+  <div class="offer-row core">
+    <div><h3>Managed Data Feed</h3><a class="more" href="/offers/managed-data-feed.html">See details</a></div>
+    <p>Scraper, scheduled delivery and monitoring. The source changes, it breaks, I fix it, usually before you notice.</p>
+    <div class="price">€500 to 1,000<span>then €150 to 500 / month</span></div>
+  </div>
+  <div class="offer-row">
+    <div><h3>Discord Bot</h3><a class="more" href="/offers/discord-bot.html">See details</a></div>
+    <p>A custom bot for your community: automation, public-data lookups, scheduled posts. Built and hosted.</p>
+    <div class="price">€500 to 2,500<span>plus hosting</span></div>
   </div>
 </div></section>
 
 <!-- ===================== HOW IT WORKS ===================== -->
-<section class="alt"><div class="container">
-  <div class="sec-head">
-    <div class="kick">How it works</div>
-    <h2 class="section-title">From a blocked scraper to a feed you can rely on.</h2>
-  </div>
+<section><div class="container">
+  <h2 class="section-title">From a blocked scraper to a feed you can rely on.</h2>
   <div class="grid-4">
-    <div class="card"><div class="step-num">1</div><h3>Audit</h3><p>I check the public source and find the most reliable extraction route — a hidden API where one exists.</p></div>
+    <div class="card"><div class="step-num">1</div><h3>Audit</h3><p>I check the public source and find the most reliable extraction route, a hidden API where one exists.</p></div>
     <div class="card"><div class="step-num">2</div><h3>Build</h3><p>A tested scraper that handles JS-heavy and Cloudflare-protected public pages, outputting clean data.</p></div>
     <div class="card"><div class="step-num">3</div><h3>Schedule &amp; monitor</h3><p>Delivery on your cadence, with monitoring. When the source changes and it breaks, I repair it.</p></div>
-    <div class="card"><div class="step-num">4</div><h3>You operate &amp; own</h3><p>You run the tool and own the data. I build and maintain it — a tool, not an operating service.</p></div>
+    <div class="card"><div class="step-num">4</div><h3>You operate &amp; own</h3><p>You run the tool and own the data. I build and maintain it: a tool, not an operating service.</p></div>
   </div>
 </div></section>
 
-<!-- ===================== TRUST / SCOPE ===================== -->
-<section id="scope"><div class="container trust-grid">
+<!-- ===================== SCOPE / TRUST ===================== -->
+<section id="scope" class="alt"><div class="container cols-2">
   <div>
-    <div class="sec-head" style="margin-bottom:26px">
-      <div class="kick">Scope &amp; trust</div>
-      <h2 class="section-title">Reliability, not circumvention.</h2>
-    </div>
-    <ul class="checklist">
-      <li><div><h4>Public, logged-out pages only</h4><p>Factual / business data: prices, specs, stock, listings, market data, schedules. No logins, no paywalls, no accounts.</p></div></li>
-      <li><div><h4>No personal data</h4><p>Strictly non-PII. No names with contacts, profiles, or photos — B2B and factual data only.</p></div></li>
-      <li><div><h4>robots.txt &amp; rate limits respected</h4><p>Pages are read like a normal visitor would, at a respectful rate. Output is structured and transformed.</p></div></li>
-      <li><div><h4>You operate and own the data</h4><p>I build and maintain the tool; you run it and control the data. A clean, documented handover every time.</p></div></li>
+    <h2 class="section-title">Reliability, not circumvention.</h2>
+    <ul class="check">
+      <li><strong>Public, logged-out pages only.</strong> Factual and business data: prices, specs, stock, listings, market data, schedules. No logins, no paywalls, no accounts.</li>
+      <li><strong>No personal data.</strong> Strictly non-PII. No names with contacts, profiles or photos. B2B and factual data only.</li>
+      <li><strong>robots.txt and rate limits respected.</strong> Pages are read like a normal visitor would, at a respectful rate. Output is structured and transformed.</li>
+      <li><strong>You operate and own the data.</strong> I build and maintain the tool, you run it and control the data. A clean, documented handover every time.</li>
     </ul>
   </div>
   <div class="sources">
-    <div class="st">Typically in scope</div>
+    <p class="st">Typically in scope</p>
     <div class="source-row"><span>Product prices, specs, stock</span><span class="lk">e-commerce</span></div>
     <div class="source-row"><span>Listings (price, size, location)</span><span class="lk">real estate</span></div>
-    <div class="source-row"><span>Catalogue / marketplace data</span><span class="lk">marketplace</span></div>
+    <div class="source-row"><span>Catalogue and marketplace data</span><span class="lk">marketplace</span></div>
     <div class="source-row"><span>Market data, schedules, prices</span><span class="lk">travel · finance</span></div>
-    <div class="disclaimer-box">Feedsmith builds a <strong>tool</strong> for reading <strong>public, factual data</strong>. It is not used to access logins, paywalls, or personal data. You remain the operator and owner of the data and confirm your right to access the source.</div>
+    <div class="disclaimer-box">Feedsmith builds a <strong>tool</strong> for reading <strong>public, factual data</strong>. It is not used to access logins, paywalls or personal data. You remain the operator and owner of the data, and confirm your right to access the source.</div>
   </div>
 </div></section>
 
-<!-- ===================== PORTFOLIO ===================== -->
-<section id="portfolio" class="alt"><div class="container">
-  <div class="sec-head">
-    <div class="kick">Proof</div>
-    <h2 class="section-title">Open-source, tested, and runnable.</h2>
-    <p>Not a slide deck — real code you can read, clone, and run. The hard 20% of scraping that no-code tools fail at.</p>
-  </div>
-  <div class="grid-3">
-    <a class="card" href="https://github.com/Massii-08/managed-data-feed-starter">
-      <div class="ico">◆</div>
-      <h3>managed-data-feed-starter</h3>
-      <p>The Managed Data Feed offer in code: resilient fetch → no-PII policy → schedule → self-healing monitor → CSV/JSON/webhook, in FastAPI.</p>
-      <span class="more">View on GitHub ↗</span>
-    </a>
-    <a class="card" href="https://github.com/Massii-08/hidden-api-extraction-template">
-      <div class="ico">{ }</div>
-      <h3>hidden-api-extraction-template</h3>
-      <p>Read a site's internal JSON API directly instead of parsing fragile HTML — faster and far more stable.</p>
-      <span class="more">View on GitHub ↗</span>
-    </a>
-    <a class="card" href="https://github.com/Massii-08/tls-fingerprint-scraper-demo">
-      <div class="ico">TLS</div>
-      <h3>tls-fingerprint-scraper-demo</h3>
-      <p>Why a public page returns empty: a TLS fingerprint check before render. Read it like a normal browser, compliantly.</p>
-      <span class="more">View on GitHub ↗</span>
-    </a>
+<!-- ===================== PROOF ===================== -->
+<section id="portfolio"><div class="container">
+  <p class="kick">Proof</p>
+  <h2 class="section-title">Open source, tested, and runnable.</h2>
+  <p class="lead">Not a slide deck. Real code you can read, clone and run: the hard 20% of scraping that no-code tools fail at.</p>
+
+  <div class="cols-2">
+    <div class="panel">
+      <div class="panel-head"><span>feeds/books_demo.yaml</span><b>config</b></div>
+      <div class="panel-body"><pre><span class="k">id</span>: books-demo
+<span class="k">source</span>: books.toscrape.com
+<span class="k">fields</span>: [title, price, availability, rating]
+<span class="k">rate_limit_seconds</span>: <span class="v">1.5</span>
+<span class="k">urls</span>: ["https://books.toscrape.com/catalogue/page-1.html"]
+<span class="k">schedule</span>:
+  <span class="k">interval_seconds</span>: <span class="v">30</span>
+<span class="k">output</span>:
+  <span class="k">kind</span>: csv
+  <span class="k">path</span>: data/books-demo.csv</pre></div>
+      <div class="panel-foot">One feed, one file. That is the whole configuration behind the sample above.</div>
+    </div>
+    <div>
+      <div class="card">
+        <h3>managed-data-feed-starter</h3>
+        <p>The Managed Data Feed offer in code: resilient fetch, no-PII policy, schedule, self-healing monitor, CSV / JSON / webhook output.</p>
+        <a class="more" href="https://github.com/Massii-08/managed-data-feed-starter">View on GitHub</a>
+      </div>
+      <div class="card">
+        <h3>hidden-api-extraction-template</h3>
+        <p>Read a site's internal JSON API directly instead of parsing fragile HTML: faster, and far more stable.</p>
+        <a class="more" href="https://github.com/Massii-08/hidden-api-extraction-template">View on GitHub</a>
+      </div>
+      <div class="card">
+        <h3>tls-fingerprint-scraper-demo</h3>
+        <p>Why a public page returns empty: a TLS fingerprint check before render. How to read it like a normal browser, compliantly.</p>
+        <a class="more" href="https://github.com/Massii-08/tls-fingerprint-scraper-demo">View on GitHub</a>
+      </div>
+    </div>
   </div>
 </div></section>
 
 <!-- ===================== GUIDES ===================== -->
-<section id="guides"><div class="container">
-  <div class="sec-head">
-    <div class="kick">Guides</div>
-    <h2 class="section-title">The why behind the work.</h2>
+<section id="guides" class="alt"><div class="container">
+  <h2 class="section-title">The why behind the work.</h2>
+  <div class="card">
+    <h3>Why your no-code scraper keeps breaking</h3>
+    <p>Layout changes, JS-rendered data, fingerprint checks, and what actually fixes them.</p>
+    <a class="more" href="/guides/no-code-scraper-keeps-breaking.html">Read the guide</a>
   </div>
-  <div class="grid-3">
-    <a class="card" href="/guides/no-code-scraper-keeps-breaking.html">
-      <h3>Why your no-code scraper keeps breaking</h3>
-      <p>Layout changes, JS-rendered data, fingerprint checks — and what actually fixes them.</p>
-      <span class="more">Read the guide →</span>
-    </a>
-    <a class="card" href="/guides/what-is-a-hidden-api.html">
-      <h3>What is a hidden API</h3>
-      <p>The internal JSON endpoints behind a page — and why calling them beats HTML parsing.</p>
-      <span class="more">Read the guide →</span>
-    </a>
-    <a class="card" href="/guides/cloudflare-protected-public-sites.html">
-      <h3>Cloudflare-protected public sites</h3>
-      <p>Empty pages are usually a TLS fingerprint check, not a CAPTCHA — the compliant way to read them.</p>
-      <span class="more">Read the guide →</span>
-    </a>
+  <div class="card">
+    <h3>What is a hidden API</h3>
+    <p>The internal JSON endpoints behind a page, and why calling them beats HTML parsing.</p>
+    <a class="more" href="/guides/what-is-a-hidden-api.html">Read the guide</a>
+  </div>
+  <div class="card">
+    <h3>Cloudflare-protected public sites</h3>
+    <p>Empty pages are usually a TLS fingerprint check rather than a CAPTCHA, and there is a compliant way to read them.</p>
+    <a class="more" href="/guides/cloudflare-protected-public-sites.html">Read the guide</a>
   </div>
 </div></section>
 
@@ -341,29 +221,29 @@
 <section id="contact"><div class="container">
   <div class="cta">
     <h2>Get a free feasibility check</h2>
-    <p>Tell me the public site and the data you need. I'll tell you if it's doable, how, and in which language.</p>
-    <form class="contact-form" action="https://formspree.io/f/mpqelldw" method="POST" style="margin:0 auto;justify-content:center">
+    <p>Tell me the public site and the data you need. I will tell you if it is doable, how, and in which language.</p>
+    <form class="contact-form" action="https://formspree.io/f/mpqelldw" method="POST">
       <input type="url" name="target_url" aria-label="The public site or URL" placeholder="The public site / URL" required />
       <input type="email" name="email" aria-label="Your email" placeholder="Your email" required />
-      <textarea name="details" aria-label="What data do you need, and in which language" placeholder="What data do you need? Which language (DE / FR / IT / EN)?"></textarea>
+      <textarea name="details" aria-label="What data do you need, and in which language" placeholder="What data do you need? Which language (DE / FR / IT / EN)?" required></textarea>
       <button class="btn btn-primary" type="submit">Send</button>
     </form>
-    <p class="muted small" style="margin:14px 0 0">Or email <a href="mailto:hello@feedsmith.net">hello@feedsmith.net</a> · Based in Switzerland · DE / FR / IT / EN.</p>
+    <p class="muted small">Or email <a href="mailto:hello@feedsmith.net">hello@feedsmith.net</a> · Based in Switzerland · DE / FR / IT / EN.</p>
   </div>
 </div></section>
 
 </main>
 
 <footer class="footer"><div class="container footer-inner">
-  <div><strong>Feedsmith</strong> — reliable data feeds from public sources.
-    <div class="muted small" style="margin-top:8px">Public sources only · factual / non-PII data · robots.txt &amp; rate limits respected · you operate and own the data.</div>
+  <div><strong>Feedsmith</strong>
+    <div class="muted small">Public sources only · factual, non-personal data · robots.txt and rate limits respected · you operate and own the data.</div>
   </div>
   <nav class="footer-links">
     <a href="/">Home</a>
     <a href="/#offers">Offers</a>
     <a href="/#guides">Guides</a>
     <a href="https://github.com/Massii-08">GitHub</a>
-    <span class="lang-switch"><a href="/">EN</a> · <a href="/de/">DE</a> · <a href="/fr/">FR</a> · <a href="/it/">IT</a></span>
+    <span class="lang-switch"><a href="/">EN</a> <a href="/de/">DE</a> <a href="/fr/">FR</a> <a href="/it/">IT</a></span>
   </nav>
 </div></footer>
 
