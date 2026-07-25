@@ -267,9 +267,13 @@ main ol li::marker{font-family:var(--mono);color:var(--sig)}
 .cta{
   background:var(--paper-2);border:0;border-top:1px solid var(--rule);
   border-bottom:1px solid var(--rule);border-radius:0;box-shadow:none;
-  padding:52px var(--pad);margin:66px calc(var(--pad)*-1) 0;text-align:left;
+  padding:52px var(--pad);margin:0 calc(var(--pad)*-1);text-align:left;
 }
 .cta::before{content:none}
+/* the home CTA carries the form, so it splits: pitch left, form right */
+.cta.cols-2{gap:64px;align-items:start}
+.cta.cols-2>*{min-width:0}
+.cta .muted.small{margin:14px 0 0}
 .cta h2,.cta h3,.cta .section-title{font-size:28px;margin:0 0 10px;max-width:26ch}
 .cta p{margin:0 0 20px;color:var(--mid);max-width:56ch}
 .cta .lead{margin-left:0;margin-right:0}
