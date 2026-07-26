@@ -149,10 +149,19 @@ header.nav{
 }
 .nav-inner{display:flex;align-items:center;gap:34px;height:74px}
 .brand{
-  font-family:var(--display);font-weight:700;font-size:23px;letter-spacing:-.035em;
+  display:inline-flex;align-items:center;gap:11px;
+  font-family:var(--display);font-weight:700;font-size:23px;letter-spacing:-.045em;
   color:var(--ink);text-decoration:none;white-space:nowrap;
 }
-.brand-mark{display:none}
+.brand-mark{
+  display:block;flex:0 0 auto;width:26px;height:26px;background:none;filter:none;
+  margin-top:-1px;
+}
+.brand-mark g,.brand-mark rect{transition:transform .55s var(--ease)}
+/* on hover the fragments slide toward the gate: the mark performs the service */
+.brand:hover .brand-mark g:first-of-type{transform:translateX(2.6px)}
+.brand:hover .brand-mark g:last-of-type rect:nth-of-type(2){transform:translateX(3.6px)}
+.brand-word{display:inline-block}
 .nav-links{display:flex;align-items:center;gap:30px;margin-left:auto;font-size:15.5px;
   font-weight:500;letter-spacing:-.012em;color:var(--mid)}
 .nav-links a:not(.btn){position:relative;text-decoration:none;transition:color .2s;padding:4px 0}
@@ -530,7 +539,9 @@ footer.footer::before{content:none}
 .footer-inner{display:flex;flex-wrap:wrap;gap:24px 44px;align-items:baseline;
   padding-bottom:0;border-bottom:0}
 .footer-inner strong{color:var(--ink);font-family:var(--display);font-size:26px;
-  letter-spacing:-.035em;text-transform:none;font-weight:700}
+  letter-spacing:-.045em;text-transform:none;font-weight:700}
+.foot-brand{display:inline-flex;align-items:center;gap:11px}
+.foot-brand .brand-mark{width:28px;height:28px;margin-top:-2px}
 .footer-inner .muted{color:var(--dim);max-width:52ch;margin-top:10px;line-height:1.55}
 .footer-links{display:flex;flex-wrap:wrap;gap:24px;margin-left:auto;font-size:15px;
   color:var(--mid)}

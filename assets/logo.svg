@@ -1,4 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="150" height="32" viewBox="0 0 150 32" role="img" aria-label="Feedsmith">
+<svg xmlns="http://www.w3.org/2000/svg" width="196" height="30" viewBox="0 0 196 30" role="img" aria-label="Feedsmith">
   <title>Feedsmith</title>
-  <text x="0" y="23" font-family="Archivo, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="21" font-weight="700" letter-spacing="-0.55" fill="#16181C">Feedsmith</text>
+  <g transform="translate(0,2)">
+    <g fill="#17120F" opacity=".32">
+      <rect x="5.6" y="3.6" width="5" height="4.2"/><rect x="1" y="3.6" width="3" height="4.2"/>
+      <rect x="3.4" y="10.9" width="7.2" height="4.2"/>
+      <rect x="6.4" y="18.2" width="4.2" height="4.2"/><rect x="1.4" y="18.2" width="3" height="4.2"/>
+    </g>
+    <rect x="11.6" y="0.6" width="3.4" height="24.8" fill="#FF4A17"/>
+    <g fill="#17120F">
+      <rect x="15.6" y="3.6" width="6.4" height="4.2"/><rect x="23" y="3.6" width="2.6" height="4.2"/>
+      <rect x="15.6" y="10.9" width="6.4" height="4.2"/><rect x="23" y="10.9" width="2.6" height="4.2" fill="#FF4A17"/>
+      <rect x="15.6" y="18.2" width="6.4" height="4.2"/><rect x="23" y="18.2" width="2.6" height="4.2"/>
+    </g>
+  </g>
+  <text x="37" y="23" font-family="'Clash Display', Satoshi, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="25" font-weight="700" letter-spacing="-1.1" fill="#17120F">Feedsmith</text>
 </svg>

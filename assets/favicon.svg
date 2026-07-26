@@ -1,6 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Feedsmith">
-  <rect width="32" height="32" fill="#16181C"/>
-  <rect x="6" y="7" width="20" height="2.6" fill="#F2F2EF"/>
-  <rect x="6" y="14.7" width="13" height="2.6" fill="#F2F2EF"/>
-  <rect x="6" y="22.4" width="20" height="2.6" fill="#B62F17"/>
+  <!-- The mark, thickened for 16px: at favicon size the ragged side collapses
+       to two fragments and the clean side to two rows, or it turns to mush. -->
+  <rect width="32" height="32" rx="7" fill="#17120F"/>
+  <g fill="#F4EFE9" opacity=".42">
+    <rect x="4" y="8" width="5.5" height="5"/>
+    <rect x="4" y="19" width="3" height="5"/>
+  </g>
+  <rect x="12.5" y="4" width="4.5" height="24" fill="#FF4A17"/>
+  <g fill="#F4EFE9">
+    <rect x="19" y="8" width="9" height="5"/>
+    <rect x="19" y="19" width="9" height="5"/>
+  </g>
 </svg>
