@@ -18,12 +18,29 @@
 <link rel="alternate" hreflang="x-default" href="https://feedsmith.net/" />
 <meta property="og:image" content="https://feedsmith.net/assets/og.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="theme-color" content="#F2F2EF" />
+<meta name="theme-color" content="#F7F3ED" />
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
-<link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="/css/style.css?v=7" />
+<link rel="preload" href="/fonts/clash-700.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="/css/style.css?v=8" />
 </head>
 <body>
+
+<!--
+  DIRECTION CONTRACT
+  THESIS: a scraping service is judged on whether the data still arrives next month.
+  So the page runs the machine in front of the visitor instead of describing it. It
+  refuses the category's two ruts: the dark SaaS landing with a neon accent, and the
+  quiet white consultancy report.
+  OWN-WORLD: warm bone ground, near-black machine slabs, one incandescent accent at
+  forge temperature. Clash Display at poster scale, Satoshi for voice, IBM Plex Mono
+  for everything a machine produced. Pills for actions, square for technical surfaces.
+  STORY: broken scrapers go in, a maintained feed comes out, and the proof is the
+  operator's own real output, not a claim.
+  FIRST VIEWPORT: poster headline left with one pill action; the live machine right,
+  raw web crossing a forge gate into clean rows.
+  FORM: the forge, dramatized as a running conveyor.
+-->
 
 <header class="nav"><div class="container nav-inner">
   <a class="brand" href="/">Feedsmith</a>
@@ -40,37 +57,94 @@
 <!-- ===================== HERO ===================== -->
 <section class="hero"><div class="container hero-grid">
   <div>
-    <h1>Reliable data feeds from public sources.</h1>
-    <p class="lead">When no-code tools and AI-written scripts get blocked or return empty pages, I extract the data and keep it running.</p>
-    <form class="contact-form" action="https://formspree.io/f/mpqelldw" method="POST">
-      <input type="url" name="target_url" aria-label="The public site or URL you need data from" placeholder="The public site / URL" required />
-      <input type="email" name="email" aria-label="Your email" placeholder="Your email" required />
-      <textarea name="details" aria-label="What data do you need, and in which language" placeholder="What data do you need? Which language (DE / FR / IT / EN)?" required></textarea>
-      <button class="btn btn-primary" type="submit">Get a free feasibility check</button>
-    </form>
-    <p class="micro">Public sources only. No logins, no personal data. You operate and own the feed.</p>
+    <h1 data-rise class="in">Reliable data feeds from public sources, <em>kept running.</em></h1>
+    <p class="lead" data-rise data-d="1">When Apify, Octoparse or a ChatGPT script gets blocked and returns empty pages, I take over the extraction and keep it alive.</p>
+    <div class="hero-cta" data-rise data-d="2">
+      <a class="btn btn-primary" href="/#contact">Get a free feasibility check <span class="arw">&rarr;</span></a>
+      <a class="btn btn-ghost" href="/#data">See a real output</a>
+    </div>
+    <p class="hero-note" data-rise data-d="3"><b>Two minutes.</b> Send the public URL and the fields you need. I answer with what is extractable, how, and at what price.</p>
   </div>
 
-  <div class="register">
-    <p class="st">What a feed contains</p>
-    <dl>
-      <div class="r"><dt>Output</dt><dd>CSV · JSON · webhook</dd></div>
-      <div class="r"><dt>Cadence</dt><dd>hourly to weekly</dd></div>
-      <div class="r"><dt>Monitoring</dt><dd>on every run</dd></div>
-      <div class="r"><dt>Repair when the source changes</dt><dd>included</dd></div>
-      <div class="r"><dt>Source data</dt><dd>public, factual, non-personal</dd></div>
-      <div class="r"><dt>Ownership</dt><dd>yours, with the code</dd></div>
-    </dl>
-    <p class="micro">Pages are read the way a normal visitor reads them, at a respectful rate, with robots.txt honoured.</p>
+  <div class="machine" data-rise data-d="2">
+    <div class="machine-head">
+      <span>raw public web &rarr; structured feed</span>
+      <span class="live"><i></i> live</span>
+    </div>
+    <canvas id="machine" height="340" role="img"
+      aria-label="Broken markup, 403 responses and empty pages travel through a forge gate and come out as clean rows of product data."></canvas>
+    <div class="machine-foot">
+      <span><b>title</b> price</span>
+      <span><b>availability</b> rating</span>
+      <span><b>source</b> fetched_at</span>
+    </div>
   </div>
 </div></section>
 
-<!-- ===================== SAMPLE OUTPUT (real run) ===================== -->
-<section id="data"><div class="container">
-  <h2 class="section-title">A dataset you can check, not a promise.</h2>
-  <p class="lead">Below is real output from the open-source starter behind the Managed Data Feed offer, run against a public sandbox catalogue. Same shape as what lands in your inbox or your database.</p>
+<!-- ===================== WHAT BREAKS SCRAPERS ===================== -->
+<div class="belt" aria-hidden="true">
+  <div class="belt-track">
+    <span>Cloudflare challenge</span><span>TLS fingerprint check</span><span>JS-rendered prices</span>
+    <span>Layout changed overnight</span><span>429 Too Many Requests</span><span>Rotating class names</span>
+    <span>Empty response body</span><span>Cursor pagination</span><span>403 Forbidden</span>
+    <span>Cloudflare challenge</span><span>TLS fingerprint check</span><span>JS-rendered prices</span>
+    <span>Layout changed overnight</span><span>429 Too Many Requests</span><span>Rotating class names</span>
+    <span>Empty response body</span><span>Cursor pagination</span><span>403 Forbidden</span>
+  </div>
+</div>
 
-  <div class="panel">
+<!-- ===================== OFFERS ===================== -->
+<section id="offers"><div class="container">
+  <div class="sec-head" data-rise>
+    <p class="kick">Offers</p>
+    <h2 class="section-title">Start with an audit. Scale to a maintained feed.</h2>
+    <p>Four ways in, from a low-risk check to a feed I keep alive.</p>
+  </div>
+
+  <div class="offer-row" data-rise>
+    <div><h3>Hidden-API Audit</h3><a class="more" href="/offers/hidden-api-audit.html">See details <span class="arw">&rarr;</span></a></div>
+    <p>I check one public site, find the cleanest data route, and send you about 50 real sample rows. The low-risk way to start.</p>
+    <div class="price">€150<span>fixed fee</span></div>
+  </div>
+  <div class="offer-row" data-rise>
+    <div><h3>One-off Scraper</h3><a class="more" href="/offers/scraper.html">See details <span class="arw">&rarr;</span></a></div>
+    <p>A robust scraper for one public source, delivered as tested code you own. Clean CSV, JSON or API output.</p>
+    <div class="price">€600<span>to 1,500, one time</span></div>
+  </div>
+  <div class="offer-row core" data-rise>
+    <div><h3>Managed Data Feed</h3><a class="more" href="/offers/managed-data-feed.html">See details <span class="arw">&rarr;</span></a></div>
+    <p>Scraper, scheduled delivery and monitoring. The source changes, it breaks, I fix it, usually before you notice.</p>
+    <div class="price">€500<span>setup, then €150 to 500 / month</span></div>
+  </div>
+  <div class="offer-row" data-rise>
+    <div><h3>Discord Bot</h3><a class="more" href="/offers/discord-bot.html">See details <span class="arw">&rarr;</span></a></div>
+    <p>A custom bot for your community: automation, public-data lookups, scheduled posts. Built and hosted.</p>
+    <div class="price">€500<span>to 2,500, plus hosting</span></div>
+  </div>
+</div></section>
+
+<!-- ===================== HOW IT WORKS ===================== -->
+<section class="alt"><div class="container">
+  <div class="sec-head" data-rise>
+    <h2 class="section-title">From a blocked scraper to a feed you can rely on.</h2>
+  </div>
+  <div class="grid-4">
+    <div class="card" data-rise><div class="step-num">1</div><h3>Audit</h3><p>I check the public source and find the most reliable extraction route, a hidden API where one exists.</p></div>
+    <div class="card" data-rise data-d="1"><div class="step-num">2</div><h3>Build</h3><p>A tested scraper that handles JS-heavy and Cloudflare-protected public pages, outputting clean data.</p></div>
+    <div class="card" data-rise data-d="2"><div class="step-num">3</div><h3>Schedule &amp; monitor</h3><p>Delivery on your cadence, with monitoring. When the source changes and it breaks, I repair it.</p></div>
+    <div class="card" data-rise data-d="3"><div class="step-num">4</div><h3>You operate &amp; own</h3><p>You run the tool and own the data. I build and maintain it: a tool, not an operating service.</p></div>
+  </div>
+</div></section>
+
+<!-- ===================== REAL OUTPUT ===================== -->
+<section id="data"><div class="container">
+  <div class="sec-head" data-rise>
+    <p class="kick">The deliverable</p>
+    <h2 class="section-title">A dataset you can check, not a promise.</h2>
+    <p>Real output from the open-source starter behind the Managed Data Feed offer, run against a public sandbox catalogue. Same shape as what lands in your inbox or your database.</p>
+  </div>
+
+  <div class="panel" data-rise>
     <div class="panel-head"><span>books-demo.csv · run 2026-06-17 21:05 UTC</span><b>CSV</b></div>
     <div class="tbl-scroll">
       <table>
@@ -93,51 +167,13 @@
     <div class="panel-foot">Public sandbox source. Factual, non-personal fields. One row per product, one column per field, with the fetch timestamp kept.</div>
   </div>
 
-  <p class="micro">Your feed carries your fields and nothing else: the columns you asked for, in the format you asked for.</p>
+  <p class="micro" data-rise>Your feed carries your fields and nothing else: the columns you asked for, in the format you asked for.</p>
 </div></section>
 
-<!-- ===================== OFFERS ===================== -->
-<section id="offers" class="alt"><div class="container">
-  <p class="kick">Offers</p>
-  <h2 class="section-title">Start with an audit. Scale to a maintained feed.</h2>
-  <p class="lead">Four ways in, from a low-risk check to a feed I keep alive.</p>
-
-  <div class="offer-row">
-    <div><h3>Hidden-API Audit</h3><a class="more" href="/offers/hidden-api-audit.html">See details</a></div>
-    <p>I check one public site, find the cleanest data route, and send you about 50 real sample rows. The low-risk way to start.</p>
-    <div class="price">from €150<span>fixed fee</span></div>
-  </div>
-  <div class="offer-row">
-    <div><h3>One-off Scraper</h3><a class="more" href="/offers/scraper.html">See details</a></div>
-    <p>A robust scraper for one public source, delivered as tested code you own. Clean CSV, JSON or API output.</p>
-    <div class="price">€600 to 1,500<span>one time</span></div>
-  </div>
-  <div class="offer-row core">
-    <div><h3>Managed Data Feed</h3><a class="more" href="/offers/managed-data-feed.html">See details</a></div>
-    <p>Scraper, scheduled delivery and monitoring. The source changes, it breaks, I fix it, usually before you notice.</p>
-    <div class="price">€500 to 1,000<span>then €150 to 500 / month</span></div>
-  </div>
-  <div class="offer-row">
-    <div><h3>Discord Bot</h3><a class="more" href="/offers/discord-bot.html">See details</a></div>
-    <p>A custom bot for your community: automation, public-data lookups, scheduled posts. Built and hosted.</p>
-    <div class="price">€500 to 2,500<span>plus hosting</span></div>
-  </div>
-</div></section>
-
-<!-- ===================== HOW IT WORKS ===================== -->
-<section><div class="container">
-  <h2 class="section-title">From a blocked scraper to a feed you can rely on.</h2>
-  <div class="grid-4">
-    <div class="card"><div class="step-num">1</div><h3>Audit</h3><p>I check the public source and find the most reliable extraction route, a hidden API where one exists.</p></div>
-    <div class="card"><div class="step-num">2</div><h3>Build</h3><p>A tested scraper that handles JS-heavy and Cloudflare-protected public pages, outputting clean data.</p></div>
-    <div class="card"><div class="step-num">3</div><h3>Schedule &amp; monitor</h3><p>Delivery on your cadence, with monitoring. When the source changes and it breaks, I repair it.</p></div>
-    <div class="card"><div class="step-num">4</div><h3>You operate &amp; own</h3><p>You run the tool and own the data. I build and maintain it: a tool, not an operating service.</p></div>
-  </div>
-</div></section>
-
-<!-- ===================== SCOPE / TRUST ===================== -->
+<!-- ===================== SCOPE ===================== -->
 <section id="scope" class="alt"><div class="container cols-2">
-  <div>
+  <div data-rise>
+    <p class="kick">Scope</p>
     <h2 class="section-title">Reliability, not circumvention.</h2>
     <ul class="check">
       <li><strong>Public, logged-out pages only.</strong> Factual and business data: prices, specs, stock, listings, market data, schedules. No logins, no paywalls, no accounts.</li>
@@ -146,7 +182,7 @@
       <li><strong>You operate and own the data.</strong> I build and maintain the tool, you run it and control the data. A clean, documented handover every time.</li>
     </ul>
   </div>
-  <div class="sources">
+  <div class="sources" data-rise data-d="1">
     <p class="st">Typically in scope</p>
     <div class="source-row"><span>Product prices, specs, stock</span><span class="lk">e-commerce</span></div>
     <div class="source-row"><span>Listings (price, size, location)</span><span class="lk">real estate</span></div>
@@ -158,12 +194,14 @@
 
 <!-- ===================== PROOF ===================== -->
 <section id="portfolio"><div class="container">
-  <p class="kick">Proof</p>
-  <h2 class="section-title">Open source, tested, and runnable.</h2>
-  <p class="lead">Not a slide deck. Real code you can read, clone and run: the hard 20% of scraping that no-code tools fail at.</p>
+  <div class="sec-head" data-rise>
+    <p class="kick">Proof</p>
+    <h2 class="section-title">Open source, tested, and runnable.</h2>
+    <p>Not a slide deck. Real code you can read, clone and run: the hard 20% of scraping that no-code tools fail at.</p>
+  </div>
 
   <div class="cols-2">
-    <div class="panel">
+    <div class="panel" data-rise>
       <div class="panel-head"><span>feeds/books_demo.yaml</span><b>config</b></div>
       <div class="panel-body"><pre><span class="k">id</span>: books-demo
 <span class="k">source</span>: books.toscrape.com
@@ -178,20 +216,23 @@
       <div class="panel-foot">One feed, one file. That is the whole configuration behind the sample above.</div>
     </div>
     <div>
-      <div class="card">
+      <div class="card" data-rise data-d="1" style="margin-bottom:20px">
+        <div class="ico">starter</div>
         <h3>managed-data-feed-starter</h3>
         <p>The Managed Data Feed offer in code: resilient fetch, no-PII policy, schedule, self-healing monitor, CSV / JSON / webhook output.</p>
-        <a class="more" href="https://github.com/Massii-08/managed-data-feed-starter">View on GitHub</a>
+        <a class="more" href="https://github.com/Massii-08/managed-data-feed-starter">View on GitHub <span class="arw">&rarr;</span></a>
       </div>
-      <div class="card">
+      <div class="card" data-rise data-d="2" style="margin-bottom:20px">
+        <div class="ico">template</div>
         <h3>hidden-api-extraction-template</h3>
         <p>Read a site's internal JSON API directly instead of parsing fragile HTML: faster, and far more stable.</p>
-        <a class="more" href="https://github.com/Massii-08/hidden-api-extraction-template">View on GitHub</a>
+        <a class="more" href="https://github.com/Massii-08/hidden-api-extraction-template">View on GitHub <span class="arw">&rarr;</span></a>
       </div>
-      <div class="card">
+      <div class="card" data-rise data-d="3">
+        <div class="ico">demo</div>
         <h3>tls-fingerprint-scraper-demo</h3>
         <p>Why a public page returns empty: a TLS fingerprint check before render. How to read it like a normal browser, compliantly.</p>
-        <a class="more" href="https://github.com/Massii-08/tls-fingerprint-scraper-demo">View on GitHub</a>
+        <a class="more" href="https://github.com/Massii-08/tls-fingerprint-scraper-demo">View on GitHub <span class="arw">&rarr;</span></a>
       </div>
     </div>
   </div>
@@ -199,27 +240,31 @@
 
 <!-- ===================== GUIDES ===================== -->
 <section id="guides" class="alt"><div class="container">
-  <h2 class="section-title">The why behind the work.</h2>
-  <div class="card">
-    <h3>Why your no-code scraper keeps breaking</h3>
-    <p>Layout changes, JS-rendered data, fingerprint checks, and what actually fixes them.</p>
-    <a class="more" href="/guides/no-code-scraper-keeps-breaking.html">Read the guide</a>
+  <div class="sec-head" data-rise>
+    <h2 class="section-title">The why behind the work.</h2>
   </div>
-  <div class="card">
-    <h3>What is a hidden API</h3>
-    <p>The internal JSON endpoints behind a page, and why calling them beats HTML parsing.</p>
-    <a class="more" href="/guides/what-is-a-hidden-api.html">Read the guide</a>
-  </div>
-  <div class="card">
-    <h3>Cloudflare-protected public sites</h3>
-    <p>Empty pages are usually a TLS fingerprint check rather than a CAPTCHA, and there is a compliant way to read them.</p>
-    <a class="more" href="/guides/cloudflare-protected-public-sites.html">Read the guide</a>
+  <div class="grid-3">
+    <a class="card" href="/guides/no-code-scraper-keeps-breaking.html" data-rise>
+      <h3>Why your no-code scraper keeps breaking</h3>
+      <p>Layout changes, JS-rendered data, fingerprint checks, and what actually fixes them.</p>
+      <span class="more">Read the guide <span class="arw">&rarr;</span></span>
+    </a>
+    <a class="card" href="/guides/what-is-a-hidden-api.html" data-rise data-d="1">
+      <h3>What is a hidden API</h3>
+      <p>The internal JSON endpoints behind a page, and why calling them beats HTML parsing.</p>
+      <span class="more">Read the guide <span class="arw">&rarr;</span></span>
+    </a>
+    <a class="card" href="/guides/cloudflare-protected-public-sites.html" data-rise data-d="2">
+      <h3>Cloudflare-protected public sites</h3>
+      <p>Empty pages are usually a TLS fingerprint check rather than a CAPTCHA, and there is a compliant way to read them.</p>
+      <span class="more">Read the guide <span class="arw">&rarr;</span></span>
+    </a>
   </div>
 </div></section>
 
 <!-- ===================== CONTACT ===================== -->
 <section id="contact"><div class="container">
-  <div class="cta cols-2">
+  <div class="cta cols-2" data-rise>
     <div>
       <h2>Get a free feasibility check</h2>
       <p>Tell me the public site and the data you need. I will tell you if it is doable, how, and in which language.</p>
@@ -229,7 +274,7 @@
       <input type="url" name="target_url" aria-label="The public site or URL" placeholder="The public site / URL" required />
       <input type="email" name="email" aria-label="Your email" placeholder="Your email" required />
       <textarea name="details" aria-label="What data do you need, and in which language" placeholder="What data do you need? Which language (DE / FR / IT / EN)?" required></textarea>
-      <button class="btn btn-primary" type="submit">Send</button>
+      <button class="btn btn-primary" type="submit">Send <span class="arw">&rarr;</span></button>
     </form>
   </div>
 </div></section>
@@ -249,5 +294,6 @@
   </nav>
 </div></footer>
 
+<script src="/js/site.js?v=1" defer></script>
 </body>
 </html>
