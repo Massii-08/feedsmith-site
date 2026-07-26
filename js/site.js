@@ -138,9 +138,12 @@
         ctx.beginPath(); ctx.moveTo(x, 14); ctx.lineTo(x, H - 14); ctx.stroke();
       }
 
-      // raw side
+      // raw side. Clipped at the gate: fillText draws rightward from its
+      // origin, so a long fragment would otherwise spill over the clean table.
       ctx.font = '12px "IBM Plex Mono", ui-monospace, Menlo, monospace';
       ctx.textBaseline = 'middle';
+      ctx.save();
+      ctx.beginPath(); ctx.rect(0, 0, gx - 4, H); ctx.clip();
       for (i = 0; i < junk.length; i++) {
         var p = junk[i];
         if (p.x > gx) continue;
@@ -148,10 +151,11 @@
         ctx.save();
         ctx.translate(p.x, p.y); ctx.rotate(p.rot);
         ctx.globalAlpha = p.a * fade;
-        ctx.fillStyle = p.bad ? '#FF4A17' : '#8A8299';
+        ctx.fillStyle = p.bad ? '#FF4A17' : '#8E837A';
         ctx.fillText(p.t, 0, 0);
         ctx.restore();
       }
+      ctx.restore();
       ctx.globalAlpha = 1;
 
       // the gate
