@@ -20,10 +20,27 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="theme-color" content="#F7F3ED" />
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
-<link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="/css/style.css?v=9" />
+<link rel="preload" href="/fonts/clash-700.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="/css/style.css?v=10" />
 </head>
 <body>
+
+<!--
+  DIRECTION CONTRACT
+  THESIS: a scraping service is judged on whether the data still arrives next month.
+  So the page runs the machine in front of the visitor instead of describing it. It
+  refuses the category's two ruts: the dark SaaS landing with a neon accent, and the
+  quiet white consultancy report.
+  OWN-WORLD: warm bone ground, near-black machine slabs, one incandescent accent at
+  forge temperature. Clash Display at poster scale, Satoshi for voice, IBM Plex Mono
+  for everything a machine produced. Pills for actions, square for technical surfaces.
+  STORY: broken scrapers go in, a maintained feed comes out, and the proof is the
+  operator's own real output, not a claim.
+  FIRST VIEWPORT: poster headline left with one pill action; the live machine right,
+  raw web crossing a forge gate into clean rows.
+  FORM: the forge, dramatized as a running conveyor.
+-->
 
 <header class="nav"><div class="container nav-inner">
   <a class="brand" href="/fr/"><svg class="brand-mark" viewBox="0 0 26 26" width="26" height="26" aria-hidden="true" focusable="false"><g fill="currentColor" opacity=".32"><rect x="5.6" y="3.6" width="5" height="4.2"/><rect x="1" y="3.6" width="3" height="4.2"/><rect x="3.4" y="10.9" width="7.2" height="4.2"/><rect x="6.4" y="18.2" width="4.2" height="4.2"/><rect x="1.4" y="18.2" width="3" height="4.2"/></g><rect x="11.6" y="0.6" width="3.4" height="24.8" fill="#FF4A17"/><g fill="currentColor"><rect x="15.6" y="3.6" width="6.4" height="4.2"/><rect x="23" y="3.6" width="2.6" height="4.2"/><rect x="15.6" y="10.9" width="6.4" height="4.2"/><rect x="23" y="10.9" width="2.6" height="4.2" fill="#FF4A17"/><rect x="15.6" y="18.2" width="6.4" height="4.2"/><rect x="23" y="18.2" width="2.6" height="4.2"/></g></svg><span class="brand-word">Feedsmith</span></a>
@@ -40,37 +57,94 @@
 <!-- ===================== HERO ===================== -->
 <section class="hero"><div class="container hero-grid">
   <div>
-    <h1>Des flux de données fiables issus de sources publiques.</h1>
-    <p class="lead">Quand les outils no-code et les scripts écrits par une IA se font bloquer ou renvoient des pages vides, j'extrais les données et je les maintiens.</p>
-    <form class="contact-form" action="https://formspree.io/f/mpqelldw" method="POST">
-      <input type="url" name="target_url" aria-label="Le site ou l'URL publique dont vous avez besoin" placeholder="Le site / l'URL publique" required />
-      <input type="email" name="email" aria-label="Votre e-mail" placeholder="Votre e-mail" required />
-      <textarea name="details" aria-label="Quelles données vous faut-il, et dans quelle langue" placeholder="Quelles données vous faut-il ? Quelle langue (FR / DE / IT / EN) ?" required></textarea>
-      <button class="btn btn-primary" type="submit">Étude de faisabilité gratuite</button>
-    </form>
-    <p class="micro">Sources publiques uniquement. Pas de comptes, pas de données personnelles. Vous exploitez et possédez le flux.</p>
+    <h1 data-rise class="in">Des flux de données publiques, <em>maintenus en vie.</em></h1>
+    <p class="lead" data-rise data-d="1">Quand Apify, Octoparse ou un script écrit par ChatGPT se fait bloquer et renvoie des pages vides, je reprends l'extraction et je la maintiens <em>en vie</em>.</p>
+    <div class="hero-cta" data-rise data-d="2">
+      <a class="btn btn-primary" href="#contact">Étude de faisabilité gratuite <span class="arw">&rarr;</span></a>
+      <a class="btn btn-ghost" href="#data">Voir une sortie réelle</a>
+    </div>
+    <p class="hero-note" data-rise data-d="3"><b>Deux minutes.</b> Envoyez l'URL publique et les champs qu'il vous faut. Je réponds avec ce qui est extractible, comment, et à quel prix.</p>
   </div>
 
-  <div class="register">
-    <p class="st">Ce que contient un flux</p>
-    <dl>
-      <div class="r"><dt>Sortie</dt><dd>CSV · JSON · webhook</dd></div>
-      <div class="r"><dt>Cadence</dt><dd>de l'heure à la semaine</dd></div>
-      <div class="r"><dt>Monitoring</dt><dd>à chaque exécution</dd></div>
-      <div class="r"><dt>Réparation quand la source change</dt><dd>inclus</dd></div>
-      <div class="r"><dt>Données source</dt><dd>publiques, factuelles, non personnelles</dd></div>
-      <div class="r"><dt>Propriété</dt><dd>à vous, avec le code</dd></div>
-    </dl>
-    <p class="micro">Les pages sont lues comme le ferait un visiteur normal, à un rythme respectueux, et robots.txt est respecté.</p>
+  <div class="machine" data-rise data-d="2">
+    <div class="machine-head">
+      <span>web public brut &rarr; flux structuré</span>
+      <span class="live"><i></i> en direct</span>
+    </div>
+    <canvas id="machine" height="340" role="img"
+      aria-label="Du markup cassé, des réponses 403 et des pages vides traversent une porte de forge et ressortent en lignes propres de données produit."></canvas>
+    <div class="machine-foot">
+      <span><b>title</b> price</span>
+      <span><b>availability</b> rating</span>
+      <span><b>source</b> fetched_at</span>
+    </div>
   </div>
 </div></section>
 
-<!-- ===================== SAMPLE OUTPUT (real run) ===================== -->
-<section id="data"><div class="container">
-  <h2 class="section-title">Un jeu de données vérifiable, pas une promesse.</h2>
-  <p class="lead">Ci-dessous, une sortie réelle du starter open source qui équipe l'offre Flux de données géré, exécuté sur un catalogue public de test. C'est exactement la forme de ce qui arrive dans votre boîte mail ou votre base.</p>
+<!-- ===================== WHAT BREAKS SCRAPERS ===================== -->
+<div class="belt" aria-hidden="true">
+  <div class="belt-track">
+    <span>Cloudflare challenge</span><span>TLS fingerprint check</span><span>Prix rendus en JS</span>
+    <span>Mise en page changée du jour au lendemain</span><span>429 Too Many Requests</span><span>Noms de classes tournants</span>
+    <span>Corps de réponse vide</span><span>Pagination par curseur</span><span>403 Forbidden</span>
+    <span>Cloudflare challenge</span><span>TLS fingerprint check</span><span>Prix rendus en JS</span>
+    <span>Mise en page changée du jour au lendemain</span><span>429 Too Many Requests</span><span>Noms de classes tournants</span>
+    <span>Corps de réponse vide</span><span>Pagination par curseur</span><span>403 Forbidden</span>
+  </div>
+</div>
 
-  <div class="panel">
+<!-- ===================== OFFERS ===================== -->
+<section id="offers"><div class="container">
+  <div class="sec-head" data-rise>
+    <p class="kick">Offres</p>
+    <h2 class="section-title">Commencez par un audit. Passez à un flux maintenu.</h2>
+    <p>Quatre portes d'entrée, d'une vérification sans risque à un flux que je maintiens en vie.</p>
+  </div>
+
+  <div class="offer-row" data-rise>
+    <div><h3>Audit d'API cachée</h3><a class="more" href="/offers/hidden-api-audit.html">Voir le détail <span class="arw">&rarr;</span></a></div>
+    <p>J'examine un site public, j'identifie la voie d'accès la plus propre et je vous envoie une cinquantaine de lignes d'échantillon réelles. Le point de départ sans risque.</p>
+    <div class="price">150 €<span>forfait</span></div>
+  </div>
+  <div class="offer-row" data-rise>
+    <div><h3>Scraper ponctuel</h3><a class="more" href="/offers/scraper.html">Voir le détail <span class="arw">&rarr;</span></a></div>
+    <p>Un scraper robuste pour une source publique, livré en code testé qui vous appartient. Sortie propre CSV, JSON ou API.</p>
+    <div class="price">600 €<span>à 1 500, une fois</span></div>
+  </div>
+  <div class="offer-row core" data-rise>
+    <div><h3>Flux de données géré</h3><a class="more" href="/offers/managed-data-feed.html">Voir le détail <span class="arw">&rarr;</span></a></div>
+    <p>Scraper, livraison planifiée et monitoring. La source change, ça casse, je répare, souvent avant que vous le remarquiez.</p>
+    <div class="price">500 €<span>installation, puis 150 à 500 € / mois</span></div>
+  </div>
+  <div class="offer-row" data-rise>
+    <div><h3>Bot Discord</h3><a class="more" href="/offers/discord-bot.html">Voir le détail <span class="arw">&rarr;</span></a></div>
+    <p>Un bot sur mesure pour votre communauté : automatisations, requêtes de données publiques, posts planifiés. Construit et hébergé.</p>
+    <div class="price">500 €<span>à 2 500, plus hébergement</span></div>
+  </div>
+</div></section>
+
+<!-- ===================== HOW IT WORKS ===================== -->
+<section class="alt"><div class="container">
+  <div class="sec-head" data-rise>
+    <h2 class="section-title">D'un scraper bloqué à un flux sur lequel compter.</h2>
+  </div>
+  <div class="grid-4">
+    <div class="card" data-rise><div class="step-num">1</div><h3>Audit</h3><p>J'examine la source publique et j'identifie la voie d'extraction la plus fiable, une API cachée quand elle existe.</p></div>
+    <div class="card" data-rise data-d="1"><div class="step-num">2</div><h3>Construction</h3><p>Un scraper testé qui gère les pages publiques riches en JavaScript ou protégées par Cloudflare, avec une sortie propre.</p></div>
+    <div class="card" data-rise data-d="2"><div class="step-num">3</div><h3>Planification &amp; monitoring</h3><p>Livraison à votre cadence, avec surveillance. Quand la source change et que ça casse, je répare.</p></div>
+    <div class="card" data-rise data-d="3"><div class="step-num">4</div><h3>Vous exploitez &amp; possédez</h3><p>Vous faites tourner l'outil et possédez les données. Je le construis et je le maintiens : un outil, pas un service d'exploitation.</p></div>
+  </div>
+</div></section>
+
+<!-- ===================== REAL OUTPUT ===================== -->
+<section id="data"><div class="container">
+  <div class="sec-head" data-rise>
+    <p class="kick">Le livrable</p>
+    <h2 class="section-title">Un jeu de données vérifiable, pas une promesse.</h2>
+    <p>Une sortie <em>réelle</em> du starter open source qui équipe l'offre Flux de données géré, exécuté sur un catalogue public de test. Exactement la forme de ce qui arrive dans votre boîte mail ou votre base.</p>
+  </div>
+
+  <div class="panel" data-rise>
     <div class="panel-head"><span>books-demo.csv · run 2026-06-17 21:05 UTC</span><b>CSV</b></div>
     <div class="tbl-scroll">
       <table>
@@ -93,51 +167,13 @@
     <div class="panel-foot">Source publique de test. Champs factuels, non personnels. Une ligne par produit, une colonne par champ, avec l'horodatage de collecte conservé.</div>
   </div>
 
-  <p class="micro">Votre flux porte vos champs et rien d'autre : les colonnes demandées, dans le format demandé.</p>
+  <p class="micro" data-rise>Votre flux porte vos champs et rien d'autre : les colonnes demandées, dans le format demandé.</p>
 </div></section>
 
-<!-- ===================== OFFERS ===================== -->
-<section id="offers" class="alt"><div class="container">
-  <p class="kick">Offres</p>
-  <h2 class="section-title">Commencez par un audit. Passez à un flux maintenu.</h2>
-  <p class="lead">Quatre portes d'entrée, d'une vérification sans risque à un flux que je maintiens en vie.</p>
-
-  <div class="offer-row">
-    <div><h3>Audit d'API cachée</h3><a class="more" href="/offers/hidden-api-audit.html">Voir le détail</a></div>
-    <p>J'examine un site public, j'identifie la voie d'accès la plus propre et je vous envoie une cinquantaine de lignes d'échantillon réelles. Le point de départ sans risque.</p>
-    <div class="price">dès 150 €<span>forfait</span></div>
-  </div>
-  <div class="offer-row">
-    <div><h3>Scraper ponctuel</h3><a class="more" href="/offers/scraper.html">Voir le détail</a></div>
-    <p>Un scraper robuste pour une source publique, livré en code testé qui vous appartient. Sortie propre CSV, JSON ou API.</p>
-    <div class="price">600 à 1 500 €<span>une fois</span></div>
-  </div>
-  <div class="offer-row core">
-    <div><h3>Flux de données géré</h3><a class="more" href="/offers/managed-data-feed.html">Voir le détail</a></div>
-    <p>Scraper, livraison planifiée et monitoring. La source change, ça casse, je répare, souvent avant que vous le remarquiez.</p>
-    <div class="price">500 à 1 000 €<span>puis 150 à 500 € / mois</span></div>
-  </div>
-  <div class="offer-row">
-    <div><h3>Bot Discord</h3><a class="more" href="/offers/discord-bot.html">Voir le détail</a></div>
-    <p>Un bot sur mesure pour votre communauté : automatisations, requêtes de données publiques, posts planifiés. Construit et hébergé.</p>
-    <div class="price">500 à 2 500 €<span>plus hébergement</span></div>
-  </div>
-</div></section>
-
-<!-- ===================== HOW IT WORKS ===================== -->
-<section><div class="container">
-  <h2 class="section-title">D'un scraper bloqué à un flux sur lequel compter.</h2>
-  <div class="grid-4">
-    <div class="card"><div class="step-num">1</div><h3>Audit</h3><p>J'examine la source publique et j'identifie la voie d'extraction la plus fiable, une API cachée quand elle existe.</p></div>
-    <div class="card"><div class="step-num">2</div><h3>Construction</h3><p>Un scraper testé qui gère les pages publiques riches en JavaScript ou protégées par Cloudflare, avec une sortie propre.</p></div>
-    <div class="card"><div class="step-num">3</div><h3>Planification &amp; monitoring</h3><p>Livraison à votre cadence, avec surveillance. Quand la source change et que ça casse, je répare.</p></div>
-    <div class="card"><div class="step-num">4</div><h3>Vous exploitez &amp; possédez</h3><p>Vous faites tourner l'outil et possédez les données. Je le construis et je le maintiens : un outil, pas un service d'exploitation.</p></div>
-  </div>
-</div></section>
-
-<!-- ===================== SCOPE / TRUST ===================== -->
+<!-- ===================== SCOPE ===================== -->
 <section id="scope" class="alt"><div class="container cols-2">
-  <div>
+  <div data-rise>
+    <p class="kick">Périmètre</p>
     <h2 class="section-title">De la fiabilité, pas du contournement.</h2>
     <ul class="check">
       <li><strong>Pages publiques, hors connexion uniquement.</strong> Données factuelles et business : prix, specs, stocks, annonces, données de marché, horaires. Pas de comptes, pas de paywalls.</li>
@@ -146,7 +182,7 @@
       <li><strong>Vous exploitez et possédez les données.</strong> Je construis et maintiens l'outil, vous l'exploitez et contrôlez les données. Une passation propre et documentée, à chaque fois.</li>
     </ul>
   </div>
-  <div class="sources">
+  <div class="sources" data-rise data-d="1">
     <p class="st">Typiquement dans le périmètre</p>
     <div class="source-row"><span>Prix produits, specs, stocks</span><span class="lk">e-commerce</span></div>
     <div class="source-row"><span>Annonces (prix, surface, localisation)</span><span class="lk">immobilier</span></div>
@@ -158,12 +194,14 @@
 
 <!-- ===================== PROOF ===================== -->
 <section id="portfolio"><div class="container">
-  <p class="kick">Preuves</p>
-  <h2 class="section-title">Open source, testé, exécutable.</h2>
-  <p class="lead">Pas un slide deck. Du vrai code à lire, cloner et lancer : les 20 % difficiles du scraping où les outils no-code échouent.</p>
+  <div class="sec-head" data-rise>
+    <p class="kick">Preuves</p>
+    <h2 class="section-title">Open source, testé, exécutable.</h2>
+    <p>Pas un slide deck. Du vrai code à lire, cloner et lancer : les 20 % difficiles du scraping où les outils no-code échouent.</p>
+  </div>
 
   <div class="cols-2">
-    <div class="panel">
+    <div class="panel" data-rise>
       <div class="panel-head"><span>feeds/books_demo.yaml</span><b>config</b></div>
       <div class="panel-body"><pre><span class="k">id</span>: books-demo
 <span class="k">source</span>: books.toscrape.com
@@ -178,20 +216,23 @@
       <div class="panel-foot">Un flux, un fichier. C'est toute la configuration derrière l'échantillon ci-dessus.</div>
     </div>
     <div>
-      <div class="card">
+      <div class="card" data-rise data-d="1" style="margin-bottom:20px">
+        <div class="ico">starter</div>
         <h3>managed-data-feed-starter</h3>
         <p>L'offre Flux de données géré, en code : fetch résilient, politique no-PII, planification, monitoring auto-réparant, sortie CSV / JSON / webhook.</p>
-        <a class="more" href="https://github.com/Massii-08/managed-data-feed-starter">Voir sur GitHub</a>
+        <a class="more" href="https://github.com/Massii-08/managed-data-feed-starter">Voir sur GitHub <span class="arw">&rarr;</span></a>
       </div>
-      <div class="card">
+      <div class="card" data-rise data-d="2" style="margin-bottom:20px">
+        <div class="ico">template</div>
         <h3>hidden-api-extraction-template</h3>
         <p>Lire directement l'API JSON interne d'un site au lieu de parser un HTML fragile : plus rapide, et bien plus stable.</p>
-        <a class="more" href="https://github.com/Massii-08/hidden-api-extraction-template">Voir sur GitHub</a>
+        <a class="more" href="https://github.com/Massii-08/hidden-api-extraction-template">Voir sur GitHub <span class="arw">&rarr;</span></a>
       </div>
-      <div class="card">
+      <div class="card" data-rise data-d="3">
+        <div class="ico">demo</div>
         <h3>tls-fingerprint-scraper-demo</h3>
         <p>Pourquoi une page publique revient vide : un contrôle d'empreinte TLS avant le rendu. Comment la lire comme un navigateur normal, en conformité.</p>
-        <a class="more" href="https://github.com/Massii-08/tls-fingerprint-scraper-demo">Voir sur GitHub</a>
+        <a class="more" href="https://github.com/Massii-08/tls-fingerprint-scraper-demo">Voir sur GitHub <span class="arw">&rarr;</span></a>
       </div>
     </div>
   </div>
@@ -199,37 +240,41 @@
 
 <!-- ===================== GUIDES ===================== -->
 <section id="guides" class="alt"><div class="container">
-  <h2 class="section-title">Le pourquoi derrière le travail.</h2>
-  <div class="card">
-    <h3>Pourquoi votre scraper no-code casse en boucle</h3>
-    <p>Changements de layout, données rendues en JS, contrôles d'empreinte, et ce qui les corrige vraiment.</p>
-    <a class="more" href="/guides/no-code-scraper-keeps-breaking.html">Lire le guide</a>
+  <div class="sec-head" data-rise>
+    <h2 class="section-title">Le pourquoi derrière le travail.</h2>
   </div>
-  <div class="card">
-    <h3>Qu'est-ce qu'une API cachée</h3>
-    <p>Les endpoints JSON internes derrière une page, et pourquoi les appeler bat le parsing HTML.</p>
-    <a class="more" href="/guides/what-is-a-hidden-api.html">Lire le guide</a>
-  </div>
-  <div class="card">
-    <h3>Sites publics protégés par Cloudflare</h3>
-    <p>Une page vide est le plus souvent un contrôle d'empreinte TLS plutôt qu'un CAPTCHA, et il existe une façon conforme de la lire.</p>
-    <a class="more" href="/guides/cloudflare-protected-public-sites.html">Lire le guide</a>
+  <div class="grid-3">
+    <a class="card" href="/guides/no-code-scraper-keeps-breaking.html" data-rise>
+      <h3>Pourquoi votre scraper no-code casse en boucle</h3>
+      <p>Changements de layout, données rendues en JS, contrôles d'empreinte, et ce qui les corrige vraiment.</p>
+      <span class="more">Lire le guide <span class="arw">&rarr;</span></span>
+    </a>
+    <a class="card" href="/guides/what-is-a-hidden-api.html" data-rise data-d="1">
+      <h3>Qu'est-ce qu'une API cachée</h3>
+      <p>Les endpoints JSON internes derrière une page, et pourquoi les appeler bat le parsing HTML.</p>
+      <span class="more">Lire le guide <span class="arw">&rarr;</span></span>
+    </a>
+    <a class="card" href="/guides/cloudflare-protected-public-sites.html" data-rise data-d="2">
+      <h3>Sites publics protégés par Cloudflare</h3>
+      <p>Une page vide est le plus souvent un contrôle d'empreinte TLS plutôt qu'un CAPTCHA, et il existe une façon conforme de la lire.</p>
+      <span class="more">Lire le guide <span class="arw">&rarr;</span></span>
+    </a>
   </div>
 </div></section>
 
 <!-- ===================== CONTACT ===================== -->
 <section id="contact"><div class="container">
-  <div class="cta cols-2">
+  <div class="cta cols-2" data-rise>
     <div>
       <h2>Demandez une étude de faisabilité gratuite</h2>
-      <p>Indiquez-moi le site public et les données dont vous avez besoin. Je vous dis si c'est faisable, comment, et dans quelle langue.</p>
+      <p>Indiquez-moi le site public et les données dont vous avez besoin. Je vous dis si c'est <em>faisable</em>, comment, et dans quelle langue.</p>
       <p class="muted small">Ou par e-mail : <a href="mailto:hello@feedsmith.net">hello@feedsmith.net</a> · Basé en Suisse · FR / DE / IT / EN.</p>
     </div>
     <form class="contact-form" action="https://formspree.io/f/mpqelldw" method="POST">
       <input type="url" name="target_url" aria-label="Le site ou l'URL publique" placeholder="Le site / l'URL publique" required />
       <input type="email" name="email" aria-label="Votre e-mail" placeholder="Votre e-mail" required />
       <textarea name="details" aria-label="Quelles données vous faut-il, et dans quelle langue" placeholder="Quelles données vous faut-il ? Quelle langue (FR / DE / IT / EN) ?" required></textarea>
-      <button class="btn btn-primary" type="submit">Envoyer</button>
+      <button class="btn btn-primary" type="submit">Envoyer <span class="arw">&rarr;</span></button>
     </form>
   </div>
 </div></section>
@@ -249,5 +294,6 @@
   </nav>
 </div></footer>
 
+<script src="/js/site.js?v=1" defer></script>
 </body>
 </html>

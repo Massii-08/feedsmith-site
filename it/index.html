@@ -20,10 +20,27 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="theme-color" content="#F7F3ED" />
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
-<link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="/css/style.css?v=9" />
+<link rel="preload" href="/fonts/clash-700.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="/css/style.css?v=10" />
 </head>
 <body>
+
+<!--
+  DIRECTION CONTRACT
+  THESIS: a scraping service is judged on whether the data still arrives next month.
+  So the page runs the machine in front of the visitor instead of describing it. It
+  refuses the category's two ruts: the dark SaaS landing with a neon accent, and the
+  quiet white consultancy report.
+  OWN-WORLD: warm bone ground, near-black machine slabs, one incandescent accent at
+  forge temperature. Clash Display at poster scale, Satoshi for voice, IBM Plex Mono
+  for everything a machine produced. Pills for actions, square for technical surfaces.
+  STORY: broken scrapers go in, a maintained feed comes out, and the proof is the
+  operator's own real output, not a claim.
+  FIRST VIEWPORT: poster headline left with one pill action; the live machine right,
+  raw web crossing a forge gate into clean rows.
+  FORM: the forge, dramatized as a running conveyor.
+-->
 
 <header class="nav"><div class="container nav-inner">
   <a class="brand" href="/it/"><svg class="brand-mark" viewBox="0 0 26 26" width="26" height="26" aria-hidden="true" focusable="false"><g fill="currentColor" opacity=".32"><rect x="5.6" y="3.6" width="5" height="4.2"/><rect x="1" y="3.6" width="3" height="4.2"/><rect x="3.4" y="10.9" width="7.2" height="4.2"/><rect x="6.4" y="18.2" width="4.2" height="4.2"/><rect x="1.4" y="18.2" width="3" height="4.2"/></g><rect x="11.6" y="0.6" width="3.4" height="24.8" fill="#FF4A17"/><g fill="currentColor"><rect x="15.6" y="3.6" width="6.4" height="4.2"/><rect x="23" y="3.6" width="2.6" height="4.2"/><rect x="15.6" y="10.9" width="6.4" height="4.2"/><rect x="23" y="10.9" width="2.6" height="4.2" fill="#FF4A17"/><rect x="15.6" y="18.2" width="6.4" height="4.2"/><rect x="23" y="18.2" width="2.6" height="4.2"/></g></svg><span class="brand-word">Feedsmith</span></a>
@@ -40,37 +57,94 @@
 <!-- ===================== HERO ===================== -->
 <section class="hero"><div class="container hero-grid">
   <div>
-    <h1>Feed di dati affidabili da fonti pubbliche.</h1>
-    <p class="lead">Quando i tool no-code e gli script scritti da un'IA vengono bloccati o restituiscono pagine vuote, estraggo i dati e li tengo in funzione.</p>
-    <form class="contact-form" action="https://formspree.io/f/mpqelldw" method="POST">
-      <input type="url" name="target_url" aria-label="Il sito o l'URL pubblico da cui ti servono dati" placeholder="Il sito / l'URL pubblico" required />
-      <input type="email" name="email" aria-label="La tua e-mail" placeholder="La tua e-mail" required />
-      <textarea name="details" aria-label="Quali dati ti servono, e in quale lingua" placeholder="Quali dati ti servono? Quale lingua (IT / FR / DE / EN)?" required></textarea>
-      <button class="btn btn-primary" type="submit">Studio di fattibilità gratuito</button>
-    </form>
-    <p class="micro">Solo fonti pubbliche. Niente login, niente dati personali. Tu gestisci e possiedi il feed.</p>
+    <h1 data-rise class="in">Feed di dati da fonti pubbliche, <em>tenuti in vita.</em></h1>
+    <p class="lead" data-rise data-d="1">Quando Apify, Octoparse o uno script scritto da ChatGPT viene bloccato e restituisce pagine vuote, prendo in mano l'estrazione e la tengo <em>viva</em>.</p>
+    <div class="hero-cta" data-rise data-d="2">
+      <a class="btn btn-primary" href="#contact">Studio di fattibilità gratuito <span class="arw">&rarr;</span></a>
+      <a class="btn btn-ghost" href="#data">Vedi un output reale</a>
+    </div>
+    <p class="hero-note" data-rise data-d="3"><b>Due minuti.</b> Mandami l'URL pubblico e i campi che ti servono. Rispondo con ciò che è estraibile, come, e a che prezzo.</p>
   </div>
 
-  <div class="register">
-    <p class="st">Cosa contiene un feed</p>
-    <dl>
-      <div class="r"><dt>Output</dt><dd>CSV · JSON · webhook</dd></div>
-      <div class="r"><dt>Cadenza</dt><dd>da oraria a settimanale</dd></div>
-      <div class="r"><dt>Monitoraggio</dt><dd>a ogni esecuzione</dd></div>
-      <div class="r"><dt>Riparazione quando la fonte cambia</dt><dd>inclusa</dd></div>
-      <div class="r"><dt>Dati di origine</dt><dd>pubblici, fattuali, non personali</dd></div>
-      <div class="r"><dt>Proprietà</dt><dd>tuoi, con il codice</dd></div>
-    </dl>
-    <p class="micro">Le pagine vengono lette come farebbe un normale visitatore, a un ritmo rispettoso, e robots.txt è rispettato.</p>
+  <div class="machine" data-rise data-d="2">
+    <div class="machine-head">
+      <span>web pubblico grezzo &rarr; feed strutturato</span>
+      <span class="live"><i></i> in diretta</span>
+    </div>
+    <canvas id="machine" height="340" role="img"
+      aria-label="Markup rotto, risposte 403 e pagine vuote attraversano una porta di forgia ed escono come righe pulite di dati prodotto."></canvas>
+    <div class="machine-foot">
+      <span><b>title</b> price</span>
+      <span><b>availability</b> rating</span>
+      <span><b>source</b> fetched_at</span>
+    </div>
   </div>
 </div></section>
 
-<!-- ===================== SAMPLE OUTPUT (real run) ===================== -->
-<section id="data"><div class="container">
-  <h2 class="section-title">Un dataset che puoi verificare, non una promessa.</h2>
-  <p class="lead">Qui sotto c'è output reale dello starter open source dietro l'offerta Feed di dati gestito, eseguito su un catalogo pubblico di prova. La stessa forma di ciò che arriva nella tua casella o nel tuo database.</p>
+<!-- ===================== WHAT BREAKS SCRAPERS ===================== -->
+<div class="belt" aria-hidden="true">
+  <div class="belt-track">
+    <span>Cloudflare challenge</span><span>TLS fingerprint check</span><span>Prezzi resi in JS</span>
+    <span>Layout cambiato da un giorno all'altro</span><span>429 Too Many Requests</span><span>Nomi di classi rotanti</span>
+    <span>Corpo della risposta vuoto</span><span>Paginazione a cursore</span><span>403 Forbidden</span>
+    <span>Cloudflare challenge</span><span>TLS fingerprint check</span><span>Prezzi resi in JS</span>
+    <span>Layout cambiato da un giorno all'altro</span><span>429 Too Many Requests</span><span>Nomi di classi rotanti</span>
+    <span>Corpo della risposta vuoto</span><span>Paginazione a cursore</span><span>403 Forbidden</span>
+  </div>
+</div>
 
-  <div class="panel">
+<!-- ===================== OFFERS ===================== -->
+<section id="offers"><div class="container">
+  <div class="sec-head" data-rise>
+    <p class="kick">Servizi</p>
+    <h2 class="section-title">Inizia con un audit. Passa a un feed mantenuto.</h2>
+    <p>Quattro modi di iniziare, dal controllo a basso rischio al feed che tengo in vita.</p>
+  </div>
+
+  <div class="offer-row" data-rise>
+    <div><h3>Audit di API nascosta</h3><a class="more" href="/offers/hidden-api-audit.html">Vedi i dettagli <span class="arw">&rarr;</span></a></div>
+    <p>Esamino un sito pubblico, trovo la via d'accesso più pulita e ti invio una cinquantina di righe di esempio reali. Il punto di partenza a basso rischio.</p>
+    <div class="price">150 €<span>forfait</span></div>
+  </div>
+  <div class="offer-row" data-rise>
+    <div><h3>Scraper una tantum</h3><a class="more" href="/offers/scraper.html">Vedi i dettagli <span class="arw">&rarr;</span></a></div>
+    <p>Uno scraper robusto per una fonte pubblica, consegnato come codice testato di tua proprietà. Output pulito CSV, JSON o API.</p>
+    <div class="price">600 €<span>a 1.500, una tantum</span></div>
+  </div>
+  <div class="offer-row core" data-rise>
+    <div><h3>Feed di dati gestito</h3><a class="more" href="/offers/managed-data-feed.html">Vedi i dettagli <span class="arw">&rarr;</span></a></div>
+    <p>Scraper, consegna pianificata e monitoraggio. La fonte cambia, qualcosa si rompe, io riparo, spesso prima che tu te ne accorga.</p>
+    <div class="price">500 €<span>setup, poi 150 a 500 € / mese</span></div>
+  </div>
+  <div class="offer-row" data-rise>
+    <div><h3>Bot Discord</h3><a class="more" href="/offers/discord-bot.html">Vedi i dettagli <span class="arw">&rarr;</span></a></div>
+    <p>Un bot su misura per la tua community: automazioni, ricerche su dati pubblici, post programmati. Costruito e ospitato.</p>
+    <div class="price">500 €<span>a 2.500, più hosting</span></div>
+  </div>
+</div></section>
+
+<!-- ===================== HOW IT WORKS ===================== -->
+<section class="alt"><div class="container">
+  <div class="sec-head" data-rise>
+    <h2 class="section-title">Da uno scraper bloccato a un feed su cui contare.</h2>
+  </div>
+  <div class="grid-4">
+    <div class="card" data-rise><div class="step-num">1</div><h3>Audit</h3><p>Esamino la fonte pubblica e individuo la via di estrazione più affidabile, un'API nascosta quando esiste.</p></div>
+    <div class="card" data-rise data-d="1"><div class="step-num">2</div><h3>Costruzione</h3><p>Uno scraper testato che gestisce pagine pubbliche piene di JavaScript o protette da Cloudflare, con output pulito.</p></div>
+    <div class="card" data-rise data-d="2"><div class="step-num">3</div><h3>Pianifica &amp; monitora</h3><p>Consegna alla cadenza che vuoi, con monitoraggio. Quando la fonte cambia e qualcosa si rompe, riparo.</p></div>
+    <div class="card" data-rise data-d="3"><div class="step-num">4</div><h3>Tu gestisci &amp; possiedi</h3><p>Tu fai girare lo strumento e possiedi i dati. Io lo costruisco e lo mantengo: uno strumento, non un servizio di gestione.</p></div>
+  </div>
+</div></section>
+
+<!-- ===================== REAL OUTPUT ===================== -->
+<section id="data"><div class="container">
+  <div class="sec-head" data-rise>
+    <p class="kick">Il risultato</p>
+    <h2 class="section-title">Un dataset che puoi verificare, non una promessa.</h2>
+    <p>Output <em>reale</em> dello starter open source dietro l'offerta Feed di dati gestito, eseguito su un catalogo pubblico di prova. La stessa forma di ciò che arriva nella tua casella o nel tuo database.</p>
+  </div>
+
+  <div class="panel" data-rise>
     <div class="panel-head"><span>books-demo.csv · run 2026-06-17 21:05 UTC</span><b>CSV</b></div>
     <div class="tbl-scroll">
       <table>
@@ -93,51 +167,13 @@
     <div class="panel-foot">Fonte pubblica di prova. Campi fattuali, non personali. Una riga per prodotto, una colonna per campo, con il timestamp di raccolta conservato.</div>
   </div>
 
-  <p class="micro">Il tuo feed porta i tuoi campi e nient'altro: le colonne che hai chiesto, nel formato che hai chiesto.</p>
+  <p class="micro" data-rise>Il tuo feed porta i tuoi campi e nient'altro: le colonne che hai chiesto, nel formato che hai chiesto.</p>
 </div></section>
 
-<!-- ===================== OFFERS ===================== -->
-<section id="offers" class="alt"><div class="container">
-  <p class="kick">Servizi</p>
-  <h2 class="section-title">Inizia con un audit. Passa a un feed mantenuto.</h2>
-  <p class="lead">Quattro modi di iniziare, dal controllo a basso rischio al feed che tengo in vita.</p>
-
-  <div class="offer-row">
-    <div><h3>Audit di API nascosta</h3><a class="more" href="/offers/hidden-api-audit.html">Vedi i dettagli</a></div>
-    <p>Esamino un sito pubblico, trovo la via d'accesso più pulita e ti invio una cinquantina di righe di esempio reali. Il punto di partenza a basso rischio.</p>
-    <div class="price">da 150 €<span>forfait</span></div>
-  </div>
-  <div class="offer-row">
-    <div><h3>Scraper una tantum</h3><a class="more" href="/offers/scraper.html">Vedi i dettagli</a></div>
-    <p>Uno scraper robusto per una fonte pubblica, consegnato come codice testato di tua proprietà. Output pulito CSV, JSON o API.</p>
-    <div class="price">600 a 1.500 €<span>una tantum</span></div>
-  </div>
-  <div class="offer-row core">
-    <div><h3>Feed di dati gestito</h3><a class="more" href="/offers/managed-data-feed.html">Vedi i dettagli</a></div>
-    <p>Scraper, consegna pianificata e monitoraggio. La fonte cambia, qualcosa si rompe, io riparo, spesso prima che tu te ne accorga.</p>
-    <div class="price">500 a 1.000 €<span>poi 150 a 500 € / mese</span></div>
-  </div>
-  <div class="offer-row">
-    <div><h3>Bot Discord</h3><a class="more" href="/offers/discord-bot.html">Vedi i dettagli</a></div>
-    <p>Un bot su misura per la tua community: automazioni, ricerche su dati pubblici, post programmati. Costruito e ospitato.</p>
-    <div class="price">500 a 2.500 €<span>più hosting</span></div>
-  </div>
-</div></section>
-
-<!-- ===================== HOW IT WORKS ===================== -->
-<section><div class="container">
-  <h2 class="section-title">Da uno scraper bloccato a un feed su cui contare.</h2>
-  <div class="grid-4">
-    <div class="card"><div class="step-num">1</div><h3>Audit</h3><p>Esamino la fonte pubblica e individuo la via di estrazione più affidabile, un'API nascosta quando esiste.</p></div>
-    <div class="card"><div class="step-num">2</div><h3>Costruzione</h3><p>Uno scraper testato che gestisce pagine pubbliche piene di JavaScript o protette da Cloudflare, con output pulito.</p></div>
-    <div class="card"><div class="step-num">3</div><h3>Pianifica &amp; monitora</h3><p>Consegna alla cadenza che vuoi, con monitoraggio. Quando la fonte cambia e qualcosa si rompe, riparo.</p></div>
-    <div class="card"><div class="step-num">4</div><h3>Tu gestisci &amp; possiedi</h3><p>Tu fai girare lo strumento e possiedi i dati. Io lo costruisco e lo mantengo: uno strumento, non un servizio di gestione.</p></div>
-  </div>
-</div></section>
-
-<!-- ===================== SCOPE / TRUST ===================== -->
+<!-- ===================== SCOPE ===================== -->
 <section id="scope" class="alt"><div class="container cols-2">
-  <div>
+  <div data-rise>
+    <p class="kick">Perimetro</p>
     <h2 class="section-title">Affidabilità, non aggiramento.</h2>
     <ul class="check">
       <li><strong>Solo pagine pubbliche, senza login.</strong> Dati fattuali e business: prezzi, specifiche, disponibilità, annunci, dati di mercato, orari. Niente login, niente paywall, niente account.</li>
@@ -146,7 +182,7 @@
       <li><strong>Tu gestisci e possiedi i dati.</strong> Io costruisco e mantengo lo strumento, tu lo gestisci e controlli i dati. Una consegna pulita e documentata, ogni volta.</li>
     </ul>
   </div>
-  <div class="sources">
+  <div class="sources" data-rise data-d="1">
     <p class="st">Tipicamente nel perimetro</p>
     <div class="source-row"><span>Prezzi prodotto, specifiche, stock</span><span class="lk">e-commerce</span></div>
     <div class="source-row"><span>Annunci (prezzo, superficie, posizione)</span><span class="lk">immobiliare</span></div>
@@ -158,12 +194,14 @@
 
 <!-- ===================== PROOF ===================== -->
 <section id="portfolio"><div class="container">
-  <p class="kick">Prove</p>
-  <h2 class="section-title">Open source, testato, eseguibile.</h2>
-  <p class="lead">Niente slide. Codice vero da leggere, clonare ed eseguire: il 20 % difficile dello scraping dove i tool no-code falliscono.</p>
+  <div class="sec-head" data-rise>
+    <p class="kick">Prove</p>
+    <h2 class="section-title">Open source, testato, eseguibile.</h2>
+    <p>Niente slide. Codice vero da leggere, clonare ed eseguire: il 20 % difficile dello scraping dove i tool no-code falliscono.</p>
+  </div>
 
   <div class="cols-2">
-    <div class="panel">
+    <div class="panel" data-rise>
       <div class="panel-head"><span>feeds/books_demo.yaml</span><b>config</b></div>
       <div class="panel-body"><pre><span class="k">id</span>: books-demo
 <span class="k">source</span>: books.toscrape.com
@@ -178,20 +216,23 @@
       <div class="panel-foot">Un feed, un file. È tutta la configurazione dietro il campione qui sopra.</div>
     </div>
     <div>
-      <div class="card">
+      <div class="card" data-rise data-d="1" style="margin-bottom:20px">
+        <div class="ico">starter</div>
         <h3>managed-data-feed-starter</h3>
         <p>L'offerta Feed di dati gestito, in codice: fetch resiliente, policy no-PII, pianificazione, monitoraggio auto-riparante, output CSV / JSON / webhook.</p>
-        <a class="more" href="https://github.com/Massii-08/managed-data-feed-starter">Vedi su GitHub</a>
+        <a class="more" href="https://github.com/Massii-08/managed-data-feed-starter">Vedi su GitHub <span class="arw">&rarr;</span></a>
       </div>
-      <div class="card">
+      <div class="card" data-rise data-d="2" style="margin-bottom:20px">
+        <div class="ico">template</div>
         <h3>hidden-api-extraction-template</h3>
         <p>Leggere direttamente l'API JSON interna di un sito invece di fare parsing di HTML fragile: più veloce, e molto più stabile.</p>
-        <a class="more" href="https://github.com/Massii-08/hidden-api-extraction-template">Vedi su GitHub</a>
+        <a class="more" href="https://github.com/Massii-08/hidden-api-extraction-template">Vedi su GitHub <span class="arw">&rarr;</span></a>
       </div>
-      <div class="card">
+      <div class="card" data-rise data-d="3">
+        <div class="ico">demo</div>
         <h3>tls-fingerprint-scraper-demo</h3>
         <p>Perché una pagina pubblica torna vuota: un controllo dell'impronta TLS prima del rendering. Come leggerla come un browser normale, in modo conforme.</p>
-        <a class="more" href="https://github.com/Massii-08/tls-fingerprint-scraper-demo">Vedi su GitHub</a>
+        <a class="more" href="https://github.com/Massii-08/tls-fingerprint-scraper-demo">Vedi su GitHub <span class="arw">&rarr;</span></a>
       </div>
     </div>
   </div>
@@ -199,37 +240,41 @@
 
 <!-- ===================== GUIDES ===================== -->
 <section id="guides" class="alt"><div class="container">
-  <h2 class="section-title">Il perché dietro il lavoro.</h2>
-  <div class="card">
-    <h3>Perché il tuo scraper no-code continua a rompersi</h3>
-    <p>Cambi di layout, dati renderizzati in JS, controlli di fingerprint, e cosa li risolve davvero.</p>
-    <a class="more" href="/guides/no-code-scraper-keeps-breaking.html">Leggi la guida</a>
+  <div class="sec-head" data-rise>
+    <h2 class="section-title">Il perché dietro il lavoro.</h2>
   </div>
-  <div class="card">
-    <h3>Che cos'è una API nascosta</h3>
-    <p>Gli endpoint JSON interni dietro una pagina, e perché chiamarli batte il parsing dell'HTML.</p>
-    <a class="more" href="/guides/what-is-a-hidden-api.html">Leggi la guida</a>
-  </div>
-  <div class="card">
-    <h3>Siti pubblici protetti da Cloudflare</h3>
-    <p>Le pagine vuote di solito sono un controllo dell'impronta TLS più che un CAPTCHA, e c'è un modo conforme di leggerle.</p>
-    <a class="more" href="/guides/cloudflare-protected-public-sites.html">Leggi la guida</a>
+  <div class="grid-3">
+    <a class="card" href="/guides/no-code-scraper-keeps-breaking.html" data-rise>
+      <h3>Perché il tuo scraper no-code continua a rompersi</h3>
+      <p>Cambi di layout, dati renderizzati in JS, controlli di fingerprint, e cosa li risolve davvero.</p>
+      <span class="more">Leggi la guida <span class="arw">&rarr;</span></span>
+    </a>
+    <a class="card" href="/guides/what-is-a-hidden-api.html" data-rise data-d="1">
+      <h3>Che cos'è una API nascosta</h3>
+      <p>Gli endpoint JSON interni dietro una pagina, e perché chiamarli batte il parsing dell'HTML.</p>
+      <span class="more">Leggi la guida <span class="arw">&rarr;</span></span>
+    </a>
+    <a class="card" href="/guides/cloudflare-protected-public-sites.html" data-rise data-d="2">
+      <h3>Siti pubblici protetti da Cloudflare</h3>
+      <p>Le pagine vuote di solito sono un controllo dell'impronta TLS più che un CAPTCHA, e c'è un modo conforme di leggerle.</p>
+      <span class="more">Leggi la guida <span class="arw">&rarr;</span></span>
+    </a>
   </div>
 </div></section>
 
 <!-- ===================== CONTACT ===================== -->
 <section id="contact"><div class="container">
-  <div class="cta cols-2">
+  <div class="cta cols-2" data-rise>
     <div>
       <h2>Richiedi uno studio di fattibilità gratuito</h2>
-      <p>Indicami il sito pubblico e i dati che ti servono. Ti dico se è fattibile, come, e in quale lingua.</p>
+      <p>Indicami il sito pubblico e i dati che ti servono. Ti dico se è <em>fattibile</em>, come, e in quale lingua.</p>
       <p class="muted small">Oppure via e-mail: <a href="mailto:hello@feedsmith.net">hello@feedsmith.net</a> · Con base in Svizzera · IT / FR / DE / EN.</p>
     </div>
     <form class="contact-form" action="https://formspree.io/f/mpqelldw" method="POST">
       <input type="url" name="target_url" aria-label="Il sito o l'URL pubblico" placeholder="Il sito / l'URL pubblico" required />
       <input type="email" name="email" aria-label="La tua e-mail" placeholder="La tua e-mail" required />
       <textarea name="details" aria-label="Quali dati ti servono, e in quale lingua" placeholder="Quali dati ti servono? Quale lingua (IT / FR / DE / EN)?" required></textarea>
-      <button class="btn btn-primary" type="submit">Invia</button>
+      <button class="btn btn-primary" type="submit">Invia <span class="arw">&rarr;</span></button>
     </form>
   </div>
 </div></section>
@@ -249,5 +294,6 @@
   </nav>
 </div></footer>
 
+<script src="/js/site.js?v=1" defer></script>
 </body>
 </html>
