@@ -22,7 +22,7 @@
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 <link rel="preload" href="/fonts/clash-700.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="/css/style.css?v=11" />
+<link rel="stylesheet" href="/css/style.css?v=12" />
 <script>
 /* Motion gate, set before first paint and self-clearing, so nothing here can
    ever leave the page in a hidden state:
@@ -81,7 +81,7 @@ if(intro){d.classList.add('fs-pl');setTimeout(function(){d.classList.remove('fs-
 <main>
 
 <!-- ===================== HERO ===================== -->
-<section class="hero"><div class="container hero-grid">
+<section class="hero"><canvas class="hero-embers" aria-hidden="true"></canvas><div class="container hero-grid">
   <div>
     <h1 data-rise data-split class="in">Feed di dati da fonti pubbliche, <em>tenuti in vita.</em></h1>
     <p class="lead" data-rise data-d="1">Quando Apify, Octoparse o uno script scritto da ChatGPT viene bloccato e restituisce pagine vuote, prendo in mano l'estrazione e la tengo <em>viva</em>.</p>
@@ -131,22 +131,22 @@ if(intro){d.classList.add('fs-pl');setTimeout(function(){d.classList.remove('fs-
   <div class="offer-row" data-rise>
     <div><h3>Audit di API nascosta</h3><a class="more" href="/offers/hidden-api-audit.html">Vedi i dettagli <span class="arw">&rarr;</span></a></div>
     <p>Esamino un sito pubblico, trovo la via d'accesso più pulita e ti invio una cinquantina di righe di esempio reali. Il punto di partenza a basso rischio.</p>
-    <div class="price">150 €<span>forfait</span></div>
+    <div class="price" data-count>150 €<span>forfait</span></div>
   </div>
   <div class="offer-row" data-rise>
     <div><h3>Scraper una tantum</h3><a class="more" href="/offers/scraper.html">Vedi i dettagli <span class="arw">&rarr;</span></a></div>
     <p>Uno scraper robusto per una fonte pubblica, consegnato come codice testato di tua proprietà. Output pulito CSV, JSON o API.</p>
-    <div class="price">600 €<span>a 1.500, una tantum</span></div>
+    <div class="price" data-count>600 €<span>a 1.500, una tantum</span></div>
   </div>
   <div class="offer-row core" data-rise>
     <div><h3>Feed di dati gestito</h3><a class="more" href="/offers/managed-data-feed.html">Vedi i dettagli <span class="arw">&rarr;</span></a></div>
     <p>Scraper, consegna pianificata e monitoraggio. La fonte cambia, qualcosa si rompe, io riparo, spesso prima che tu te ne accorga.</p>
-    <div class="price">500 €<span>setup, poi 150 a 500 € / mese</span></div>
+    <div class="price" data-count>500 €<span>setup, poi 150 a 500 € / mese</span></div>
   </div>
   <div class="offer-row" data-rise>
     <div><h3>Bot Discord</h3><a class="more" href="/offers/discord-bot.html">Vedi i dettagli <span class="arw">&rarr;</span></a></div>
     <p>Un bot su misura per la tua community: automazioni, ricerche su dati pubblici, post programmati. Costruito e ospitato.</p>
-    <div class="price">500 €<span>a 2.500, più hosting</span></div>
+    <div class="price" data-count>500 €<span>a 2.500, più hosting</span></div>
   </div>
 </div></section>
 
@@ -155,7 +155,7 @@ if(intro){d.classList.add('fs-pl');setTimeout(function(){d.classList.remove('fs-
   <div class="sec-head" data-rise>
     <h2 class="section-title">Da uno scraper bloccato a un feed su cui contare.</h2>
   </div>
-  <div class="grid-4">
+  <div class="grid-4" data-pipeline>
     <div class="card" data-rise><div class="step-num">1</div><h3>Audit</h3><p>Esamino la fonte pubblica e individuo la via di estrazione più affidabile, un'API nascosta quando esiste.</p></div>
     <div class="card" data-rise data-d="1"><div class="step-num">2</div><h3>Costruzione</h3><p>Uno scraper testato che gestisce pagine pubbliche piene di JavaScript o protette da Cloudflare, con output pulito.</p></div>
     <div class="card" data-rise data-d="2"><div class="step-num">3</div><h3>Pianifica &amp; monitora</h3><p>Consegna alla cadenza che vuoi, con monitoraggio. Quando la fonte cambia e qualcosa si rompe, riparo.</p></div>
@@ -182,7 +182,7 @@ if(intro){d.classList.add('fs-pl');setTimeout(function(){d.classList.remove('fs-
           <th scope="col">rating</th>
           <th scope="col">source</th>
         </tr></thead>
-        <tbody>
+        <tbody data-sweep>
           <tr><td>A Light in the Attic</td><td>£51.77</td><td>In stock</td><td>Three</td><td>books.toscrape.com</td></tr>
           <tr><td>Tipping the Velvet</td><td>£53.74</td><td>In stock</td><td>One</td><td>books.toscrape.com</td></tr>
           <tr><td>Soumission</td><td>£50.10</td><td>In stock</td><td>One</td><td>books.toscrape.com</td></tr>
@@ -230,7 +230,7 @@ if(intro){d.classList.add('fs-pl');setTimeout(function(){d.classList.remove('fs-
   <div class="cols-2">
     <div class="panel" data-rise data-plx="0.05">
       <div class="panel-head"><span>feeds/books_demo.yaml</span><b>config</b></div>
-      <div class="panel-body"><pre><span class="k">id</span>: books-demo
+      <div class="panel-body"><pre data-type><span class="k">id</span>: books-demo
 <span class="k">source</span>: books.toscrape.com
 <span class="k">fields</span>: [title, price, availability, rating]
 <span class="k">rate_limit_seconds</span>: <span class="v">1.5</span>
@@ -321,6 +321,6 @@ if(intro){d.classList.add('fs-pl');setTimeout(function(){d.classList.remove('fs-
   </nav>
 </div></footer>
 
-<script src="/js/site.js?v=2" defer></script>
+<script src="/js/site.js?v=3" defer></script>
 </body>
 </html>
