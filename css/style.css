@@ -63,6 +63,9 @@
   --hot:#FF4A17;
   --hot-deep:#C7300B;
   --hot-wash:rgba(255,74,23,.13);
+  /* the same wash carried onto the near-black slabs: 13% over #17120F is
+     barely a shift, and a selection has to be seen to be useful */
+  --hot-wash-slab:rgba(255,74,23,.3);
 
   /* warm near-black: a cold slab reads as a cut-out on a cream page,
      a warm one sits in the same light as the paper around it */
@@ -85,6 +88,9 @@
   --r-lg:20px;
   --r-md:12px;
   --ease:cubic-bezier(.16,1,.3,1);
+  /* the arrival curve: leaves fast, lands slowly, never overshoots */
+  --ease-rise:cubic-bezier(.22,1,.36,1);
+  --rise-d:24px;
 }
 
 /* ---------- Base ---------- */
@@ -97,7 +103,10 @@ body{
   overflow-x:hidden;
 }
 img,svg,canvas{display:block;max-width:100%}
-::selection{background:var(--hot);color:#fff}
+/* a wash, not a block: the accent tints the selection, the text keeps reading */
+::selection{background:var(--hot-wash);color:var(--ink)}
+.machine ::selection,.panel ::selection,.cta ::selection,
+.machine-foot ::selection,.panel-head ::selection{background:var(--hot-wash-slab);color:var(--slab-tx)}
 a{color:inherit}
 
 h1,h2,h3,h4{color:var(--ink);margin:0 0 .5em;font-family:var(--display);font-weight:700;
@@ -126,7 +135,7 @@ hr{border:0;border-top:1px solid var(--rule);margin:44px 0}
 .hl{color:var(--hot)}
 .lb{display:none}
 .spacer{height:32px}
-:focus-visible{outline:3px solid var(--hot);outline-offset:3px}
+:focus-visible{outline:2px solid var(--hot);outline-offset:3px}
 
 /* :where() keeps this at zero specificity so contexts like the dark closing
    band can recolour their own links without a selector arms race */
@@ -301,6 +310,14 @@ html[lang="de"] article h1{font-size:clamp(30px,3.7vw,50px)}
   flex-wrap:wrap;background:rgba(0,0,0,.22);
 }
 .machine-foot b{color:var(--slab-tx);font-weight:500}
+/* the readout: what the machine has actually delivered since it started */
+.machine-foot .rows{margin-left:auto;font-variant-numeric:tabular-nums;white-space:nowrap}
+.machine-foot .rows b{display:inline-block;min-width:4ch;color:var(--slab-tx)}
+/* two identical keyframes so swapping data-t restarts the tick without a reflow */
+.machine-foot .rows b[data-t="0"]{animation:rowTickA .5s var(--ease)}
+.machine-foot .rows b[data-t="1"]{animation:rowTickB .5s var(--ease)}
+@keyframes rowTickA{from{color:var(--hot)}to{color:var(--slab-tx)}}
+@keyframes rowTickB{from{color:var(--hot)}to{color:var(--slab-tx)}}
 
 /* ---------- Marquee: what breaks scrapers ---------- */
 .belt{
@@ -321,8 +338,12 @@ html[lang="de"] article h1{font-size:clamp(30px,3.7vw,50px)}
 }
 .belt-track span::after{
   content:"";width:5px;height:5px;background:var(--hot);opacity:.55;
-  transform:rotate(45deg);flex:0 0 auto;
+  transform:rotate(45deg);flex:0 0 auto;transition:opacity .2s;
 }
+/* the belt pauses under the cursor, so the word it stopped on lights up */
+.belt-track span{transition:color .22s}
+.belt-track span:hover{color:var(--hot)}
+.belt-track span:hover::after{opacity:1}
 @keyframes belt{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .belt:hover .belt-track{animation-play-state:paused}
 
@@ -493,6 +514,16 @@ main ol li::marker{font-family:var(--mono);color:var(--hot)}
 .panel tbody tr{transition:background .2s}
 .panel tbody tr:hover{background:rgba(255,74,23,.07)}
 .tbl-scroll{overflow-x:auto}
+/* a hairline rail on the dark slab instead of the OS default bar */
+.tbl-scroll,.panel-body{scrollbar-width:thin;scrollbar-color:var(--slab-ln) transparent}
+.tbl-scroll::-webkit-scrollbar,.panel-body::-webkit-scrollbar{height:6px;width:6px}
+.tbl-scroll::-webkit-scrollbar-track,.panel-body::-webkit-scrollbar-track{background:transparent}
+.tbl-scroll::-webkit-scrollbar-thumb,.panel-body::-webkit-scrollbar-thumb{
+  background:var(--slab-ln);border-radius:var(--pill);
+}
+.tbl-scroll:hover::-webkit-scrollbar-thumb,.panel-body:hover::-webkit-scrollbar-thumb{
+  background:var(--slab-dim);
+}
 
 /* ---------- Register (spec rows) ---------- */
 .register{border-top:2px solid var(--ink)}
@@ -505,14 +536,22 @@ main ol li::marker{font-family:var(--mono);color:var(--hot)}
 
 /* ---------- Offer rows ---------- */
 .offer-row{
+  position:relative;
   display:grid;grid-template-columns:minmax(190px,1fr) 2fr minmax(180px,auto);
   gap:36px;align-items:center;padding:34px 0;border-top:1px solid var(--rule);
   transition:background .3s;
 }
+/* absolutely positioned, so it is out of flow and never becomes a grid item */
+.offer-row::before{
+  content:"";position:absolute;left:-16px;top:1px;bottom:0;width:2px;background:var(--hot);
+  transform:scaleY(0);transform-origin:50% 100%;
+  transition:transform .42s var(--ease-rise);
+}
+.offer-row:hover::before,.offer-row:focus-within::before{transform:scaleY(1)}
 .offer-row>*{transition:transform .34s var(--ease)}
 .offer-row:first-of-type{border-top:2px solid var(--ink)}
 .offer-row:last-of-type{border-bottom:1px solid var(--rule)}
-.offer-row:hover{background:var(--white)}
+.offer-row:hover{background:var(--bone-2)}
 .offer-row:hover>*{transform:translateX(12px)}
 .offer-row:hover>.price{transform:translateX(-6px)}
 .offer-row h3{margin:0 0 6px;font-size:24px}
@@ -578,13 +617,157 @@ article .panel,article .cta,article .note{max-width:none}
 article code{white-space:nowrap}
 
 /* ---------- Motion layer ---------- */
-[data-rise]{opacity:0;transform:translateY(26px);
-  transition:opacity .7s var(--ease),transform .7s var(--ease)}
+[data-rise]{opacity:0;transform:translateY(var(--rise-d,24px));
+  transition:opacity .82s var(--ease-rise),transform .82s var(--ease-rise)}
 [data-rise].in{opacity:1;transform:none}
-[data-rise][data-d="1"]{transition-delay:.08s}
-[data-rise][data-d="2"]{transition-delay:.16s}
-[data-rise][data-d="3"]{transition-delay:.24s}
-[data-rise][data-d="4"]{transition-delay:.32s}
+[data-rise][data-d="1"]{transition-delay:.1s}
+[data-rise][data-d="2"]{transition-delay:.2s}
+[data-rise][data-d="3"]{transition-delay:.3s}
+[data-rise][data-d="4"]{transition-delay:.4s}
+/* the hero cascade lets the headline speak first */
+.hero [data-rise][data-d="1"]{transition-delay:.16s}
+.hero [data-rise][data-d="2"]{transition-delay:.28s}
+.hero [data-rise][data-d="3"]{transition-delay:.42s}
+
+/* ============================================================
+   MOTION v2 — the forge, staged
+   Everything below is hook-driven: it only exists where the markup
+   carries the attribute (.pl / [data-split] / [data-magnetic] /
+   [data-plx] / .is-active). A page without the hook is untouched,
+   and a page without JavaScript never enters any hidden state.
+   ============================================================ */
+
+/* ---------- 1. Preloader: the mark assembles, then the curtain lifts ----------
+   Driven entirely by CSS animations. The inline head script only decides
+   whether .fs-pl is set at all (once per session, never under reduced
+   motion) and clears it afterwards — so if site.js never loads, the
+   curtain still lifts on its own. */
+.pl{display:none}
+.fs-pl .pl{
+  display:flex;position:fixed;inset:0;z-index:200;
+  align-items:center;justify-content:center;background:var(--bone);
+  animation:plLift .3s var(--ease) .74s both;
+}
+@keyframes plLift{
+  from{opacity:1}
+  to{opacity:0;visibility:hidden;pointer-events:none}
+}
+.pl-in{display:flex;flex-direction:column;align-items:center;gap:22px;color:var(--ink)}
+.pl-glyph{position:relative;display:block;line-height:0}
+.pl-mark{display:block;width:86px;height:86px}
+
+.fs-pl .pl-raw rect{
+  transform-box:fill-box;transform:translateX(-9px);opacity:0;
+  animation:plRaw .38s var(--ease) both;
+}
+.fs-pl .pl-raw rect:nth-of-type(2){animation-delay:.04s}
+.fs-pl .pl-raw rect:nth-of-type(3){animation-delay:.08s}
+.fs-pl .pl-raw rect:nth-of-type(4){animation-delay:.12s}
+.fs-pl .pl-raw rect:nth-of-type(5){animation-delay:.16s}
+@keyframes plRaw{to{transform:none;opacity:1}}
+
+/* the gate strikes: it opens from the middle, the way a forge lights */
+.fs-pl .pl-gate{
+  transform-box:fill-box;transform-origin:50% 50%;transform:scaleY(0);
+  animation:plGate .34s var(--ease) .14s both;
+}
+@keyframes plGate{to{transform:none}}
+
+.fs-pl .pl-out rect{
+  transform-box:fill-box;transform:translateX(9px);opacity:0;
+  animation:plOut .34s var(--ease) .24s both;
+}
+.fs-pl .pl-out rect:nth-of-type(2){animation-delay:.27s}
+.fs-pl .pl-out rect:nth-of-type(3){animation-delay:.3s}
+.fs-pl .pl-out rect:nth-of-type(4){animation-delay:.33s}
+.fs-pl .pl-out rect:nth-of-type(5){animation-delay:.36s}
+.fs-pl .pl-out rect:nth-of-type(6){animation-delay:.39s}
+@keyframes plOut{to{transform:none;opacity:1}}
+
+.pl-word{
+  display:block;overflow:hidden;padding-bottom:.08em;
+  font-family:var(--display);font-weight:700;font-size:29px;letter-spacing:-.045em;
+}
+.pl-word i{display:block;font-style:normal;transform:translateY(115%)}
+.fs-pl .pl-word i{animation:plWord .42s var(--ease) .28s both}
+@keyframes plWord{to{transform:none}}
+
+/* three sparks off the gate, 2px each, one shot */
+.pl-sp{
+  position:absolute;left:50%;top:50%;width:2px;height:2px;
+  background:var(--hot);opacity:0;
+}
+.fs-pl .pl-sp{animation:plSpark .34s cubic-bezier(.3,0,.4,1) both}
+.pl-sp.a{--sx:26px;--sy:-30px;animation-delay:.3s}
+.pl-sp.b{--sx:34px;--sy:12px;animation-delay:.38s}
+.pl-sp.c{--sx:16px;--sy:-42px;animation-delay:.46s}
+@keyframes plSpark{
+  0%{opacity:0;transform:translate(0,0)}
+  22%{opacity:1}
+  100%{opacity:0;transform:translate(var(--sx,20px),var(--sy,-20px))}
+}
+
+/* ---------- 2. Split headline: masked words, sequenced ----------
+   .w / .wi are created at runtime; without JS the selectors match
+   nothing and the headline is plain text. .fs-pre is set by the head
+   script and cleared the moment the wrap is done (with a 2.2s failsafe
+   in that same inline script), so a missing site.js cannot strand it. */
+.fs-pre .hero h1[data-split]{opacity:0}
+[data-split] .w{
+  display:inline-block;vertical-align:top;overflow:hidden;
+  /* room for descenders and the italic overhang, cancelled by the margin
+     so the mask does not change the line box */
+  padding:.07em .06em .18em;margin:-.07em -.06em -.18em;
+}
+[data-split] .wi{display:inline-block;transform:translateY(112%)}
+[data-split].is-lit .wi{
+  transform:none;
+  transition:transform .86s var(--ease-rise);
+  transition-delay:calc(var(--i,0) * 82ms);
+}
+/* the emphasis lands last and comes up to temperature: one puff, no glow left */
+[data-split].is-lit em .wi{
+  transition-delay:calc(var(--i,0) * 82ms + 90ms);
+  animation:emHeat 1.05s var(--ease) both;
+  animation-delay:calc(var(--i,0) * 82ms + 150ms);
+}
+@keyframes emHeat{
+  0%{color:var(--hot-deep);text-shadow:0 0 0 rgba(255,74,23,0)}
+  46%{color:var(--hot);text-shadow:0 0 20px rgba(255,74,23,.36)}
+  100%{color:var(--hot);text-shadow:0 0 0 rgba(255,74,23,0)}
+}
+
+/* ---------- 3. Magnetic actions (≤6px, spring back) ----------
+   The offset travels through custom properties so the existing hover
+   lift composes with it instead of being overwritten. */
+[data-magnetic]{--mgx:0px;--mgy:0px}
+.btn[data-magnetic]{transform:translate(var(--mgx),var(--mgy))}
+.btn-primary[data-magnetic]:hover,.btn-ghost[data-magnetic]:hover{
+  transform:translate(var(--mgx),calc(var(--mgy) - 2px));
+}
+.btn[data-magnetic]:active{transform:translate(var(--mgx),var(--mgy))}
+/* while the cursor is inside, tracking is near-instant; on leave the class
+   drops and the button's own .28s ease springs it home */
+.btn[data-magnetic].is-mag{
+  transition:transform .13s linear,background .22s,color .22s,border-color .22s,box-shadow .28s;
+}
+
+/* ---------- 4. Parallax ----------
+   The drift rides on `transform` while the reveal rides on `translate`,
+   so the two never fight over one property and the reveal keeps its
+   easing while the drift stays untransitioned. */
+[data-plx]{transform:translate3d(0,var(--plx,0px),0)}
+[data-rise][data-plx]{
+  translate:0 var(--rise-d,24px);
+  transition:opacity .82s var(--ease-rise),translate .82s var(--ease-rise);
+}
+[data-rise][data-plx].in{translate:none;transform:translate3d(0,var(--plx,0px),0)}
+
+/* ---------- 5. Active section in the nav ---------- */
+.nav-links a:not(.btn).is-active{color:var(--ink)}
+.nav-links a:not(.btn).is-active::after{
+  height:1px;transform:scaleX(1);transform-origin:left;opacity:.85;
+}
 
 /* ---------- Responsive ---------- */
 @media (max-width:1040px){
@@ -617,6 +800,11 @@ article code{white-space:nowrap}
   .panel-body,.panel th,.panel td,.panel-head,.panel-foot{padding-left:15px;padding-right:15px}
   .footer-links{margin-left:0}
   .step-num{font-size:48px}
+  .machine-foot{gap:16px}
+  .machine-foot .rows{margin-left:0}
+  .offer-row::before{left:-10px}
+  .pl-mark{width:68px;height:68px}
+  .pl-word{font-size:25px}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -625,4 +813,13 @@ article code{white-space:nowrap}
     animation-iteration-count:1 !important}
   [data-rise]{opacity:1;transform:none}
   .belt-track{animation:none}
+  /* every v2 feature falls back to its finished state, and nothing
+     is ever hidden waiting for a script that will not animate */
+  .pl{display:none !important}
+  .fs-pre .hero h1[data-split]{opacity:1}
+  [data-split] .w{overflow:visible}
+  [data-split] .wi{transform:none !important;animation:none !important}
+  [data-rise][data-plx]{translate:none}
+  [data-plx]{transform:none !important}
+  .belt-track{translate:none !important}
 }
