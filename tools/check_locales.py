@@ -31,6 +31,9 @@ PAGES = [
 
 TAG_RE = re.compile(r"<(/?)([a-zA-Z0-9-]+)((?:\s+[^<>]*?)?)(/?)>", re.S)
 CLASS_RE = re.compile(r'class="([^"]*)"')
+# HTML comments are not visible text and may contain literal tags: strip them
+# before any analysis, or a maintainer note gets flagged as untranslated copy.
+COMMENT_RE = re.compile(r"<!--.*?-->", re.S)
 
 # Affirmative circumvention verbs (legal guard). Negated framings used on the
 # site ("statt Umgehung", "pas du contournement", "non aggiramento") are fine.
@@ -66,6 +69,7 @@ SKIP_TEXT_PARENTS = {"code", "script", "style", "svg", "title", "desc"}
 
 
 def tag_signature(html: str) -> list[str]:
+    html = COMMENT_RE.sub("", html)
     sig = []
     for m in TAG_RE.finditer(html):
         closing, name, attrs, selfclose = m.groups()
@@ -76,6 +80,7 @@ def tag_signature(html: str) -> list[str]:
 
 def text_chunks(html: str):
     """Visible text chunks with a rough parent-tag context."""
+    html = COMMENT_RE.sub("", html)
     chunks = []
     stack: list[str] = []
     pos = 0

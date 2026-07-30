@@ -18,16 +18,42 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#F7F3ED">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <link rel="stylesheet" href="/css/style.css?v=10">
+  <link rel="stylesheet" href="/css/style.css?v=11">
+<script>
+/* Motion gate, set before first paint and self-clearing, so nothing here can
+   ever leave the page in a hidden state:
+   · fs-pre hides the split headline for the gap between first paint and the
+     moment site.js wraps it — released after 2.2s even if that script never loads;
+   · fs-pl runs the intro, once per session and never under reduced motion. The
+     curtain itself is a CSS animation; this only decides whether it exists. */
+(function(){var d=document.documentElement,intro=false;
+d.classList.add('fs-pre');
+setTimeout(function(){d.classList.remove('fs-pre');},2200);
+try{if(window.matchMedia&&!matchMedia('(prefers-reduced-motion: reduce)').matches
+&&sessionStorage.getItem('fs-intro')!=='1'){sessionStorage.setItem('fs-intro','1');intro=true;}}catch(e){}
+if(intro){d.classList.add('fs-pl');setTimeout(function(){d.classList.remove('fs-pl');},1200);}})();
+</script>
+<!-- Reveals are opacity:0 until the observer lights them; with scripting off
+     nobody ever will, so the finished state is restored here. Parsed only
+     when scripting is disabled, so it costs nothing otherwise. -->
+<noscript><style>[data-rise]{opacity:1 !important;transform:none !important;translate:none !important}</style></noscript>
 </head>
 <body>
+<!-- Intro. Inert unless <html> carries .fs-pl — so it is invisible with JS off. -->
+<div class="pl" aria-hidden="true"><div class="pl-in">
+  <span class="pl-glyph">
+    <svg class="pl-mark" viewBox="0 0 26 26" aria-hidden="true" focusable="false"><g class="pl-raw" fill="currentColor" opacity=".32"><rect x="5.6" y="3.6" width="5" height="4.2"/><rect x="1" y="3.6" width="3" height="4.2"/><rect x="3.4" y="10.9" width="7.2" height="4.2"/><rect x="6.4" y="18.2" width="4.2" height="4.2"/><rect x="1.4" y="18.2" width="3" height="4.2"/></g><rect class="pl-gate" x="11.6" y="0.6" width="3.4" height="24.8" fill="#FF4A17"/><g class="pl-out" fill="currentColor"><rect x="15.6" y="3.6" width="6.4" height="4.2"/><rect x="23" y="3.6" width="2.6" height="4.2"/><rect x="15.6" y="10.9" width="6.4" height="4.2"/><rect x="23" y="10.9" width="2.6" height="4.2" fill="#FF4A17"/><rect x="15.6" y="18.2" width="6.4" height="4.2"/><rect x="23" y="18.2" width="2.6" height="4.2"/></g></svg>
+    <i class="pl-sp a"></i><i class="pl-sp b"></i><i class="pl-sp c"></i>
+  </span>
+  <span class="pl-word"><i>Feedsmith</i></span>
+</div></div>
 <header class="nav"><div class="container nav-inner">
   <a class="brand" href="/it/"><svg class="brand-mark" viewBox="0 0 26 26" width="26" height="26" aria-hidden="true" focusable="false"><g fill="currentColor" opacity=".32"><rect x="5.6" y="3.6" width="5" height="4.2"/><rect x="1" y="3.6" width="3" height="4.2"/><rect x="3.4" y="10.9" width="7.2" height="4.2"/><rect x="6.4" y="18.2" width="4.2" height="4.2"/><rect x="1.4" y="18.2" width="3" height="4.2"/></g><rect x="11.6" y="0.6" width="3.4" height="24.8" fill="#FF4A17"/><g fill="currentColor"><rect x="15.6" y="3.6" width="6.4" height="4.2"/><rect x="23" y="3.6" width="2.6" height="4.2"/><rect x="15.6" y="10.9" width="6.4" height="4.2"/><rect x="23" y="10.9" width="2.6" height="4.2" fill="#FF4A17"/><rect x="15.6" y="18.2" width="6.4" height="4.2"/><rect x="23" y="18.2" width="2.6" height="4.2"/></g></svg><span class="brand-word">Feedsmith</span></a>
   <nav class="nav-links">
     <a href="/it/#offers">Servizi</a>
     <a href="/it/#guides">Guide</a>
     <a href="/it/#portfolio">Portfolio</a>
-    <a class="btn btn-primary btn-sm" href="/it/#contact">Studio di fattibilità gratuito</a>
+    <a class="btn btn-primary btn-sm" href="/it/#contact" data-magnetic>Studio di fattibilità gratuito</a>
   </nav>
 </div></header>
 
@@ -39,14 +65,14 @@
   <article>
     <p class="eyebrow">E-commerce</p>
     <h1>Un feed di dati affidabile da cataloghi e-commerce</h1>
-    <p class="lead">Ti serve un feed affidabile di dati pubblici di prodotto dai cataloghi e-commerce? Costruisco un feed mantenuto nel tempo con nomi, prezzi, disponibilità e valutazioni, presi dalle pagine che qualsiasi visitatore può vedere – sempre entro i termini d'uso e i limiti di richiesta di ogni sito.</p>
+    <p class="lead">Ti serve un feed affidabile di dati pubblici di prodotto dai cataloghi e-commerce? Costruisco un feed mantenuto nel tempo con nomi, prezzi, disponibilità e valutazioni, presi dalle pagine che qualsiasi visitatore può vedere — sempre entro i termini d'uso e i limiti di richiesta di ogni sito.</p>
 
     <section class="section">
       <h2>Quali dati puoi ottenere da cataloghi e-commerce</h2>
-      <p>Costruisco un feed affidabile e mantenuto di campi pubblici e fattuali: nomi dei prodotti, prezzi, disponibilità, valutazioni. I dati vengono letti da pagine ed endpoint che cataloghi e-commerce serve già ai normali visitatori – niente contenuti dietro login e niente informazioni personali.</p>
+      <p>Costruisco un feed affidabile e mantenuto di campi pubblici e fattuali: nomi dei prodotti, prezzi, disponibilità, valutazioni. I dati vengono letti da pagine ed endpoint che cataloghi e-commerce serve già ai normali visitatori, niente contenuti dietro login e niente informazioni personali.</p>
       <ul class="check">
         <li>Uno scraper mantenuto che sopravvive ai cambi di layout e usa l'API nascosta dove esiste.</li>
-        <li>Solo campi pubblici, fattuali e non-PII – tu gestisci e possiedi i dati risultanti.</li>
+        <li>Solo campi pubblici, fattuali e non-PII, tu gestisci e possiedi i dati risultanti.</li>
         <li>Rispetto dei Termini di servizio del sito, di <code>robots.txt</code> e dei limiti di frequenza, fin dalla progettazione.</li>
         <li>Monitoraggio che ti avvisa di un campo vuoto o di un calo di righe prima della tua dashboard.</li>
       </ul>
@@ -56,8 +82,8 @@
       <h2>Come mantengo affidabile un feed E-commerce</h2>
       <p>Le fonti del settore E-commerce cambiano spesso il markup, quindi scrivo codice difensivo, preferisco l'endpoint JSON interno al parsing di HTML fragile e scandisco le richieste al ritmo di un visitatore cortese. Il risultato è un feed su cui costruire in tutta tranquillità, invece di un export una tantum che si rompe il mese dopo. Prima volta qui? Parti dalle guide sulle <a href="/it/guides/what-is-a-hidden-api.html">API nascoste</a> e sul <a href="/it/guides/no-code-scraper-keeps-breaking.html">perché gli scraper no-code continuano a rompersi</a>.</p>
       <div class="note">
-        <strong>Prima la conformità.</strong> Lavoro sull'affidabilità dei dati pubblici – mai sull'aggiramento delle protezioni. Se i termini di un sito vietano l'accesso automatizzato, mi fermo lì.
-      </div>
+        <strong>Prima la conformità.</strong> Lavoro sull'affidabilità dei dati pubblici, mai sull'aggiramento delle protezioni. Se i termini di un sito vietano l'accesso automatizzato, mi fermo lì.
+ </div>
     </section>
   </article>
 
@@ -69,13 +95,14 @@
 </main>
 
 <footer class="footer"><div class="container footer-inner">
-  <div><strong class="foot-brand"><svg class="brand-mark" viewBox="0 0 26 26" width="26" height="26" aria-hidden="true" focusable="false"><g fill="currentColor" opacity=".32"><rect x="5.6" y="3.6" width="5" height="4.2"/><rect x="1" y="3.6" width="3" height="4.2"/><rect x="3.4" y="10.9" width="7.2" height="4.2"/><rect x="6.4" y="18.2" width="4.2" height="4.2"/><rect x="1.4" y="18.2" width="3" height="4.2"/></g><rect x="11.6" y="0.6" width="3.4" height="24.8" fill="#FF4A17"/><g fill="currentColor"><rect x="15.6" y="3.6" width="6.4" height="4.2"/><rect x="23" y="3.6" width="2.6" height="4.2"/><rect x="15.6" y="10.9" width="6.4" height="4.2"/><rect x="23" y="10.9" width="2.6" height="4.2" fill="#FF4A17"/><rect x="15.6" y="18.2" width="6.4" height="4.2"/><rect x="23" y="18.2" width="2.6" height="4.2"/></g></svg>Feedsmith</strong> – feed di dati affidabili da fonti pubbliche.
-    <div class="muted small">Solo fonti pubbliche · dati fattuali / non-PII · tu gestisci e possiedi i dati.</div></div>
+  <div><strong class="foot-brand"><svg class="brand-mark" viewBox="0 0 26 26" width="26" height="26" aria-hidden="true" focusable="false"><g fill="currentColor" opacity=".32"><rect x="5.6" y="3.6" width="5" height="4.2"/><rect x="1" y="3.6" width="3" height="4.2"/><rect x="3.4" y="10.9" width="7.2" height="4.2"/><rect x="6.4" y="18.2" width="4.2" height="4.2"/><rect x="1.4" y="18.2" width="3" height="4.2"/></g><rect x="11.6" y="0.6" width="3.4" height="24.8" fill="#FF4A17"/><g fill="currentColor"><rect x="15.6" y="3.6" width="6.4" height="4.2"/><rect x="23" y="3.6" width="2.6" height="4.2"/><rect x="15.6" y="10.9" width="6.4" height="4.2"/><rect x="23" y="10.9" width="2.6" height="4.2" fill="#FF4A17"/><rect x="15.6" y="18.2" width="6.4" height="4.2"/><rect x="23" y="18.2" width="2.6" height="4.2"/></g></svg>Feedsmith</strong>, feed di dati affidabili da fonti pubbliche.
+ <div class="muted small">Solo fonti pubbliche · dati fattuali / non-PII · tu gestisci e possiedi i dati.</div></div>
   <nav class="footer-links">
     <a href="/it/">Home</a><a href="/it/#offers">Servizi</a><a href="/it/#guides">Guide</a>
     <a href="https://github.com/Massii-08">GitHub</a>
     <span class="lang-switch"><a href="/scrape/ecommerce-product-prices.html">EN</a> · <a href="/de/scrape/ecommerce-product-prices.html">DE</a> · <a href="/fr/scrape/ecommerce-product-prices.html">FR</a> · <a href="/it/scrape/ecommerce-product-prices.html">IT</a></span>
   </nav>
 </div></footer>
+<script src="/js/site.js?v=2" defer></script>
 </body>
 </html>

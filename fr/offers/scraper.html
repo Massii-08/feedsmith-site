@@ -18,16 +18,42 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#F7F3ED">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <link rel="stylesheet" href="/css/style.css?v=10">
+  <link rel="stylesheet" href="/css/style.css?v=11">
+<script>
+/* Motion gate, set before first paint and self-clearing, so nothing here can
+   ever leave the page in a hidden state:
+   · fs-pre hides the split headline for the gap between first paint and the
+     moment site.js wraps it — released after 2.2s even if that script never loads;
+   · fs-pl runs the intro, once per session and never under reduced motion. The
+     curtain itself is a CSS animation; this only decides whether it exists. */
+(function(){var d=document.documentElement,intro=false;
+d.classList.add('fs-pre');
+setTimeout(function(){d.classList.remove('fs-pre');},2200);
+try{if(window.matchMedia&&!matchMedia('(prefers-reduced-motion: reduce)').matches
+&&sessionStorage.getItem('fs-intro')!=='1'){sessionStorage.setItem('fs-intro','1');intro=true;}}catch(e){}
+if(intro){d.classList.add('fs-pl');setTimeout(function(){d.classList.remove('fs-pl');},1200);}})();
+</script>
+<!-- Reveals are opacity:0 until the observer lights them; with scripting off
+     nobody ever will, so the finished state is restored here. Parsed only
+     when scripting is disabled, so it costs nothing otherwise. -->
+<noscript><style>[data-rise]{opacity:1 !important;transform:none !important;translate:none !important}</style></noscript>
 </head>
 <body>
+<!-- Intro. Inert unless <html> carries .fs-pl — so it is invisible with JS off. -->
+<div class="pl" aria-hidden="true"><div class="pl-in">
+  <span class="pl-glyph">
+    <svg class="pl-mark" viewBox="0 0 26 26" aria-hidden="true" focusable="false"><g class="pl-raw" fill="currentColor" opacity=".32"><rect x="5.6" y="3.6" width="5" height="4.2"/><rect x="1" y="3.6" width="3" height="4.2"/><rect x="3.4" y="10.9" width="7.2" height="4.2"/><rect x="6.4" y="18.2" width="4.2" height="4.2"/><rect x="1.4" y="18.2" width="3" height="4.2"/></g><rect class="pl-gate" x="11.6" y="0.6" width="3.4" height="24.8" fill="#FF4A17"/><g class="pl-out" fill="currentColor"><rect x="15.6" y="3.6" width="6.4" height="4.2"/><rect x="23" y="3.6" width="2.6" height="4.2"/><rect x="15.6" y="10.9" width="6.4" height="4.2"/><rect x="23" y="10.9" width="2.6" height="4.2" fill="#FF4A17"/><rect x="15.6" y="18.2" width="6.4" height="4.2"/><rect x="23" y="18.2" width="2.6" height="4.2"/></g></svg>
+    <i class="pl-sp a"></i><i class="pl-sp b"></i><i class="pl-sp c"></i>
+  </span>
+  <span class="pl-word"><i>Feedsmith</i></span>
+</div></div>
 <header class="nav"><div class="container nav-inner">
   <a class="brand" href="/fr/"><svg class="brand-mark" viewBox="0 0 26 26" width="26" height="26" aria-hidden="true" focusable="false"><g fill="currentColor" opacity=".32"><rect x="5.6" y="3.6" width="5" height="4.2"/><rect x="1" y="3.6" width="3" height="4.2"/><rect x="3.4" y="10.9" width="7.2" height="4.2"/><rect x="6.4" y="18.2" width="4.2" height="4.2"/><rect x="1.4" y="18.2" width="3" height="4.2"/></g><rect x="11.6" y="0.6" width="3.4" height="24.8" fill="#FF4A17"/><g fill="currentColor"><rect x="15.6" y="3.6" width="6.4" height="4.2"/><rect x="23" y="3.6" width="2.6" height="4.2"/><rect x="15.6" y="10.9" width="6.4" height="4.2"/><rect x="23" y="10.9" width="2.6" height="4.2" fill="#FF4A17"/><rect x="15.6" y="18.2" width="6.4" height="4.2"/><rect x="23" y="18.2" width="2.6" height="4.2"/></g></svg><span class="brand-word">Feedsmith</span></a>
   <nav class="nav-links">
     <a href="/fr/#offers">Offres</a>
     <a href="/fr/#guides">Guides</a>
     <a href="/fr/#portfolio">Portfolio</a>
-    <a class="btn btn-primary btn-sm" href="/fr/#contact">Étude de faisabilité gratuite</a>
+    <a class="btn btn-primary btn-sm" href="/fr/#contact" data-magnetic>Étude de faisabilité gratuite</a>
   </nav>
 </div></header>
 
@@ -139,5 +165,6 @@
     <span class="lang-switch"><a href="/offers/scraper.html">EN</a> · <a href="/de/offers/scraper.html">DE</a> · <a href="/fr/offers/scraper.html">FR</a> · <a href="/it/offers/scraper.html">IT</a></span>
   </nav>
 </div></footer>
+<script src="/js/site.js?v=2" defer></script>
 </body>
 </html>
