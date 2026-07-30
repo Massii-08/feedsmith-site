@@ -22,7 +22,7 @@
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 <link rel="preload" href="/fonts/clash-700.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="/css/style.css?v=11" />
+<link rel="stylesheet" href="/css/style.css?v=12" />
 <script>
 /* Motion gate, set before first paint and self-clearing, so nothing here can
    ever leave the page in a hidden state:
@@ -82,7 +82,7 @@ if(intro){d.classList.add('fs-pl');setTimeout(function(){d.classList.remove('fs-
 <main>
 
 <!-- ===================== HERO ===================== -->
-<section class="hero"><div class="container hero-grid">
+<section class="hero"><canvas class="hero-embers" aria-hidden="true"></canvas><div class="container hero-grid">
   <div>
     <h1 data-rise data-split class="in">Reliable data feeds from public sources, <em>kept running.</em></h1>
     <p class="lead" data-rise data-d="1">When Apify, Octoparse or a ChatGPT script gets blocked and returns empty pages, I take over the extraction and keep it <em>alive</em>.</p>
@@ -132,22 +132,22 @@ if(intro){d.classList.add('fs-pl');setTimeout(function(){d.classList.remove('fs-
   <div class="offer-row" data-rise>
     <div><h3>Hidden-API Audit</h3><a class="more" href="/offers/hidden-api-audit.html">See details <span class="arw">&rarr;</span></a></div>
     <p>I check one public site, find the cleanest data route, and send you about 50 real sample rows. The low-risk way to start.</p>
-    <div class="price">€150<span>fixed fee</span></div>
+    <div class="price" data-count>€150<span>fixed fee</span></div>
   </div>
   <div class="offer-row" data-rise>
     <div><h3>One-off Scraper</h3><a class="more" href="/offers/scraper.html">See details <span class="arw">&rarr;</span></a></div>
     <p>A robust scraper for one public source, delivered as tested code you own. Clean CSV, JSON or API output.</p>
-    <div class="price">€600<span>to 1,500, one time</span></div>
+    <div class="price" data-count>€600<span>to 1,500, one time</span></div>
   </div>
   <div class="offer-row core" data-rise>
     <div><h3>Managed Data Feed</h3><a class="more" href="/offers/managed-data-feed.html">See details <span class="arw">&rarr;</span></a></div>
     <p>Scraper, scheduled delivery and monitoring. The source changes, it breaks, I fix it, usually before you notice.</p>
-    <div class="price">€500<span>setup, then €150 to 500 / month</span></div>
+    <div class="price" data-count>€500<span>setup, then €150 to 500 / month</span></div>
   </div>
   <div class="offer-row" data-rise>
     <div><h3>Discord Bot</h3><a class="more" href="/offers/discord-bot.html">See details <span class="arw">&rarr;</span></a></div>
     <p>A custom bot for your community: automation, public-data lookups, scheduled posts. Built and hosted.</p>
-    <div class="price">€500<span>to 2,500, plus hosting</span></div>
+    <div class="price" data-count>€500<span>to 2,500, plus hosting</span></div>
   </div>
 </div></section>
 
@@ -156,7 +156,7 @@ if(intro){d.classList.add('fs-pl');setTimeout(function(){d.classList.remove('fs-
   <div class="sec-head" data-rise>
     <h2 class="section-title">From a blocked scraper to a feed you can rely on.</h2>
   </div>
-  <div class="grid-4">
+  <div class="grid-4" data-pipeline>
     <div class="card" data-rise><div class="step-num">1</div><h3>Audit</h3><p>I check the public source and find the most reliable extraction route, a hidden API where one exists.</p></div>
     <div class="card" data-rise data-d="1"><div class="step-num">2</div><h3>Build</h3><p>A tested scraper that handles JS-heavy and Cloudflare-protected public pages, outputting clean data.</p></div>
     <div class="card" data-rise data-d="2"><div class="step-num">3</div><h3>Schedule &amp; monitor</h3><p>Delivery on your cadence, with monitoring. When the source changes and it breaks, I repair it.</p></div>
@@ -183,7 +183,7 @@ if(intro){d.classList.add('fs-pl');setTimeout(function(){d.classList.remove('fs-
           <th scope="col">rating</th>
           <th scope="col">source</th>
         </tr></thead>
-        <tbody>
+        <tbody data-sweep>
           <tr><td>A Light in the Attic</td><td>£51.77</td><td>In stock</td><td>Three</td><td>books.toscrape.com</td></tr>
           <tr><td>Tipping the Velvet</td><td>£53.74</td><td>In stock</td><td>One</td><td>books.toscrape.com</td></tr>
           <tr><td>Soumission</td><td>£50.10</td><td>In stock</td><td>One</td><td>books.toscrape.com</td></tr>
@@ -231,7 +231,7 @@ if(intro){d.classList.add('fs-pl');setTimeout(function(){d.classList.remove('fs-
   <div class="cols-2">
     <div class="panel" data-rise data-plx="0.05">
       <div class="panel-head"><span>feeds/books_demo.yaml</span><b>config</b></div>
-      <div class="panel-body"><pre><span class="k">id</span>: books-demo
+      <div class="panel-body"><pre data-type><span class="k">id</span>: books-demo
 <span class="k">source</span>: books.toscrape.com
 <span class="k">fields</span>: [title, price, availability, rating]
 <span class="k">rate_limit_seconds</span>: <span class="v">1.5</span>
@@ -322,6 +322,6 @@ if(intro){d.classList.add('fs-pl');setTimeout(function(){d.classList.remove('fs-
   </nav>
 </div></footer>
 
-<script src="/js/site.js?v=2" defer></script>
+<script src="/js/site.js?v=3" defer></script>
 </body>
 </html>

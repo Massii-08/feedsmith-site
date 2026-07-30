@@ -258,7 +258,9 @@ html[lang="de"] article h1{font-size:clamp(30px,3.7vw,50px)}
     radial-gradient(900px 620px at 88% 8%, var(--hot-wash), transparent 68%),
     radial-gradient(700px 500px at 4% 96%, rgba(255,74,23,.07), transparent 70%);
 }
-.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:64px;align-items:center}
+/* z-index 1 so the hero content sits above the ember canvas behind it */
+.hero-grid{position:relative;z-index:1;
+  display:grid;grid-template-columns:1.02fr .98fr;gap:64px;align-items:center}
 .hero h1{margin-bottom:26px}
 .hero h1 em{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:400;
   letter-spacing:-.02em;color:var(--hot)}
@@ -769,8 +771,90 @@ article code{white-space:nowrap}
   height:1px;transform:scaleX(1);transform-origin:left;opacity:.85;
 }
 
+/* ============================================================
+   MOTION v3 — matter in the middle of the page
+   Same contract as v2: every rule below is hook-driven
+   (.hero-embers / [data-pipeline] / [data-count] / [data-type] /
+   [data-sweep]), so a page without the hook is untouched, and the
+   staged states are only ever entered by script — never by markup.
+   ============================================================ */
+
+/* ---------- 6. Hero embers ----------
+   A canvas behind the hero content, above the hero's own gradient. The
+   fire is ambience, not weather: it is felt before it is seen. */
+.hero-embers{
+  position:absolute;inset:0;width:100%;height:100%;
+  z-index:0;pointer-events:none;
+}
+
+/* ---------- 7. The pipeline rail ----------
+   A hairline bus running under the four cards, with a tap under each
+   one. Desktop only: below 1040px the grid stacks and a horizontal
+   rail would describe a route that no longer exists. */
+.grid-4[data-pipeline]{position:relative}
+.pipe{
+  position:absolute;left:0;right:0;bottom:-38px;height:38px;
+  overflow:visible;pointer-events:none;
+}
+.pipe .rail,.pipe .tap{fill:var(--rule-2)}
+.pipe .pk{fill:var(--hot)}
+/* the numbers come up to temperature as the packet reaches them */
+.grid-4[data-pipeline] .step-num{transition:-webkit-text-stroke-color .5s var(--ease)}
+.grid-4[data-pipeline] .step-num.is-lit{-webkit-text-stroke-color:var(--hot)}
+
+/* ---------- 8. Prices count up ----------
+   The wrap is made at runtime; without script the amount is plain text. */
+.price .cu{font-variant-numeric:tabular-nums}
+
+/* ---------- 9. The config types itself ----------
+   The <pre> keeps its markup and its colours: the reveal is a clip-path
+   staircase over it, and the caret is a separate block that rides the
+   front. Both are set by script only. */
+.panel-body.has-caret{position:relative}
+.fs-caret{
+  position:absolute;left:0;top:0;width:7px;height:1em;
+  background:var(--hot);pointer-events:none;
+  transition:opacity .55s var(--ease);
+}
+.fs-caret.is-done{opacity:0}
+
+/* ---------- 10. The CSV arrives row by row ----------
+   Same language as the machine's clean side: a hot wash that cools, and
+   a leading edge on the first cell. Both are removed once run, so the
+   row hover keeps working afterwards. */
+.panel tbody[data-sweep].fs-stage tr{opacity:0}
+.panel tbody[data-sweep] tr.is-in{
+  animation:rowSweep .42s var(--ease) both;
+  animation-delay:calc(var(--i,0) * 90ms);
+}
+.panel tbody[data-sweep] tr.is-in>td:first-child{
+  animation:rowEdge .42s var(--ease) both;
+  animation-delay:calc(var(--i,0) * 90ms);
+}
+@keyframes rowSweep{
+  0%{opacity:0;background-color:rgba(255,74,23,.26)}
+  34%{opacity:1}
+  100%{opacity:1;background-color:rgba(255,74,23,0)}
+}
+@keyframes rowEdge{
+  0%{box-shadow:inset 2px 0 0 var(--hot)}
+  100%{box-shadow:inset 2px 0 0 rgba(255,74,23,0)}
+}
+
+/* ---------- 11. Between pages ----------
+   Progressive enhancement, zero script: browsers without cross-document
+   view transitions simply navigate the way they always did. */
+@media (prefers-reduced-motion:no-preference){
+  @view-transition{navigation:auto}
+  ::view-transition-old(root){animation:fsPageOut .18s var(--ease) both}
+  ::view-transition-new(root){animation:fsPageIn .18s var(--ease) both}
+}
+@keyframes fsPageOut{to{opacity:0}}
+@keyframes fsPageIn{from{opacity:0}}
+
 /* ---------- Responsive ---------- */
 @media (max-width:1040px){
+  .pipe{display:none}
   .hero-grid,.cols-2,.trust-grid{grid-template-columns:1fr;gap:48px}
   .offer-row{grid-template-columns:1fr;gap:8px}
   .offer-row .price,.offer-row .price span{text-align:left}
@@ -822,4 +906,16 @@ article code{white-space:nowrap}
   [data-rise][data-plx]{translate:none}
   [data-plx]{transform:none !important}
   .belt-track{translate:none !important}
+  /* v3: the ambience goes (there is no static state worth showing for
+     drifting embers), the diagram stays — rail drawn, numbers already at
+     temperature, table and config plainly there. */
+  .hero-embers{display:none}
+  .pipe .pk-g{display:none}
+  .grid-4[data-pipeline] .step-num{-webkit-text-stroke-color:var(--hot)}
+  .fs-caret{display:none}
+  .panel tbody[data-sweep].fs-stage tr{opacity:1}
+  .panel tbody[data-sweep] tr.is-in,
+  .panel tbody[data-sweep] tr.is-in>td:first-child{animation:none !important}
+  /* the * rule above cannot reach the view-transition pseudo tree */
+  ::view-transition-old(root),::view-transition-new(root){animation:none !important}
 }

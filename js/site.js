@@ -12,7 +12,15 @@
    4. pointer light on buttons
    5. magnetic actions
    6. scroll effects: parallax + belt velocity
-   7. active section in the nav                                              */
+   7. active section in the nav
+
+   v3 — matter in the middle of the page. Same rule: a hook or nothing.
+   8.  hero embers (canvas ambience behind the hero)      .hero-embers
+   9.  the pipeline rail under "how it works"             [data-pipeline]
+   10. prices that count up                               [data-count]
+   11. the config that types itself                       [data-type]
+   12. the CSV that arrives row by row                    [data-sweep]
+   Page transitions are chantier 6 and live entirely in CSS.               */
 (function () {
   'use strict';
 
@@ -468,6 +476,7 @@
     function show(el) {
       el.classList.add('in');
       if (el.hasAttribute('data-split')) el.classList.add('is-lit');
+      onReveal(el);
     }
 
     if (reduced || !hasIO) {
@@ -670,6 +679,557 @@
   }
 
   /* ---------------------------------------------------------------
+     8. HERO EMBERS
+     A forge leaves something in the air. Forty-odd one and two pixel
+     embers drift up through the hero, oscillating as they rise, cooling
+     out and relighting at the floor. They give way, gently, around the
+     cursor — the same hand the machine already answers to.
+
+     This is ambience: at rest it should be felt rather than watched,
+     which is why the alphas top out at .45 and the drift is slower than
+     the eye tracks. Same budget rules as the machine: a fixed pool, no
+     allocation in the loop, and the rAF cut when the hero leaves the
+     screen or the tab goes away. Under reduced motion the canvas is not
+     started at all — drifting embers have no meaningful still frame.
+     --------------------------------------------------------------- */
+  function embers(canvas) {
+    var ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    var W = 0, H = 0, dpr = 1, running = false, last = 0;
+    var ps = [], N = 0;
+    var COL = ['#FF4A17', '#C7300B', '#FFB08A'];
+
+    var pt = { x: -9999, y: -9999, on: false };
+    var PUSH_R = 96, PUSH_R2 = PUSH_R * PUSH_R, PUSH_F = 46, PUSH_MAX = 15;
+
+    function want() {
+      return (window.matchMedia && window.matchMedia('(max-width:720px)').matches) ? 21 : 42;
+    }
+
+    function seed(p, first) {
+      p.x = Math.random() * W;
+      p.y = first ? Math.random() * H : H + Math.random() * 26;
+      p.vy = 9 + Math.random() * 17;          // px per second, upward
+      p.amp = 3 + Math.random() * 11;         // sway, px
+      p.w = 0.22 + Math.random() * 0.6;       // sway rate, rad/s
+      p.ph = Math.random() * 6.2832;
+      p.s = Math.random() < 0.26 ? 2 : 1;
+      p.a = 0.12 + Math.random() * 0.33;
+      p.c = COL[(Math.random() * 3) | 0];
+      /* long enough that most of them cross the whole hero: a lifetime
+         tuned to burn out mid-flight would pile every ember into the
+         bottom third within a few seconds (measured). Only the slowest
+         die on the way up, which is the handful that should. */
+      p.ttl = 18 + Math.random() * 32;
+      p.life = first ? Math.random() * p.ttl : p.ttl;
+      p.ox = 0; p.oy = 0;
+      return p;
+    }
+
+    function resize() {
+      var r = canvas.getBoundingClientRect(), n = want(), i;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = Math.max(1, Math.round(r.width));
+      H = Math.max(1, Math.round(r.height));
+      canvas.width = Math.round(W * dpr);
+      canvas.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (ps.length > n) ps.length = n;
+      while (ps.length < n) ps.push(seed({}, true));
+      N = ps.length;
+      for (i = 0; i < N; i++) if (ps[i].x > W) ps[i].x = Math.random() * W;
+      if (!running) draw();
+    }
+
+    function step(dt) {
+      var i, p, dx, dy, d2, d, g;
+      var decay = 1 - Math.pow(0.0009, dt);   // one pow per frame, not per ember
+      for (i = 0; i < N; i++) {
+        p = ps[i];
+        p.y -= p.vy * dt;
+        p.ph += p.w * dt;
+        p.life -= dt;
+        if (pt.on) {
+          dx = (p.x + p.ox) - pt.x; dy = (p.y + p.oy) - pt.y;
+          d2 = dx * dx + dy * dy;
+          if (d2 < PUSH_R2 && d2 > 0.01) {
+            d = Math.sqrt(d2);
+            g = (1 - d / PUSH_R) * PUSH_F * dt;
+            p.ox += dx / d * g; p.oy += dy / d * g;
+          }
+        }
+        p.ox -= p.ox * decay; p.oy -= p.oy * decay;
+        if (p.ox > PUSH_MAX) p.ox = PUSH_MAX; else if (p.ox < -PUSH_MAX) p.ox = -PUSH_MAX;
+        if (p.oy > PUSH_MAX) p.oy = PUSH_MAX; else if (p.oy < -PUSH_MAX) p.oy = -PUSH_MAX;
+        if (p.life <= 0 || p.y < -8) seed(p, false);
+      }
+    }
+
+    function draw() {
+      var i, p, age, e, a, x, y;
+      ctx.clearRect(0, 0, W, H);
+      for (i = 0; i < N; i++) {
+        p = ps[i];
+        /* absolute seconds, not a fraction of the lifetime: a long-lived
+           ember should still catch and let go in about a second */
+        age = p.ttl - p.life;
+        e = Math.min(1, age / 1.2, p.life / 1.8);
+        if (e <= 0) continue;
+        a = p.a * e;
+        if (a < 0.005) continue;
+        x = p.x + Math.sin(p.ph) * p.amp + p.ox;
+        if (x < -4 || x > W + 4) continue;
+        y = p.y + p.oy;
+        ctx.globalAlpha = a;
+        ctx.fillStyle = p.c;
+        ctx.fillRect(x | 0, y | 0, p.s, p.s);
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    function frame(now) {
+      if (!running) return;
+      var dt = last ? Math.min(0.05, (now - last) / 1000) : 0.016;
+      last = now;
+      step(dt); draw();
+      requestAnimationFrame(frame);
+    }
+    function start() { if (running) return; running = true; last = 0; requestAnimationFrame(frame); }
+    function stop() { running = false; }
+
+    resize();
+    if (window.ResizeObserver) new ResizeObserver(resize).observe(canvas);
+    else window.addEventListener('resize', resize);
+
+    /* the canvas is pointer-transparent, so the hand is read on the hero */
+    var hero = canvas.parentNode;
+    if (hero && hero.addEventListener) {
+      hero.addEventListener('pointermove', function (e) {
+        var r = canvas.getBoundingClientRect();
+        pt.x = e.clientX - r.left;
+        pt.y = e.clientY - r.top;
+        pt.on = true;
+      }, { passive: true });
+      hero.addEventListener('pointerleave', function () {
+        pt.on = false; pt.x = -9999; pt.y = -9999;
+      }, { passive: true });
+    }
+
+    doc.addEventListener('visibilitychange', function () {
+      if (doc.hidden) stop(); else start();
+    });
+    if (hasIO) {
+      new IntersectionObserver(function (es) {
+        es.forEach(function (e) { e.isIntersecting && !doc.hidden ? start() : stop(); });
+      }, { threshold: 0 }).observe(canvas);
+    } else start();
+
+    stopMotion.push(function () { stop(); ctx.clearRect(0, 0, W, H); });
+  }
+
+  /* ---------------------------------------------------------------
+     9. THE PIPELINE RAIL
+     The four steps stop being a list and become a route: a hairline bus
+     under the cards, a tap under each one, and a packet that runs it —
+     pausing under each step long enough to bring its number up to
+     temperature, then carrying on. After the first pass it keeps
+     circulating at reduced opacity, the way a line that is running does.
+
+     The SVG is built here rather than in the markup so the only thing to
+     replicate on the localized homes is one attribute. Geometry is read
+     from the cards themselves (offsetLeft is layout, so the reveal's
+     transform never disturbs it) and rebuilt on resize.
+
+     Below 1040px the grid stacks: a horizontal rail would describe a
+     route that no longer exists, so the numbers simply light in
+     sequence instead. Under reduced motion the rail is drawn and every
+     number is already lit.
+     --------------------------------------------------------------- */
+  function pipeline(grid) {
+    var NS = 'http://www.w3.org/2000/svg';
+    var cards = $$('.card', grid);
+    if (cards.length < 2) return;
+
+    var nums = [], i;
+    for (i = 0; i < cards.length; i++) nums.push($('.step-num', cards[i]));
+
+    var mqWide = window.matchMedia ? window.matchMedia('(min-width:1040px)') : null;
+    var wide = mqWide ? mqWide.matches : true;
+
+    function el(tag, cls) {
+      var n = doc.createElementNS(NS, tag);
+      if (cls) n.setAttribute('class', cls);
+      return n;
+    }
+    function box(n, x, y, w, h) {
+      n.setAttribute('x', x); n.setAttribute('y', y);
+      n.setAttribute('width', w); n.setAttribute('height', h);
+    }
+
+    var svg = el('svg', 'pipe');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
+
+    var rail = el('rect', 'rail');
+    svg.appendChild(rail);
+    var taps = [];
+    for (i = 0; i < cards.length; i++) { taps.push(el('rect', 'tap')); svg.appendChild(taps[i]); }
+
+    /* the packet: a 5px head with three cooling embers behind it, all
+       centred on the rail at y 19.5 */
+    var pkg = el('g', 'pk-g');
+    var trail = el('g', 'pk-t');
+    var TR = [[-9, 3, 0.5], [-14, 2, 0.3], [-18, 2, 0.15]], t;
+    for (i = 0; i < TR.length; i++) {
+      t = el('rect', 'pk');
+      box(t, TR[i][0], 19.5 - TR[i][1] / 2, TR[i][1], TR[i][1]);
+      t.setAttribute('opacity', TR[i][2]);
+      trail.appendChild(t);
+    }
+    pkg.appendChild(trail);
+    var head = el('rect', 'pk');
+    box(head, -2.5, 17, 5, 5);
+    pkg.appendChild(head);
+    svg.appendChild(pkg);
+    grid.appendChild(svg);
+
+    var TRAVEL = 4.2, DWELL = 0.42, TAIL = 3;      // ≈ 9s round
+    var cx = [], kf = [], arrive = [], END = 0, PERIOD = 9;
+
+    function layout() {
+      var i, x0, x1, speed, tt, prev, W = grid.clientWidth;
+      cx.length = 0;
+      for (i = 0; i < cards.length; i++) cx.push(cards[i].offsetLeft + cards[i].offsetWidth / 2);
+      box(rail, cx[0], 19, Math.max(0, cx[cx.length - 1] - cx[0]), 1);
+      for (i = 0; i < taps.length; i++) box(taps[i], Math.round(cx[i]), 13, 1, 6);
+
+      /* constant speed whatever the column widths, so the dwells read as
+         deliberate stops rather than as a change of pace */
+      x0 = -16; x1 = W + 16;
+      speed = (x1 - x0) / TRAVEL;
+      kf.length = 0; arrive.length = 0;
+      tt = 0; prev = x0;
+      kf.push({ t: 0, x: x0 });
+      for (i = 0; i < cx.length; i++) {
+        tt += (cx[i] - prev) / speed; prev = cx[i];
+        kf.push({ t: tt, x: cx[i] });
+        arrive.push(tt);
+        tt += DWELL;
+        kf.push({ t: tt, x: cx[i] });
+      }
+      tt += (x1 - prev) / speed;
+      kf.push({ t: tt, x: x1 });
+      END = tt;
+      PERIOD = tt + TAIL;
+    }
+
+    var litN = 0, casc = false;
+    function light(k) {
+      var n = nums[k];
+      if (!n || n.getAttribute('data-lit')) return;
+      n.setAttribute('data-lit', '1');
+      n.classList.add('is-lit');
+      litN++;
+    }
+    function lightAll(stagger) {
+      var i;
+      if (!stagger) { for (i = 0; i < nums.length; i++) light(i); return; }
+      if (casc) return;
+      casc = true;
+      for (i = 0; i < nums.length; i++) {
+        (function (k) { window.setTimeout(function () { light(k); }, k * 130); })(i);
+      }
+    }
+
+    var running = false, last = 0, elapsed = 0, vis = -1, onScreen = false;
+
+    function frame(now) {
+      if (!running) return;
+      var dt = last ? Math.min(0.05, (now - last) / 1000) : 0.016;
+      last = now;
+      elapsed += dt;
+      var tt = elapsed % PERIOD, pass = (elapsed / PERIOD) | 0;
+      var i, a, b, span, k, x = null, spd = 0, o;
+      if (tt <= END) {
+        for (i = 1; i < kf.length; i++) {
+          if (tt <= kf[i].t) {
+            a = kf[i - 1]; b = kf[i];
+            span = b.t - a.t;
+            k = span > 0 ? (tt - a.t) / span : 1;
+            x = a.x + (b.x - a.x) * k;
+            spd = span > 0 ? Math.abs(b.x - a.x) / span : 0;
+            break;
+          }
+        }
+      }
+      if (x === null) {
+        if (vis !== 0) { vis = 0; pkg.style.opacity = '0'; }
+      } else {
+        o = pass > 0 ? 2 : 1;                 // quieter once the route is known
+        if (vis !== o) { vis = o; pkg.style.opacity = pass > 0 ? '.4' : '1'; }
+        pkg.setAttribute('transform', 'translate(' + x.toFixed(1) + ',0)');
+        /* the trail is speed: it collapses into the head at each stop */
+        trail.setAttribute('opacity', (spd > 240 ? 1 : spd / 240).toFixed(2));
+      }
+      if (pass === 0) {
+        for (i = 0; i < arrive.length; i++) if (tt >= arrive[i]) light(i);
+      } else if (litN < nums.length) lightAll(false);
+      requestAnimationFrame(frame);
+    }
+
+    function start() {
+      if (running) return;
+      if (!wide) { lightAll(true); return; }
+      running = true; last = 0; requestAnimationFrame(frame);
+    }
+    function stop() { running = false; }
+
+    function onResize() {
+      var w = mqWide ? mqWide.matches : true;
+      layout();
+      if (w === wide) return;
+      wide = w;
+      if (!wide) { stop(); vis = 0; pkg.style.opacity = '0'; lightAll(false); }
+      else if (onScreen && !doc.hidden) start();
+    }
+
+    layout();
+    if (window.ResizeObserver) new ResizeObserver(onResize).observe(grid);
+    else window.addEventListener('resize', onResize);
+
+    if (reduced) { pkg.style.opacity = '0'; lightAll(false); return; }
+
+    doc.addEventListener('visibilitychange', function () {
+      if (doc.hidden) stop(); else if (onScreen) start();
+    });
+    if (hasIO) {
+      new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          onScreen = e.isIntersecting;
+          if (onScreen && !doc.hidden) start(); else stop();
+        });
+      }, { threshold: 0 }).observe(grid);
+    } else { onScreen = true; start(); }
+
+    stopMotion.push(function () {
+      stop(); vis = 0; pkg.style.opacity = '0'; lightAll(false);
+    });
+  }
+
+  /* ---------------------------------------------------------------
+     10. PRICES COUNT UP
+     The amount is found and wrapped at runtime, so the markup stays a
+     plain price and the same code works on "€150" and on "150 €". Only
+     the first number of the [data-count] element is touched: the note
+     underneath ("to 1,500, one time") is prose and must not move.
+     The final frame writes the original string back verbatim, so no
+     formatting can drift.
+     --------------------------------------------------------------- */
+  var NUM = /\d{1,3}(?:[.,'\u202F\u00A0 ]\d{3})+|\d+/;
+
+  function countUp(host) {
+    if (reduced || host.getAttribute('data-cu')) return;
+    host.setAttribute('data-cu', '1');
+
+    var node = null, kids = host.childNodes, i, n;
+    for (i = 0; i < kids.length; i++) {
+      n = kids[i];
+      if (n.nodeType === 3 && /\d/.test(n.nodeValue)) { node = n; break; }
+    }
+    if (!node) return;
+
+    var m = node.nodeValue.match(NUM);
+    if (!m) return;
+    var raw = m[0];
+    var to = parseInt(raw.replace(/\D/g, ''), 10);
+    if (!isFinite(to) || to <= 0 || to > 9999999) return;
+    var sm = raw.match(/[.,'\u202F\u00A0 ]/);
+    var sep = sm ? sm[0] : '';
+
+    function fmt(v) {
+      var s = String(v), out = '', c = 0, i;
+      if (!sep) return s;
+      for (i = s.length - 1; i >= 0; i--) {
+        out = s.charAt(i) + out;
+        if (++c % 3 === 0 && i > 0) out = sep + out;
+      }
+      return out;
+    }
+
+    var span = doc.createElement('span');
+    span.className = 'cu';
+    span.textContent = fmt(0);
+    var frag = doc.createDocumentFragment();
+    var before = node.nodeValue.slice(0, m.index);
+    var after = node.nodeValue.slice(m.index + raw.length);
+    if (before) frag.appendChild(doc.createTextNode(before));
+    frag.appendChild(span);
+    if (after) frag.appendChild(doc.createTextNode(after));
+    host.replaceChild(frag, node);
+
+    var DUR = 700, t0 = 0, dead = false;
+    function tick(now) {
+      if (dead) return;
+      if (!t0) t0 = now;
+      var p = (now - t0) / DUR;
+      if (p >= 1) { span.textContent = raw; return; }
+      span.textContent = fmt(Math.round(to * (1 - Math.pow(1 - p, 3))));
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+    stopMotion.push(function () { dead = true; span.textContent = raw; });
+  }
+
+  /* ---------------------------------------------------------------
+     11. THE CONFIG TYPES ITSELF
+     The <pre> carries coloured spans and, on the localized homes, its
+     own translated comments — so the text is never re-written. Instead
+     the element is revealed through a clip-path staircase: every line
+     above the front at full width, the current line cut at the column
+     the front has reached. The caret is a separate block outside the
+     clipped element, riding that same front.
+
+     Monospace makes the geometry exact: one probe gives the character
+     width, the computed line-height gives the row. Runs once.
+     --------------------------------------------------------------- */
+  function clipTo(node, v) {
+    if (v) {
+      node.style.setProperty('-webkit-clip-path', v);
+      node.style.setProperty('clip-path', v);
+    } else {
+      node.style.removeProperty('-webkit-clip-path');
+      node.style.removeProperty('clip-path');
+    }
+  }
+  function clipOK() {
+    var s = root.style;
+    return ('clipPath' in s) || ('webkitClipPath' in s) || ('WebkitClipPath' in s);
+  }
+  var HIDE_ALL = 'polygon(0 0, 100% 0, 100% 0, 0 0)';
+
+  function stageType(pre) {
+    if (reduced || !clipOK()) return;
+    clipTo(pre, HIDE_ALL);
+  }
+
+  function typer(pre) {
+    if (reduced || !clipOK() || pre.getAttribute('data-tw')) return;
+    pre.setAttribute('data-tw', '1');
+    var body = pre.parentNode;
+    if (!body) { clipTo(pre, ''); return; }
+
+    var cs = window.getComputedStyle(pre);
+    var lh = parseFloat(cs.lineHeight);
+    if (!(lh > 0)) lh = Math.round((parseFloat(cs.fontSize) || 13) * 1.65);
+
+    var lines = pre.textContent.split('\n'), total = 0, i;
+    for (i = 0; i < lines.length; i++) total += lines[i].length;
+    if (!total) { clipTo(pre, ''); return; }
+
+    /* measured inside the <pre>, so it inherits the exact face and size */
+    var probe = doc.createElement('span');
+    probe.textContent = '0000000000';
+    probe.style.cssText = 'position:absolute;left:-9999px;top:0;white-space:pre;visibility:hidden';
+    pre.appendChild(probe);
+    var chW = probe.getBoundingClientRect().width / 10;
+    pre.removeChild(probe);
+    if (!(chW > 0)) { clipTo(pre, ''); return; }
+
+    body.classList.add('has-caret');
+    var caret = doc.createElement('i');
+    caret.className = 'fs-caret';
+    caret.style.width = chW.toFixed(2) + 'px';
+    caret.style.height = lh.toFixed(1) + 'px';
+    body.appendChild(caret);
+
+    var ox = pre.offsetLeft, oy = pre.offsetTop;
+    var DUR = 1400, t0 = 0, dead = false, over = false;
+
+    function put(L, C) {
+      var y0 = (L * lh).toFixed(1), y1 = ((L + 1) * lh).toFixed(1), x = (C * chW).toFixed(1);
+      clipTo(pre, 'polygon(0 0, 100% 0, 100% ' + y0 + 'px, ' + x + 'px ' + y0 +
+        'px, ' + x + 'px ' + y1 + 'px, 0 ' + y1 + 'px)');
+      caret.style.transform = 'translate(' + (ox + C * chW).toFixed(1) + 'px,' +
+        (oy + L * lh).toFixed(1) + 'px)';
+    }
+
+    function done() {
+      if (over) return;
+      over = true;
+      clipTo(pre, '');
+      caret.classList.add('is-done');
+      window.setTimeout(function () {
+        if (caret.parentNode) caret.parentNode.removeChild(caret);
+        body.classList.remove('has-caret');
+      }, 700);
+    }
+
+    function tick(now) {
+      if (dead) return;
+      if (!t0) t0 = now;
+      var p = (now - t0) / DUR;
+      if (p >= 1) { done(); return; }
+      var k = Math.round(p * total), L = 0, C = 0, i;
+      for (i = 0; i < lines.length; i++) {
+        if (k <= lines[i].length) { L = i; C = k; break; }
+        k -= lines[i].length;
+        if (i === lines.length - 1) { L = i; C = lines[i].length; }
+      }
+      put(L, C);
+      requestAnimationFrame(tick);
+    }
+    put(0, 0);
+    requestAnimationFrame(tick);
+    stopMotion.push(function () { dead = true; done(); });
+  }
+
+  /* ---------------------------------------------------------------
+     12. THE CSV ARRIVES ROW BY ROW
+     The same language as the machine's clean side: a hot wash that
+     cools and a leading edge on the first cell. Both classes are taken
+     off once the sweep has run — a filled animation would otherwise
+     outrank the row hover for the rest of the visit.
+     --------------------------------------------------------------- */
+  function stageSweep(tb) {
+    if (reduced) return;
+    var rows = $$('tr', tb), i;
+    if (!rows.length) return;
+    for (i = 0; i < rows.length; i++) rows[i].style.setProperty('--i', String(i));
+    tb.classList.add('fs-stage');
+  }
+
+  function sweep(tb) {
+    if (reduced || tb.getAttribute('data-sw')) return;
+    tb.setAttribute('data-sw', '1');
+    var rows = $$('tr', tb), i;
+    if (!rows.length) return;
+    for (i = 0; i < rows.length; i++) rows[i].classList.add('is-in');
+
+    function settle() {
+      tb.classList.remove('fs-stage');
+      for (var k = 0; k < rows.length; k++) {
+        rows[k].classList.remove('is-in');
+        rows[k].style.removeProperty('--i');
+      }
+    }
+    window.setTimeout(settle, (rows.length - 1) * 90 + 420 + 140);
+    stopMotion.push(settle);
+  }
+
+  /* every middle-of-page piece is triggered by the reveal that already
+     brings its section in; each one is a no-op where its hook is absent */
+  function onReveal(el) {
+    var a, i;
+    a = $$('[data-count]', el);
+    for (i = 0; i < a.length; i++) countUp(a[i]);
+    a = $$('[data-type]', el);
+    for (i = 0; i < a.length; i++) typer(a[i]);
+    a = $$('[data-sweep]', el);
+    for (i = 0; i < a.length; i++) sweep(a[i]);
+  }
+
+  /* ---------------------------------------------------------------
      BOOT
      The headline and the reveals wait for the curtain. .fs-pl is set by
      the inline head script (first visit of the session, motion allowed)
@@ -694,6 +1254,19 @@
       if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(function () { machine(c); });
       else machine(c);
     }
+
+    /* v3. The staged states are set here, before any reveal can fire, and
+       only ever by script — with JS off the config and the table are
+       simply there. */
+    var e = $('.hero-embers');
+    if (e && !reduced) embers(e);
+    var g = $('[data-pipeline]');
+    if (g) pipeline(g);
+    var st = $$('[data-type]'), k;
+    for (k = 0; k < st.length; k++) stageType(st[k]);
+    st = $$('[data-sweep]');
+    for (k = 0; k < st.length; k++) stageSweep(st[k]);
+
     buttons();
     magnetic();
     scrollFx();
