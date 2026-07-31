@@ -349,39 +349,6 @@ html[lang="de"] article h1{font-size:clamp(30px,3.7vw,50px)}
 @keyframes belt{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .belt:hover .belt-track{animation-play-state:paused}
 
-/* ---------- The forge band ----------
-   An interlude between two sections, not a section of its own: metal
-   running through the same gate the hero machine has, and nothing else.
-   No caption, no badge, no overlay — the band says nothing, it runs.
-
-   The slab is the floor of this component, not a backdrop for the video:
-   it is painted before anything loads and stays underneath. So the three
-   states degrade into one another without a hole — video, then poster,
-   then bare slab. The player is in site.js; without it the poster is
-   simply what the element shows, since there is no autoplay attribute. */
-.forge-band{padding:72px 0}
-.band{
-  position:relative;height:clamp(200px,30vw,360px);overflow:hidden;
-  background:var(--slab);border:1px solid rgba(255,255,255,.07);
-  border-radius:var(--r-lg);
-  box-shadow:
-    0 1px 0 rgba(255,255,255,.09) inset,
-    0 30px 70px -34px rgba(90,40,20,.42),
-    0 90px 120px -60px rgba(255,74,23,.18);
-}
-/* the inner hairline the machine and the panel both carry: it keeps the
-   edge crisp against the paper instead of letting the radius blur into it */
-.band::after{
-  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
-  box-shadow:0 0 0 1px rgba(23,18,15,.5) inset;
-}
-/* the clone the player stacks for the crossfade matches this exactly, so
-   the two buffers are the same rectangle and only opacity moves */
-.band video{
-  position:absolute;inset:0;display:block;width:100%;height:100%;max-width:none;
-  object-fit:cover;background:var(--slab);border:0;
-}
-
 /* ---------- Grids ---------- */
 .grid{display:grid;gap:0}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
@@ -917,9 +884,6 @@ article code{white-space:nowrap}
   .panel-body,.panel th,.panel td,.panel-head,.panel-foot{padding-left:15px;padding-right:15px}
   .footer-links{margin-left:0}
   .step-num{font-size:48px}
-  /* .forge-band carries its own padding, so it does not follow the section
-     rule down on its own */
-  .forge-band{padding:46px 0}
   .machine-foot{gap:16px}
   .machine-foot .rows{margin-left:0}
   .offer-row::before{left:-10px}
